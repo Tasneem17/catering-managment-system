@@ -5,21 +5,17 @@
 */
 package za.ac.cput.entity;
 
-import lombok.Builder;
-
 public class User
 {
-
     private int userID;
     private String userFirstName;
     private String userLastName;
 
-    @Builder
-    public User(UserBuilder userBuilder)
+    private User(Builder builder)
     {
-        this.userID = userBuilder.userID;
-        this.userFirstName = userBuilder.userFirstName;
-        this.userLastName = userBuilder.userLastName;
+        this.userID = builder.userID;
+        this.userFirstName = builder.userFirstName;
+        this.userLastName = builder.userLastName;
     }
 
     public int getUserID()
@@ -47,34 +43,41 @@ public class User
                 '}';
     }
 
-
-    public static class UserBuilder
+    public static class Builder
     {
         private int userID;
         private String userFirstName;
         private String userLastName;
 
-        public UserBuilder( int userID)
+        public Builder setUserID(int userID)
         {
             this.userID = userID;
+            return this;
         }
 
-        public UserBuilder userFirstName ( String userFirstName)
+        public Builder setUserFirstName(String userFirstName)
         {
             this.userFirstName = userFirstName;
             return this;
         }
 
-        public UserBuilder userLastName ( String userLastName)
+        public Builder setUserLastName(String userLastName)
         {
             this.userLastName = userLastName;
             return this;
         }
 
-        public User build ()
+        public Builder copy(User user)
         {
-            User user = new User(this);
-            return user;
+            this.userID = user.userID;
+            this.userFirstName = userFirstName;
+            this.userLastName = user.userLastName;
+            return this;
+        }
+
+        public User build()
+        {
+            return new User(this);
         }
     }
 }

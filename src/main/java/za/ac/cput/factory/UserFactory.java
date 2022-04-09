@@ -5,5 +5,16 @@
 */
 package za.ac.cput.factory;
 
-public class UserFactory {
+import za.ac.cput.entity.User;
+
+public class UserFactory
+{
+    public static User createUser(int id, String firstName, String lastName)
+    {
+        return new User.Builder().setUserID(id)
+                .setUserFirstName(firstName)
+                .setUserLastName(lastName)
+                .build();
+    }
+
 }
