@@ -12,7 +12,8 @@ import za.ac.cput.entity.Category;
 
 import java.util.List;
 
-public interface ICategoryRepository extends IRepository<Category,IRepository> {
+public interface ICategoryRepository extends IRepository<Category,String> {
+
     public List<Category> getAll();
 
 }

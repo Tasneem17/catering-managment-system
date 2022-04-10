@@ -11,7 +11,7 @@ import za.ac.cput.entity.Menu;
 
 import java.util.List;
 
-public interface IMenuRepository extends IRepository<Menu,IRepository> {
+public interface IMenuRepository extends IRepository<Menu,String> {
 
 
     public List<Menu> getAll();

@@ -14,5 +14,9 @@ import za.ac.cput.entity.Food;
 import java.util.List;
 
 public interface IFoodRepository extends IRepository<Food,IRepository> {
+    Food read(int Food_ID);
+
+    boolean delete(int Food_ID);
+
     public List<Food> getAll();
 }

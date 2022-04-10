@@ -18,4 +18,4 @@ public interface IRepository<T,W> {
     T update(T t);
     boolean delete(W w);
 }
-}
+
