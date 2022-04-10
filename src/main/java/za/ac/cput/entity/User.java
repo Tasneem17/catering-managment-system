@@ -1,13 +1,13 @@
 /*  User.java
     Entity for the User
     Author: Wilbur Deano Smith (220003033)
-    Date: 7 April 2022
+    Date: 10 April 2022
 */
 package za.ac.cput.entity;
 
 public class User
 {
-    private int userID;
+    private String userID;
     private String userFirstName;
     private String userLastName;
 
@@ -18,7 +18,7 @@ public class User
         this.userLastName = builder.userLastName;
     }
 
-    public int getUserID()
+    public String getUserID()
     {
         return userID;
     }
@@ -45,11 +45,11 @@ public class User
 
     public static class Builder
     {
-        private int userID;
+        private String userID;
         private String userFirstName;
         private String userLastName;
 
-        public Builder setUserID(int userID)
+        public Builder setUserID(String userID)
         {
             this.userID = userID;
             return this;
