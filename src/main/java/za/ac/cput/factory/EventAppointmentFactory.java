@@ -8,7 +8,7 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.EventAppointment;
-import za.ac.cput.Util.Helper;
+import za.ac.cput.util.Helper;
 
 public class EventAppointmentFactory {
     public static EventAppointment createEventAppointment(String event_id, String appointment_id){

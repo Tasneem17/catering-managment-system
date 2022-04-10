@@ -6,7 +6,7 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.UserContact;
-import za.ac.cput.Util.Helper;
+import za.ac.cput.util.Helper;
 
 public class UserContactFactory {
     public static UserContact createUserContact(String User_id,String Contact_type_id,String Contact_details){

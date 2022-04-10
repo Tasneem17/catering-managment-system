@@ -7,7 +7,7 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.EventTheme;
-import za.ac.cput.Util.Helper;
+import za.ac.cput.util.Helper;
 
 public class EventThemeFactory {
     public static EventTheme createEvent(String Event_id,String Theme_Description){

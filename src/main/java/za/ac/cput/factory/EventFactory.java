@@ -7,7 +7,7 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.Event;
-import za.ac.cput.Util.Helper;
+import za.ac.cput.util.Helper;
 
 public class EventFactory {
     public static Event createEvent(String Event_id,String Event_name,String Event_description,String Event_duration){
