@@ -1,25 +1,26 @@
 /*  User.java
     Entity for the User
     Author: Wilbur Deano Smith (220003033)
-    Date: 7 April 2022
+    Date: 10 April 2022
 */
 package za.ac.cput.entity;
 
 public class User
 {
-
-    private int userID;
+    private String userID;
     private String userFirstName;
     private String userLastName;
 
-    public int getUserID()
+    private User(Builder builder)
     {
-        return userID;
+        this.userID = builder.userID;
+        this.userFirstName = builder.userFirstName;
+        this.userLastName = builder.userLastName;
     }
 
-    public void setUserID(int userID)
+    public String getUserID()
     {
-        this.userID = userID;
+        return userID;
     }
 
     public String getUserFirstName()
@@ -27,18 +28,56 @@ public class User
         return userFirstName;
     }
 
-    public void setUserFirstName(String userFirstName)
-    {
-        this.userFirstName = userFirstName;
-    }
-
     public String getUserLastName()
     {
         return userLastName;
     }
 
-    public void setUserLastName(String userLastName)
+    @Override
+    public String toString()
     {
-        this.userLastName = userLastName;
+        return "User{" +
+                "userID=" + userID +
+                ", userFirstName='" + userFirstName + '\'' +
+                ", userLastName='" + userLastName + '\'' +
+                '}';
+    }
+
+    public static class Builder
+    {
+        private String userID;
+        private String userFirstName;
+        private String userLastName;
+
+        public Builder setUserID(String userID)
+        {
+            this.userID = userID;
+            return this;
+        }
+
+        public Builder setUserFirstName(String userFirstName)
+        {
+            this.userFirstName = userFirstName;
+            return this;
+        }
+
+        public Builder setUserLastName(String userLastName)
+        {
+            this.userLastName = userLastName;
+            return this;
+        }
+
+        public Builder copy(User user)
+        {
+            this.userID = user.userID;
+            this.userFirstName = userFirstName;
+            this.userLastName = user.userLastName;
+            return this;
+        }
+
+        public User build()
+        {
+            return new User(this);
+        }
     }
 }

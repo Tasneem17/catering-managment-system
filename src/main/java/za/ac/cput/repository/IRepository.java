@@ -12,10 +12,10 @@
  */
 package za.ac.cput.repository;
 
-
-    public interface IRepository<T,W> {
+public interface IRepository<T,W> {
     T create(T t);
     T read(W w);
     T update(T t);
     boolean delete(W w);
+}
 }
