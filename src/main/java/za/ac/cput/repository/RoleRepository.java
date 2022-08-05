@@ -1,82 +1,16 @@
-/*  UserRepository.java
-    Class to manage roles
+/*  RoleRepository.java
+    Interface for the role repository
     Author: Wilbur Deano Smith (220003033)
-    Date:  10 April 2022
+    Date:  5 August 2022
 */
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.Role;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
-public class RoleRepository implements IRole
+@Repository
+public interface RoleRepository extends JpaRepository<Role,String>
 {
-    private static RoleRepository repository = null;
-    private Set<Role> roleDB = null;
-
-    private RoleRepository()
-    {
-        roleDB =  new HashSet<Role>();
-    }
-
-    public static RoleRepository getRepository()
-    {
-        if(repository == null)
-        {
-            repository = new RoleRepository();
-        }
-        return repository;
-    }
-
-    @Override
-    public Role create(Role role)
-    {
-        boolean success = roleDB.add(role);
-        if (!success)
-            return null;
-        return role;
-    }
-
-    @Override
-    public Role read(String roleID)
-    {
-        for (Role role :roleDB)
-        {
-            if (role.getRoleID().equals(roleID))
-                return role;
-        }
-        return null;
-    }
-
-
-    @Override
-    public Role update(Role role)
-    {
-        Role oldRole = read(role.getRoleID());
-        if(role != null)
-        {
-            roleDB.remove(oldRole);
-            roleDB.add(role);
-            return role;
-        }
-        return null;
-    }
-
-
-    @Override
-    public boolean delete(String roleID)
-    {
-        Role roleToDelete = read(roleID);
-        if (roleToDelete == null)
-            return false;
-        roleDB.remove(roleToDelete);
-        return true;
-    }
-
-    @Override
-    public Set<Role> getAll()
-    {
-        return  roleDB;
-    }
-
 }

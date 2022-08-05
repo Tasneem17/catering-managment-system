@@ -5,11 +5,18 @@
 */
 package za.ac.cput.entity;
 
-public class User
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class User implements Serializable
 {
-    private String userID;
+    @Id private String userID;
     private String userFirstName;
     private String userLastName;
+
+    protected User(){}
 
     private User(Builder builder)
     {

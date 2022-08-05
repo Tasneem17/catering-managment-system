@@ -5,6 +5,7 @@
 */
 package za.ac.cput.entity;
 
+
 public class UserRole
 {
     private String userID;
