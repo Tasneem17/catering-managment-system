@@ -5,11 +5,18 @@
 */
 package za.ac.cput.entity;
 
-public class Role
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class Role implements Serializable
 {
-    private String roleID;
+    @Id private String roleID;
     private String roleName;
     private String roleDescription;
+
+    protected Role(){}
 
     private Role(Builder builder)
     {
