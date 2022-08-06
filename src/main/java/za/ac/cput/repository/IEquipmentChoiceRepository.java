@@ -5,11 +5,13 @@
  *IRepository: EquipmentChoice
  */
 package za.ac.cput.repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.EquipmentChoice;
 
 import java.util.Set;
-
-public interface IEquipmentChoice extends IRepository<EquipmentChoice,String>{
+@Repository
+public interface IEquipmentChoiceRepository extends JpaRepository<EquipmentChoice,String> {
 
         //create,read,update ,delete
         public Set<EquipmentChoice> getAll();

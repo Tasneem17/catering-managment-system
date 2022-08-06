@@ -6,13 +6,19 @@
  */
 package za.ac.cput.entity;
 
+import org.jetbrains.annotations.NotNull;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Decor {
-    private String decorType;
+  @NotNull@Id private String decorType;
     private String decorSize;
     private String decorQuantity;
     private String cost;
 
-
+private Decor(){}
     private Decor(Decor.Builder builder) {
         this.decorType = builder.decorType;
         this.decorSize = builder.decorSize;

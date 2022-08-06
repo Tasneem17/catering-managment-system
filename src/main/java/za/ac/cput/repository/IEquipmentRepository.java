@@ -6,10 +6,12 @@
  */
 
 package za.ac.cput.repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.Equipment;
 import java.util.Set;
-
-public interface IEquipment extends IRepository<Equipment,String>{
+@Repository
+public interface IEquipmentRepository extends JpaRepository<Equipment,String> {
     //create,read,update ,delete
     public Set<Equipment> getAll();
 }
