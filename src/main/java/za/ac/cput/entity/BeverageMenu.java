@@ -5,15 +5,23 @@
  *Entity :BeverageMenu
  */
 package za.ac.cput.entity;
+
+import org.jetbrains.annotations.NotNull;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class BeverageMenu {
 
 
+    @NotNull@Id
     private String beverageName;
     private String price;
     private String description;
     private String quantity;
     private String availability;
-
+private BeverageMenu(){}
 
     private BeverageMenu(Builder builder) {
         this.beverageName = builder.beverageName;
