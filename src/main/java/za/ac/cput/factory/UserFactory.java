@@ -12,15 +12,14 @@ public class UserFactory
 {
     public static User createUser(String id, String firstName, String lastName)
     {
-        if (Helper.isNullorEmpty(id)|| Helper.isNullorEmpty(firstName)|| Helper.isNullorEmpty(lastName))
-            return null;
-
-        if (id.equals("")||id == null)
+        if (Helper.isNullorEmpty(firstName)|| Helper.isNullorEmpty(lastName))
             return null;
         if (firstName.equals("")||firstName== null)
             return null;
         if(lastName.equals("")|| lastName== null)
             return null;
+
+        id = Helper.generateID();
 
         return new User.Builder().setUserID(id)
                 .setUserFirstName(firstName)

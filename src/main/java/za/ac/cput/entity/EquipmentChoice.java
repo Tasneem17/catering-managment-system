@@ -6,11 +6,17 @@
  */
 package za.ac.cput.entity;
 
+import org.jetbrains.annotations.NotNull;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class EquipmentChoice {
-    private String choiceCustomer;
+    @NotNull@Id private String choiceCustomer;
     private String choiceCompany;
 
-
+private EquipmentChoice(){}
 
     private EquipmentChoice(EquipmentChoice.Builder builder) {
         this.choiceCustomer = builder.choiceCustomer;

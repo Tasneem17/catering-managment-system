@@ -6,13 +6,19 @@
  */
 package za.ac.cput.entity;
 
+import org.jetbrains.annotations.NotNull;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Equipment {
-    private String equipmentID;
+    @NotNull@Id private String equipmentID;
     private String equipmentDescription;
     private String equipmentQuantity;
     private String equipmentPrice;
 
-
+private Equipment(){}
     private Equipment(Equipment.Builder builder) {
         this.equipmentID = builder.equipmentID;
         this.equipmentDescription = builder.equipmentDescription;
