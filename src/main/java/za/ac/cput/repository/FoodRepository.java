@@ -35,10 +35,12 @@ public class FoodRepository implements IFoodRepository {
             return null;
         return food;
     }
+
+
     @Override
-    public  Food read(int Food_ID){
+    public  Food read(String Food_ID){
         for (Food f : foodDB){
-            if(f.getFood_ID()==Food_ID)
+            if(f.getFood_ID().equals(Food_ID))
                 return f;
         }
         return null;
@@ -54,8 +56,10 @@ public class FoodRepository implements IFoodRepository {
         return null;
     }
 
+
+
     @Override
-    public boolean delete(int Food_ID) {
+    public boolean delete(String Food_ID) {
         Food foodToDelete = read(Food_ID);
         if(foodToDelete == null) {
             System.out.println("Nothing to delete: ");

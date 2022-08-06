@@ -7,22 +7,38 @@
  */
 package za.ac.cput.entity;
 
+import org.jetbrains.annotations.NotNull;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Menu {
-    private int Menu_ID;
+    @Id
+    @Column(name = "Menu_ID", nullable = false)
+    private String Menu_ID;
+
     private String  Menu_Items;
     private double Menu_Price;
+
 
     private Menu(Builder builder) {
         this.Menu_ID = builder.Menu_ID;
         this.Menu_Items = builder.Menu_Items;
        this.Menu_Price = builder.Menu_Price;
     }
+
+    public Menu() {
+
+    }
+
     public static class Builder{
-        private  int Menu_ID;
+        private  String Menu_ID;
         private String  Menu_Items;
         private double Menu_Price;
 
-        public Builder setMenu_ID(int menu_ID) {
+        public Builder setMenu_ID(String menu_ID) {
             this.Menu_ID = menu_ID;
             return this;
         }
@@ -48,11 +64,11 @@ public class Menu {
 
     }
 
-    public int getMenu_ID() {
+    public String getMenu_ID() {
         return Menu_ID;
     }
 
-    public void setMenu_ID(int menu_ID) {
+    public void setMenu_ID(String menu_ID) {
         Menu_ID = menu_ID;
     }
 

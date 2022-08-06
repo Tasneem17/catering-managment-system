@@ -15,7 +15,7 @@ class CategoryTest {
 
     @Test
     public void Test() {
-        Category category = new Category.Builder().setCategory_ID(2)
+        Category category = new Category.Builder().setCategory_ID(String.valueOf(2))
                 .setCategory_Name("BreakFast")
                 .setCategory_Description("American breakfast ")
                 .build();

@@ -7,10 +7,22 @@
  */
 package za.ac.cput.entity;
 
-public class Category<Static> {
-  private  int Category_ID;
-private String Category_Name;
-private String Category_Description;
+import org.jetbrains.annotations.NotNull;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class Category  implements Serializable {
+    @Id
+    @Column(name = "Category_ID", nullable = false)
+    private String Category_ID;
+    private String Category_Name;
+    private String Category_Description;
+
+    protected Category(){}
 
     private Category(Builder builder) {
        this.Category_ID = builder.Category_ID;
@@ -19,11 +31,11 @@ private String Category_Description;
     }
 
 
-    public int getCategory_ID() {
+    public String getCategory_ID() {
         return Category_ID;
     }
 
-    public void setCategory_ID(int category_ID) {
+    public void setCategory_ID(String category_ID) {
         Category_ID = category_ID;
     }
 
@@ -52,11 +64,11 @@ private String Category_Description;
                 '}';
     }
     public static class Builder{
-        private  int Category_ID;
+        private  String Category_ID;
         private String Category_Name;
         private String Category_Description;
 
-        public Builder setCategory_ID(int category_ID) {
+        public Builder setCategory_ID(String category_ID) {
             this.Category_ID = category_ID;
             return this;
         }

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FoodTest {
 @Test
     public void Test(){
-    Food food = new Food.Builder().setFood_ID(1)
+    Food food = new Food.Builder().setFood_ID("1")
             .setFood_Name("Bacon and Eggs")
             .setFood_Description("Fried and poached with mayo sauce")
             .setFood_Quantity("Buffet")

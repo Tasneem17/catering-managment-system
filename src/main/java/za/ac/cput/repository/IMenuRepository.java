@@ -7,10 +7,11 @@
  */
 package za.ac.cput.repository;
 
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.Menu;
 
 import java.util.List;
-
+@Repository
 public interface IMenuRepository extends IRepository<Menu,String> {
 
 

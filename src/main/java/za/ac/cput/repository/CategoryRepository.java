@@ -34,8 +34,9 @@ public class CategoryRepository implements ICategoryRepository {
             return null;
         return cat;
     }
+
     @Override
-    public  Category read(int Category_ID){
+    public  Category read(String Category_ID){
         for (Category m : catDB){
             if(m.getCategory_ID()==Category_ID)
                 return m;
@@ -53,8 +54,9 @@ public class CategoryRepository implements ICategoryRepository {
         return null;
     }
 
+
     @Override
-    public boolean delete(int Category_ID) {
+    public boolean delete(String Category_ID) {
         Category catToDelete = read(Category_ID);
         if(catToDelete == null) {
             System.out.println("Nothing to delete: ");
