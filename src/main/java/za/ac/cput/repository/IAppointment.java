@@ -6,7 +6,7 @@ import za.ac.cput.entity.BeverageMenu;
 
 import java.util.Set;
 
-public interface IAppointment extends JpaRepository<BeverageMenu,String> {
+public interface IAppointment extends JpaRepository<Appointment,String> {
 
     //create,read,update ,delete
     public Set<Appointment> getAll();

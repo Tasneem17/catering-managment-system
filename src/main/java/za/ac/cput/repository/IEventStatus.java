@@ -6,7 +6,7 @@ import za.ac.cput.entity.EventStatus;
 
 import java.util.Set;
 
-public interface IEventStatus extends JpaRepository<BeverageMenu,String> {
+public interface IEventStatus extends JpaRepository<EventStatus,String> {
 
     //create,read,update ,delete
     public Set<EventStatus> getAll();
