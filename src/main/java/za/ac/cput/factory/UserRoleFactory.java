@@ -25,4 +25,10 @@ public class UserRoleFactory
                 .build();
 
     }
+
+    public static UserRole.UserRoleId buildId(UserRole userRole)
+    {
+        return new UserRole.UserRoleId(userRole.getUserID(),
+                userRole.getRoleID());
+    }
 }

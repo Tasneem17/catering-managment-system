@@ -11,7 +11,8 @@ import za.ac.cput.entity.UserRole;
 
 import java.util.List;
 
-//@Repository
-//public interface UserRoleRepository extends JpaRepository<UserRole,String>
-//{
-//}
+@Repository
+public interface UserRoleRepository extends JpaRepository<UserRole, UserRole.UserRoleId>
+{
+    List<UserRole> findByUserID(String userID);
+}
