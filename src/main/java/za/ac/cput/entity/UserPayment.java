@@ -1,9 +1,20 @@
 package za.ac.cput.entity;
 
+import org.jetbrains.annotations.NotNull;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class UserPayment {
+    @NotNull
+    @Id
     private String id;
     private String typeID;
     private String amount;
+
+    private UserPayment() {
+    }
 
     private UserPayment(UserPayment.Builder builder) {
         this.id = builder.id;

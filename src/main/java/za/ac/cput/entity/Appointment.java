@@ -1,11 +1,21 @@
 package za.ac.cput.entity;
 
+import org.jetbrains.annotations.NotNull;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Appointment {
+    @NotNull
+    @Id
     private String appointment_id;
     private String appointment_date;
     private String appointment_location;
     private String appointment_time;
     private String appointment_NumberOfGuest;
+
+    private Appointment() {}
 
     //private constructor
     private Appointment(Builder builder){
