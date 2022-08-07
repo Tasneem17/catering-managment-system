@@ -1,10 +1,19 @@
 package za.ac.cput.entity;
 
+import org.jetbrains.annotations.NotNull;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class EventStatus {
+
+    @NotNull@Id
     private String event_id;
     private String event_Status;
 
-    //private constructor
+    private EventStatus() {}
+
     private EventStatus(EventStatus.Builder builder){
         this.event_id = builder.event_id;
         this.event_Status = builder.event_status;
