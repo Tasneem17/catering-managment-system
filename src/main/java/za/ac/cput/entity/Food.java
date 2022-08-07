@@ -7,9 +7,17 @@
  */
 package za.ac.cput.entity;
 
-public class Food {
 
-    private   int  Food_ID;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Entity;
+import java.io.Serializable;
+
+@Entity
+public class Food implements Serializable {
+    @Id
+    @Column(name = " Food_ID", nullable = false)
+    private String  Food_ID;
     private String Food_Name;
     private String Food_Description;
     private String Food_Quantity;
@@ -22,14 +30,19 @@ public class Food {
       this.Food_Quantity = builder.Food_Quantity;
       this.Food_Price = builder.Food_Price;
     }
+
+    public Food() {
+
+    }
+
     public static class Builder{
-        private   int  Food_ID;
+        private   String  Food_ID;
         private String Food_Name;
         private String Food_Description;
         private String Food_Quantity;
         private double Food_Price;
 
-        public Builder setFood_ID(int food_ID) {
+        public Builder setFood_ID(String food_ID) {
             Food_ID = food_ID;
             return this;
         }
@@ -66,11 +79,11 @@ public class Food {
         }
     }
 
-    public int getFood_ID() {
+    public String getFood_ID() {
         return Food_ID;
     }
 
-    public void setFood_ID(int food_ID) {
+    public void setFood_ID(String food_ID) {
         Food_ID = food_ID;
     }
 

@@ -1,4 +1,10 @@
 package za.ac.cput.entity;
+
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 /*
  *Author :Alizwa Solibanzi
  * Student no: 220001499
@@ -6,8 +12,13 @@ package za.ac.cput.entity;
  * ASSIGNMNET 1
  *
  */
+@Embeddable
 public class Menu_Category {
+    @ManyToOne
+    @JoinColumn(name = "menu_menu_id")
     private     Menu  Menu;
+    @ManyToOne
+    @JoinColumn(name = "category_ID")
     private  Category Category;
 
     public za.ac.cput.entity.Menu getMenu() {

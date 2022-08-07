@@ -8,15 +8,13 @@
 package za.ac.cput.repository;
 
 
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.Food;
 
 
 import java.util.List;
-
-public interface IFoodRepository extends IRepository<Food,IRepository> {
-    Food read(int Food_ID);
-
-    boolean delete(int Food_ID);
+@Repository
+public interface IFoodRepository extends IRepository<Food,String> {
 
     public List<Food> getAll();
 }

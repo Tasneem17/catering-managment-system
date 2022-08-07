@@ -35,7 +35,7 @@ public  class MenuRepository implements IMenuRepository {
        return menu;
     }
 @Override
-    public  Menu read(int Menu_ID){
+    public  Menu read(String Menu_ID){
         for (Menu m : menuDB){
             if(m.getMenu_ID()==Menu_ID)
                 return m;
@@ -54,7 +54,7 @@ return null;
  }
 
     @Override
-    public boolean delete(int Menu_ID) {
+    public boolean delete(String Menu_ID) {
         Menu menuToDelete = read(Menu_ID);
         if(menuToDelete == null) {
             System.out.println("Nothing to delete: ");

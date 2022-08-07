@@ -11,5 +11,9 @@ public class Helper {
 
         return UUID.randomUUID().toString();
     }
+    public static boolean isEmpty(double b) {
+
+        return (b == 0.0);
+    }
 }
 
