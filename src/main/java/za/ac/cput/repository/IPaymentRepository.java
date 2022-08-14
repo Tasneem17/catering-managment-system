@@ -1,13 +1,18 @@
 package za.ac.cput.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import za.ac.cput.entity.BeverageMenu;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.Payment;
 
+import java.util.Optional;
 import java.util.Set;
 
-public interface IPayment extends JpaRepository<Payment,String> {
+@Repository
+public interface IPaymentRepository extends JpaRepository<Payment,String> {
 
     //create,read,update ,delete
     public Set<Payment> getAll();
+
+    Optional<Payment> read(String payment);
+
 }

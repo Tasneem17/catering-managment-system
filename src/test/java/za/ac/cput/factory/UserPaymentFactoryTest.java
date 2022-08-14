@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserPaymentFactoryTest {
     @Test
     public void test() {
-        UserPayment userPayment = UserPaymentFactory.createUserPayment("001","Cash","R3000" );
+        UserPayment userPayment = UserPaymentFactory.buildUserPayment("001","Cash","R3000" );
         assertNotNull(userPayment);
         System.out.println(userPayment);
     }

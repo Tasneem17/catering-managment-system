@@ -6,7 +6,7 @@ import za.ac.cput.util.Helper;
 
 
 public class EventStatusFactory {
-    public static EventStatus createEventStatus(String event_id, String event_Status){
+    public static EventStatus build(String event_id, String event_Status){
         if (Helper.isNullorEmpty(event_id)|| Helper.isNullorEmpty(event_Status))
             return null;
 
