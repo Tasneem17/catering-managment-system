@@ -10,7 +10,7 @@ import za.ac.cput.entity.EquipmentChoice;
 import za.ac.cput.util.Helper;
 
 public class EquipmentChoiceFactory {
-    public  static EquipmentChoice createEquipmentChoice(String choiceCustomer, String choiceCompany){
+    public  static EquipmentChoice build(String choiceCustomer, String choiceCompany){
 
 
 
