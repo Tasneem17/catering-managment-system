@@ -14,7 +14,7 @@ public class VenueFactoryTest {
 
     @Test
     public void test(){
-        Venue venue = VenueFactory.createVenue("091", "Hotel Sky", (999), "Hotel");
+        Venue venue = VenueFactory.createVenue("CPT012", "Hotel Sky", 999, "Hotel");
         System.out.println(venue.toString());
         assertNotNull(venue);
     }
