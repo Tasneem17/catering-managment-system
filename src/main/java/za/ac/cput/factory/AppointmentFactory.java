@@ -4,7 +4,7 @@ import za.ac.cput.entity.Appointment;
 import za.ac.cput.util.Helper;
 
 public class AppointmentFactory {
-    public static Appointment createAppointment(String appointment_id,String appointment_date,String appointment_location,String appointment_time,String appointment_NumberOfGuests){
+    public static Appointment build(String appointment_id,String appointment_date,String appointment_location,String appointment_time,String appointment_NumberOfGuests){
         if (Helper.isNullorEmpty(appointment_id)|| Helper.isNullorEmpty(appointment_date)|| Helper.isNullorEmpty( appointment_location) || Helper.isNullorEmpty(appointment_time) || Helper.isNullorEmpty(appointment_NumberOfGuests))
             return null;
 

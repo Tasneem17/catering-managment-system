@@ -5,7 +5,7 @@ import za.ac.cput.entity.Payment;
 import za.ac.cput.util.Helper;
 
 public class PaymentFactory {
-    public static Payment createPayment(String payment_id, String payment_name, String payment_description){
+    public static Payment build(String payment_id, String payment_name, String payment_description){
 
         if (Helper.isNullorEmpty(payment_id)|| Helper.isNullorEmpty(payment_name)|| Helper.isNullorEmpty( payment_description))
             return null;
