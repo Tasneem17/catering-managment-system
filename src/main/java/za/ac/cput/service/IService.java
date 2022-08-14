@@ -1,7 +1,10 @@
 package za.ac.cput.service;
 
-public interface IService<T,ID> {
-    public T save(T t);
-    public T read(ID id);
-    public boolean delete(ID id);
+import java.util.Optional;
+
+public interface IService<T, ID>
+{
+    T save(T t);
+    Optional<T> read(ID id);
+    void delete(T t);
 }
