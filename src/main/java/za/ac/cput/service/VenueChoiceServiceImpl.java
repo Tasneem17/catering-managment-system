@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.VenueChoice;
 import za.ac.cput.repository.VenueChoiceRepository;
+
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -25,16 +27,12 @@ public class VenueChoiceServiceImpl implements VenueChoiceService {
         return this.repository.save(venueChoice);}
 
     @Override
-    public VenueChoice read(String id) {
-        return this.repository.findById(id).orElse(null);}
+    public Optional<VenueChoice> read(String id) {
+        return Optional.ofNullable(this.repository.findById(id).orElse(null));}
 
     @Override
-    public boolean delete(String id) {
-        if (this.repository.existsById(id)) {
-            this.repository.deleteById(id);
-            return true;
-        }
-        return false;
+    public void delete(VenueChoice venueChoice) {
+        this.repository.delete(venueChoice);
     }
 
     @Override

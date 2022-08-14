@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.ContactType;
 import za.ac.cput.repository.ContactTypeRepository;
+
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -25,16 +27,12 @@ public class ContactTypeServiceImpl implements ContactTypeService {
         return this.repository.save(contactType);}
 
     @Override
-    public ContactType read(String id) {
-        return this.repository.findById(id).orElse(null);}
+    public Optional<ContactType> read(String id) {
+        return Optional.ofNullable(this.repository.findById(id).orElse(null));}
 
     @Override
-    public boolean delete(String id) {
-        if (this.repository.existsById(id)) {
-            this.repository.deleteById(id);
-            return true;
-        }
-        return false;
+    public void delete(ContactType contactType) {
+        this.repository.delete(contactType);
     }
 
     @Override

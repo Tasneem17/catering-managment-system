@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.VenueAddress;
 import za.ac.cput.repository.VenueAddressRepository;
+
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -25,16 +27,12 @@ public class VenueAddressServiceImpl implements VenueAddressService {
         return this.repository.save(venueAddress);}
 
     @Override
-    public VenueAddress read(String id) {
-        return this.repository.findById(id).orElse(null);}
+    public Optional<VenueAddress> read(String id) {
+        return Optional.ofNullable(this.repository.findById(id).orElse(null));}
 
     @Override
-    public boolean delete(String id) {
-        if (this.repository.existsById(id)) {
-            this.repository.deleteById(id);
-            return true;
-        }
-        return false;
+    public void delete(VenueAddress venueAddress) {
+        this.repository.delete(venueAddress);
     }
 
     @Override
