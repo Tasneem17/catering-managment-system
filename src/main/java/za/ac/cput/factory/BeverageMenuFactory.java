@@ -11,7 +11,7 @@ import za.ac.cput.entity.BeverageMenu;
 import za.ac.cput.util.Helper;
 
 public class BeverageMenuFactory {
-    public  static BeverageMenu createBeverageMenu(String beverageName, String price, String description, String quantity,String availability){
+    public  static BeverageMenu build(String beverageName, String price, String description, String quantity,String availability){
 
         if (Helper.isNullorEmpty(beverageName)|| Helper.isNullorEmpty(price)|| Helper.isNullorEmpty(description) || Helper.isNullorEmpty(availability)|| Helper.isNullorEmpty(quantity))
             return null;

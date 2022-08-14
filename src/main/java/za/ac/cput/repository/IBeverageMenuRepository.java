@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.BeverageMenu;
 
+import java.util.Optional;
 import java.util.Set;
 @Repository
 public interface IBeverageMenuRepository extends JpaRepository<BeverageMenu,String> {
@@ -17,6 +18,7 @@ public interface IBeverageMenuRepository extends JpaRepository<BeverageMenu,Stri
         //create,read,update ,delete
         public Set<BeverageMenu> getAll();
 
-    }
+    Optional<BeverageMenu> read(String beverageName);
+}
 
 
