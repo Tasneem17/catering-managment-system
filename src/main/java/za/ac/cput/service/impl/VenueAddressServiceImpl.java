@@ -3,12 +3,13 @@
  Date: 11 August 2022
 */
 
-package za.ac.cput.service;
+package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.VenueAddress;
 import za.ac.cput.repository.VenueAddressRepository;
+import za.ac.cput.service.VenueAddressService;
 
 import java.util.Optional;
 import java.util.Set;
@@ -31,8 +32,9 @@ public class VenueAddressServiceImpl implements VenueAddressService {
         return Optional.ofNullable(this.repository.findById(id).orElse(null));}
 
     @Override
-    public void delete(VenueAddress venueAddress) {
+    public boolean delete(VenueAddress venueAddress){
         this.repository.delete(venueAddress);
+        return false;
     }
 
     @Override

@@ -3,13 +3,13 @@
  Date: 11 August 2022
 */
 
-package za.ac.cput.service;
+package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.ContactType;
 import za.ac.cput.repository.ContactTypeRepository;
-
+import za.ac.cput.service.ContactTypeService;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -31,8 +31,9 @@ public class ContactTypeServiceImpl implements ContactTypeService {
         return Optional.ofNullable(this.repository.findById(id).orElse(null));}
 
     @Override
-    public void delete(ContactType contactType) {
+    public boolean delete(ContactType contactType){
         this.repository.delete(contactType);
+        return false;
     }
 
     @Override

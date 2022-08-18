@@ -23,8 +23,9 @@ public class EventStatusServiceImpl implements EventStatusService {
         return this.repository.read(eventStatus);
     }
     @Override
-    public void delete(EventStatus eventStatus){
+    public boolean delete(EventStatus eventStatus){
         this.repository.delete(eventStatus);
+        return false;
     }
 
     @Override

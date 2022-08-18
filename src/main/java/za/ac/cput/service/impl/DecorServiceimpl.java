@@ -31,8 +31,9 @@ public class DecorServiceimpl implements DecorService {
         return this.repository.read(decorType);
     }
     @Override
-    public void delete(Decor decor){
+    public boolean delete(Decor decor){
         this.repository.delete(decor);
+        return false;
     }
 
     @Override

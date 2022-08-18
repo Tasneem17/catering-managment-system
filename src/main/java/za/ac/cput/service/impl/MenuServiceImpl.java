@@ -29,9 +29,10 @@ public class MenuServiceImpl implements MenuService {
         return this.menuRepository.findById(id);
     }
     @Override
-    public void delete(Menu menu)
+    public boolean delete(Menu menu)
     {
         this.menuRepository.delete(menu);
+        return false;
     }
 
 
