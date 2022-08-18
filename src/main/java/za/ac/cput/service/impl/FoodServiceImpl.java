@@ -26,8 +26,9 @@ public class FoodServiceImpl implements FoodService {
         return this.foodRepository.findById(id);
     }
     @Override
-    public void delete(Food food)
+    public boolean delete(Food food)
     {
         this.foodRepository.delete(food);
+        return false;
     }
 }

@@ -2,7 +2,6 @@ package za.ac.cput.service.impl;
 
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Appointment;
-import za.ac.cput.entity.BeverageMenu;
 import za.ac.cput.repository.IAppointmentRepository;
 
 
@@ -24,8 +23,9 @@ public class AppointmentServiceimpl implements AppointmentService{
         return this.repository.read(appointment);
     }
     @Override
-    public void delete(Appointment appointment){
+    public boolean delete(Appointment appointment){
         this.repository.delete(appointment);
+        return false;
     }
 
     @Override

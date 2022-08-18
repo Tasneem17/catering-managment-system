@@ -29,8 +29,9 @@ public Optional<BeverageMenu> read(String beverageName) {
     return this.repository.read(beverageName);
 }
 @Override
-  public void delete(BeverageMenu beverageMenu){
+  public boolean delete(BeverageMenu beverageMenu){
     this.repository.delete(beverageMenu);
+    return false;
 }
 
     @Override
