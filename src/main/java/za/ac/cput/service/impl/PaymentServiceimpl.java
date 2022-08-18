@@ -24,8 +24,9 @@ public class PaymentServiceimpl implements PaymentService {
         return this.repository.read(payment);
     }
     @Override
-    public void delete(Payment payment){
+    public boolean delete(Payment payment){
         this.repository.delete(payment);
+        return false;
     }
 
     @Override

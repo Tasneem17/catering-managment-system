@@ -27,9 +27,10 @@ public class EquipmentChoiceServiceimpl implements EquipmentChoiceService {
         return this.repository.read(choiceCustomer);
     }
 @Override
-    public void delete(EquipmentChoice equipmentChoice){
+    public boolean delete(EquipmentChoice equipmentChoice){
         this.repository.delete(equipmentChoice);
-    }
+    return false;
+}
 @Override
 
     public List<EquipmentChoice> findAllChoiceCustomer(String choiceCustomer) {

@@ -30,7 +30,8 @@ public class UserRoleServiceimpl implements UserRoleService {
     }
 
     @Override
-    public void delete(UserRole userRole) {
+    public boolean delete(UserRole userRole) {
         this.userRoleRepository.delete(userRole);
+        return false;
     }
 }

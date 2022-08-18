@@ -30,8 +30,9 @@ public class EquipmentServiceimpl implements EquipmentService {
         return this.repository.read(equipmentID);
     }
     @Override
-    public void delete(Equipment equipment){
+    public boolean delete(Equipment equipment){
         this.repository.delete(equipment);
+        return false;
     }
 
     @Override

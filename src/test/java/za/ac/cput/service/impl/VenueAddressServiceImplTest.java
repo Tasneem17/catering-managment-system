@@ -3,7 +3,7 @@
  Date: 11 August 2022
 */
 
-package za.ac.cput.service;
+package za.ac.cput.service.impl;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.entity.VenueAddress;
 import za.ac.cput.factory.VenueAddressFactory;
-
+import java.util.Optional;
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -51,15 +51,15 @@ public class VenueAddressServiceImplTest {
     @Test
     @Order(3)
     void read() {
-        VenueAddress read = venueAddressService.read(venueAddress1.getVenueAddressArea());
-        assertEquals(read.getVenueAddressArea(), venueAddress1.getVenueAddressArea());
+        Optional<VenueAddress> read = venueAddressService.read(venueAddress1.getVenueAddressArea());
+        assertEquals(read.get(), venueAddress1.getVenueAddressArea());
         System.out.println("Read:" + read);
     }
 
     @Test
     @Order(4)
     void delete() {
-        boolean success = venueAddressService.delete((venueAddress2.getVenueAddressArea()));
+        boolean success = venueAddressService.delete(this.venueAddress2);
         assertTrue(success);
         System.out.println("Deleted:" + success);
     }

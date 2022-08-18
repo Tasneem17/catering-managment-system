@@ -3,7 +3,7 @@
  Date: 11 August 2022
 */
 
-package za.ac.cput.service;
+package za.ac.cput.service.impl;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.entity.ContactType;
 import za.ac.cput.factory.ContactTypeFactory;
-
+import java.util.Optional;
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -51,15 +51,15 @@ public class ContactTypeServiceImplTest {
     @Test
     @Order(3)
     void read() {
-        ContactType read = contactTypeService.read(contactType1.getContactTypeId());
-        assertEquals(read.getContactTypeId(), contactType1.getContactTypeId());
+        Optional<ContactType> read = contactTypeService.read(contactType1.getContactTypeId());
+        assertEquals(read.get(), contactType1.getContactTypeId());
         System.out.println("Read:" + read);
     }
 
     @Test
     @Order(4)
     void delete() {
-        boolean success = contactTypeService.delete((contactType2.getContactTypeId()));
+        boolean success = contactTypeService.delete(this.contactType2);
         assertTrue(success);
         System.out.println("Deleted:" + success);
     }
