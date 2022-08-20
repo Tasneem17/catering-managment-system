@@ -8,17 +8,29 @@ package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
 import za.ac.cput.entity.Equipment;
+import za.ac.cput.entity.Equipment;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class EquipmentFactoryTest {
     @Test
+    public void buildWithSuccess() {
 
-    void createEquipment(){
-      Equipment equipment = EquipmentFactory.createEquipment("002","Round Chair","50","R1000");
-        assertNotNull(equipment);
+        Equipment equipment = EquipmentFactory
+                .build("Table Cloth","","","");
         System.out.println(equipment);
+        assertNotNull(equipment);
+    }
+
+    @Test
+    public void buildWithError() {
+
+        Exception  exception = assertThrows(IllegalArgumentException.class,() ->
+               EquipmentFactory
+                        .build("null","","",""));
+        String exceptionMessage = exception.getMessage();
+        System.out.println(exceptionMessage);
+        assertSame( "EquipmentId is required!",exceptionMessage );
     }
 
 }
-

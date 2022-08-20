@@ -13,6 +13,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Equipment {
+    public int length;
     @NotNull@Id private String equipmentID;
     private String equipmentDescription;
     private String equipmentQuantity;

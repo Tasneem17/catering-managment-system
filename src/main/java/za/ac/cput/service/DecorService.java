@@ -13,4 +13,8 @@ import java.util.List;
 
 public interface DecorService extends IService<Decor,String>{
     List<Decor> findAllDecorType(String decorType);
+
+    List<Decor> findAll();
+
+    void deleteBydecorType(String decorType);
 }

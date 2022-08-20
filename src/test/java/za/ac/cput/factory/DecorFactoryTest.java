@@ -6,19 +6,32 @@
  */
 package za.ac.cput.factory;
 
+
 import org.junit.jupiter.api.Test;
 import za.ac.cput.entity.Decor;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class DecorFactoryTest {
     @Test
-    void createDecor(){
+    public void buildWithSuccess() {
 
-       Decor decor = DecorFactory.createDecor("Table Cloth","Medium","5","R500");
-        assertNotNull(decor);
+        Decor decor = DecorFactory
+                .build("Table Cloth","","","");
         System.out.println(decor);
+        assertNotNull(decor);
     }
 
+    @Test
+    public void buildWithError() {
+
+        Exception  exception = assertThrows(IllegalArgumentException.class,() ->
+                DecorFactory
+                        .build("null","","",""));
+        String exceptionMessage = exception.getMessage();
+        System.out.println(exceptionMessage);
+        assertSame( "decor type required!",exceptionMessage );
+    }
 
 }
+

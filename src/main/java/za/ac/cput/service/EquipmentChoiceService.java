@@ -15,4 +15,7 @@ import java.util.List;
 public interface EquipmentChoiceService extends IService<EquipmentChoice,String> {
     List<EquipmentChoice> findAllChoiceCustomer(String choiceCustomer);
 
+    void deleteBychoiceCustomer(String choiceCustomer);
+
+    List<EquipmentChoice> findAll();
 }

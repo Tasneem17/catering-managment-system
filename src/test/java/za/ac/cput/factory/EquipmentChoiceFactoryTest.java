@@ -9,18 +9,28 @@ package za.ac.cput.factory;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.entity.EquipmentChoice;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class EquipmentChoiceFactoryTest {
-
     @Test
-    void createEquipmentChoice(){
+    public void buildWithSuccess() {
 
-   EquipmentChoice equipmentChoice = EquipmentChoiceFactory.createEquipmentChoice("Yes","No");
-        assertNotNull(equipmentChoice);
+        EquipmentChoice equipmentChoice = EquipmentChoiceFactory
+                .build("Yes","");
         System.out.println(equipmentChoice);
+        assertNotNull(equipmentChoice);
     }
 
+    @Test
+    public void buildWithError() {
+
+        Exception  exception = assertThrows(IllegalArgumentException.class,() ->
+                EquipmentChoiceFactory
+                        .build("null",""));
+        String exceptionMessage = exception.getMessage();
+        System.out.println(exceptionMessage);
+        assertSame( "Equipment Choice required!",exceptionMessage );
+    }
 
 }
-

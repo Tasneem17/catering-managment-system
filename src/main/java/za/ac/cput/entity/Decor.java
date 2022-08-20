@@ -13,7 +13,8 @@ import javax.persistence.Id;
 
 @Entity
 public class Decor {
-  @NotNull@Id private String decorType;
+    public int length;
+    @NotNull@Id private String decorType;
     private String decorSize;
     private String decorQuantity;
     private String cost;
