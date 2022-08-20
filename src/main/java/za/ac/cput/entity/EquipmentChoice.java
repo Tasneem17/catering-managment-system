@@ -13,6 +13,7 @@ import javax.persistence.Id;
 
 @Entity
 public class EquipmentChoice {
+    public int length;
     @NotNull@Id private String choiceCustomer;
     private String choiceCompany;
 

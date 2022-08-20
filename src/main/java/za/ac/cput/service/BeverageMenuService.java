@@ -13,4 +13,7 @@ import java.util.List;
 public interface BeverageMenuService extends IService<BeverageMenu,String>{
     List<BeverageMenu> findAllBeverageName(String beverageName);
 
+    void deleteBybeverageName(String beverageName);
+
+    List<BeverageMenu> findAll();
 }

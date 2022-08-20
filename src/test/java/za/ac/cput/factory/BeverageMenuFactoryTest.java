@@ -8,19 +8,30 @@ package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
 import za.ac.cput.entity.BeverageMenu;
+import za.ac.cput.entity.BeverageMenu;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 class BeverageMenuFactoryTest {
+   @Test
+public void buildWithSuccess() {
+
+    BeverageMenu beverageMenu = BeverageMenuFactory
+            .build("Tropical splash","","","","");
+    System.out.println(beverageMenu);
+    assertNotNull(beverageMenu);
+}
+
     @Test
-    void createBeverageMenu() {
-        BeverageMenu beverageMenu = BeverageMenuFactory.createBeverageMenu("Tropical Splash", "R50", "Apples,pear and orange", "5", "50");
-        assertNotNull(beverageMenu);
-        System.out.println(beverageMenu);
+    public void buildWithError() {
 
-
-     }
-
+        Exception  exception = assertThrows(IllegalArgumentException.class,() ->
+                BeverageMenuFactory
+                        .build("null","","","",""));
+        String exceptionMessage = exception.getMessage();
+        System.out.println(exceptionMessage);
+        assertSame( "beverage name is required!",exceptionMessage );
+    }
 
 }

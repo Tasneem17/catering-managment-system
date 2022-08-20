@@ -15,6 +15,7 @@ import javax.persistence.Id;
 public class BeverageMenu {
 
 
+    public int length;
     @NotNull@Id
     private String beverageName;
     private String price;

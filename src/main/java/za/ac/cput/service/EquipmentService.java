@@ -12,4 +12,8 @@ import java.util.List;
 
 public interface EquipmentService extends IService<Equipment,String>{
         List<Equipment> findAllEquipmentID(String equipmentID);
+
+    void deleteByequipmentID(String equipmentID);
+
+    List<Equipment> findAll();
 }
