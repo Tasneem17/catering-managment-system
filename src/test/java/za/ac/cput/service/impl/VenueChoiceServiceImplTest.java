@@ -57,7 +57,7 @@ public class VenueChoiceServiceImplTest {
     }
 
     @Test
-    @Order(4)
+    @Order(5)
     void delete() {
         boolean success = venueChoiceService.delete(this.venueChoice2);
         assertTrue(success);
@@ -65,7 +65,7 @@ public class VenueChoiceServiceImplTest {
     }
 
     @Test
-    @Order(5)
+    @Order(4)
     void getAll() {
         System.out.println("Get All:");
         System.out.println(venueChoiceService.getAll());

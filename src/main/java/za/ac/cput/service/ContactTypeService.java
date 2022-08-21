@@ -10,4 +10,6 @@ import java.util.Set;
 
 public interface ContactTypeService extends IService<ContactType, String>{
     public Set<ContactType> getAll();
+
+    void deleteById(String id);
 }
