@@ -7,8 +7,8 @@ import javax.persistence.Id;
 
 @Entity
 public class Appointment {
-    @NotNull
-    @Id
+    public int length;
+    @NotNull @Id
     private String appointment_id;
     private String appointment_date;
     private String appointment_location;

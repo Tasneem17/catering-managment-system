@@ -8,6 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class EventStatus {
 
+    public int length;
     @NotNull@Id
     private String event_id;
     private String event_Status;

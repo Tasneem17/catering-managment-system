@@ -1,4 +1,5 @@
-package za.ac.cput.controller;
+package za.ac.cput.factory.controller;
+
 
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,39 +8,39 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.entity.EquipmentChoice;
-import za.ac.cput.factory.EquipmentChoiceFactory;
-import za.ac.cput.factory.EquipmentFactory;
+import za.ac.cput.controller.DecorController;
+import za.ac.cput.entity.Decor;
+import za.ac.cput.factory.DecorFactory;
 
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment =  SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class EquipmentChoiceControllerTest {
+class DecorControllerTest {
+
 
     @LocalServerPort
     private int port;
     @Autowired
-    private EquipmentController controller;
+    private DecorController controller;
     @Autowired private TestRestTemplate restTemplate;
-    private EquipmentChoice equipmentChoice;
+    private Decor decor;
     private String baseURL;
-
 
     @BeforeEach
     public void setUp() {
         assertNotNull(controller);
-        this.equipmentChoice = EquipmentChoiceFactory
-                .build("test-type","");
-        this.baseURL = "http://;localhost:"+ this.port +"/catering/EquipmentChoice-type/";
+        this.decor = DecorFactory
+                .build("test-type","","","");
+        this.baseURL = "http://;localhost:"+ this.port +"/catering/decor-type/";
     }
     @Order(1)
     public void testSave() {
         String url = baseURL + "read/";
         System.out.println(url);
-        ResponseEntity<EquipmentChoice> response = this.restTemplate
-                .postForEntity(url,this.equipmentChoice,EquipmentChoice.class);
+        ResponseEntity<Decor> response = this.restTemplate
+                .postForEntity(url,this.decor,Decor.class);
         System.out.println(response);
         assertAll(
                 ()->assertEquals(HttpStatus.OK,response.getStatusCode()),
@@ -51,9 +52,9 @@ class EquipmentChoiceControllerTest {
     @Order(2)
 
     public void testRead() {
-        String url = baseURL + "read/"+ this.equipmentChoice.getChoiceCustomer();
+        String url = baseURL + "read/"+ this.decor.getDecorType();
         System.out.println(url);
-        ResponseEntity<EquipmentChoice> response = this.restTemplate.getForEntity(url,EquipmentChoice.class);
+        ResponseEntity<Decor> response = this.restTemplate.getForEntity(url,Decor.class);
         assertAll(
                 ()->assertEquals(HttpStatus.OK,response.getStatusCode()),
                 ()-> assertNotNull(response.getBody())
@@ -63,7 +64,7 @@ class EquipmentChoiceControllerTest {
     @Test
     @Order(3)
     public void testDelete() {
-        String url = baseURL + "read/"+ this.equipmentChoice.getChoiceCustomer();
+        String url = baseURL + "read/"+ this.decor.getDecorType();
         this.restTemplate.delete(url);
     }
 
@@ -72,8 +73,8 @@ class EquipmentChoiceControllerTest {
     public void testFindAll() {
         String url = baseURL + "all" ;
         System.out.println(url);
-        ResponseEntity<EquipmentChoice> response =
-                this.restTemplate.getForEntity(url,EquipmentChoice.class);
+        ResponseEntity<Decor> response =
+                this.restTemplate.getForEntity(url,Decor.class);
         System.out.println(Arrays.asList(response.getBody()));
         assertAll(
                 ()->assertEquals(HttpStatus.OK,response.getStatusCode()),

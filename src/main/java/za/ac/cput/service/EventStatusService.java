@@ -9,4 +9,9 @@ import java.util.List;
 public interface EventStatusService extends IService<EventStatus,String>{
 
     List<EventStatus> findAllEvent_id(String eventStatus);
+
+    void deleteByeventStatus(String eventStatus);
+
+    List<EventStatus> findAll();
 }
+

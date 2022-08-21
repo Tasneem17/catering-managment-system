@@ -10,4 +10,8 @@ import java.util.List;
 public interface PaymentService extends IService<Payment,String>{
 
     List<Payment> findAllPayment_id(String payment);
+
+    void deleteBypayment(String payment);
+
+    List<Payment> findAll();
 }

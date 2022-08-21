@@ -32,4 +32,14 @@ public class AppointmentServiceimpl implements AppointmentService{
     public List<Appointment> findAllAppointment_id(String appointment) {
         return this.repository.findAll();
     }
+
+    @Override
+    public void deleteByappointment(String appointment) {
+
+    }
+
+    @Override
+    public List<Appointment> findAll() {
+        return null;
+    }
 }

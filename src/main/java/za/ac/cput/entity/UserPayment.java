@@ -7,8 +7,8 @@ import javax.persistence.Id;
 
 @Entity
 public class UserPayment {
-    @NotNull
-    @Id
+    public int length;
+    @NotNull @Id
     private String id;
     private String typeID;
     private String amount;
