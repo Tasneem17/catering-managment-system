@@ -1,4 +1,4 @@
-package za.ac.cput.controller;
+package za.ac.cput.factory.controller;
 
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +7,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import za.ac.cput.controller.BeverageMenuController;
 import za.ac.cput.entity.BeverageMenu;
 import za.ac.cput.factory.BeverageMenuFactory;
 import za.ac.cput.factory.DecorFactory;

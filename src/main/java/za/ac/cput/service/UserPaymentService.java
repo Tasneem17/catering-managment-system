@@ -9,4 +9,8 @@ import java.util.List;
 public interface UserPaymentService  extends IService<UserPayment,String>{
 
     List<UserPayment> findAllUserPayment_id(String userPayment);
+
+    void deleteByuserPayment(String userPayment);
+
+    List<UserPayment> findAll();
 }

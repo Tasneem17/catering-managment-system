@@ -7,6 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Payment {
+    public int length;
     @NotNull @Id
     private String payment_id;
     private String payment_name;
