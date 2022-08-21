@@ -6,6 +6,7 @@ import za.ac.cput.entity.UserRole;
 import za.ac.cput.repository.UserRoleRepository;
 import za.ac.cput.service.UserRoleService;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,5 +34,20 @@ public class UserRoleServiceimpl implements UserRoleService {
     public boolean delete(UserRole userRole) {
         this.userRoleRepository.delete(userRole);
         return false;
+    }
+
+    @Override
+    public List<UserRole> findAll() {
+        return this.userRoleRepository.findAll();
+    }
+
+    @Override
+    public UserRole findUserRoleByUserID(String userID) {
+        return this.userRoleRepository.findUserRoleByUserID(userID);
+    }
+
+    @Override
+    public void deleteUserRoleByUserID(String userID) {
+        this.userRoleRepository.deleteUserRoleByUserID(userID);
     }
 }
