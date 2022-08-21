@@ -1,12 +1,14 @@
 package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Category;
 import za.ac.cput.repository.ICategoryRepository;
 import za.ac.cput.service.CategoryService;
 
+import java.util.List;
 import java.util.Optional;
-
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
     private ICategoryRepository categoryRepository;
@@ -31,5 +33,16 @@ public class CategoryServiceImpl implements CategoryService {
     public boolean delete(Category category) {
      this.categoryRepository.delete(category);
         return false;
+    }
+
+    @Override
+    public boolean deletebyid(String id) {
+        this.categoryRepository.deleteById(id);
+        return false;
+    }
+
+    @Override
+    public List<Category> findall(Category category) {
+        return this.categoryRepository.getAll();
     }
 }
