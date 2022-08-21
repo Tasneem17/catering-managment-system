@@ -10,4 +10,6 @@ import java.util.Set;
 
 public interface VenueService extends IService<Venue, String>{
     public Set<Venue> getAll();
+
+    void deleteById(String id);
 }
