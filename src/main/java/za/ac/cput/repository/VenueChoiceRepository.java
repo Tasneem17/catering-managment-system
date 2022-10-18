@@ -12,5 +12,5 @@ import java.util.Set;
 
 @Repository
 public interface VenueChoiceRepository extends JpaRepository<VenueChoice,String>{
-    public Set<VenueChoice> getAll();
+
 }

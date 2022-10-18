@@ -38,8 +38,8 @@ public class VenueChoiceController {
         return ResponseEntity.ok(read);
     }
 
-    @DeleteMapping("delete/{type}")
-    public ResponseEntity<Void> deletebyId(@PathVariable String id) {
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id) {
         this.venueChoiceService.deleteById(id);
         return ResponseEntity.noContent().build();
     }

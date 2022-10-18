@@ -59,7 +59,7 @@ public class VenueAddressServiceImplTest {
     @Test
     @Order(5)
     void delete() {
-        boolean success = venueAddressService.delete(this.venueAddress2);
+        boolean success = venueAddressService.deleteById(String.valueOf(this.venueAddress2));
         assertTrue(success);
         System.out.println("Deleted:" + success);
     }

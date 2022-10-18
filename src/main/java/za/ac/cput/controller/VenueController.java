@@ -38,8 +38,9 @@ public class VenueController {
         return ResponseEntity.ok(read);
     }
 
-    @DeleteMapping("delete/{type}")
-    public ResponseEntity<Void> deletebyId(@PathVariable String id) {
+
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id) {
         this.venueService.deleteById(id);
         return ResponseEntity.noContent().build();
     }

@@ -15,7 +15,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class ContactTypeServiceImpl implements ContactTypeService {
+public abstract class ContactTypeServiceImpl implements ContactTypeService {
     private ContactTypeRepository repository;
 
     @Autowired
@@ -30,9 +30,9 @@ public class ContactTypeServiceImpl implements ContactTypeService {
     public Optional<ContactType> read(String id) {
         return Optional.ofNullable(this.repository.findById(id).orElse(null));}
 
-    @Override
-    public boolean delete(ContactType contactType){
-        this.repository.delete(contactType);
+
+    public boolean deleteById(String contactType){
+        this.repository.deleteById(contactType);
         return false;
     }
 

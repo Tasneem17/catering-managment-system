@@ -16,7 +16,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class VenueChoiceServiceImpl implements VenueChoiceService {
+public abstract class VenueChoiceServiceImpl implements VenueChoiceService {
     private VenueChoiceRepository repository;
 
     @Autowired
@@ -31,9 +31,9 @@ public class VenueChoiceServiceImpl implements VenueChoiceService {
     public Optional<VenueChoice> read(String id) {
         return Optional.ofNullable(this.repository.findById(id).orElse(null));}
 
-    @Override
-    public boolean delete(VenueChoice venueChoice){
-        this.repository.delete(venueChoice);
+
+    public boolean deleteById(String venueChoice){
+        this.repository.deleteById(venueChoice);
         return false;
     }
 
