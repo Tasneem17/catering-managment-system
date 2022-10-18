@@ -7,11 +7,6 @@ import java.util.List;
 
 
 @Service
-public interface PaymentService extends IService<Payment,String>{
+public interface PaymentService{
 
-    List<Payment> findAllPayment_id(String payment);
-
-    void deleteBypayment(String payment);
-
-    List<Payment> findAll();
 }
