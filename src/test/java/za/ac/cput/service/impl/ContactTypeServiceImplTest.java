@@ -59,7 +59,7 @@ public class ContactTypeServiceImplTest {
     @Test
     @Order(5)
     void delete() {
-        boolean success = contactTypeService.delete(this.contactType2);
+        boolean success = contactTypeService.deleteById(String.valueOf(this.contactType2));
         assertTrue(success);
         System.out.println("Deleted:" + success);
     }

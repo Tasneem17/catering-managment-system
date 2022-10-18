@@ -8,8 +8,6 @@ package za.ac.cput.service;
 import za.ac.cput.entity.Venue;
 import java.util.Set;
 
-public interface VenueService extends IService<Venue, String>{
-    public Set<Venue> getAll();
+public interface VenueService {
 
-    void deleteById(String id);
 }

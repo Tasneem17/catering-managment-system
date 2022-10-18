@@ -12,5 +12,5 @@ import java.util.Set;
 
 @Repository
 public interface ContactTypeRepository extends JpaRepository<ContactType, String> {
-    public Set<ContactType> getAll();
+
 }

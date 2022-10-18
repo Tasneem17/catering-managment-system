@@ -59,7 +59,7 @@ public class VenueChoiceServiceImplTest {
     @Test
     @Order(5)
     void delete() {
-        boolean success = venueChoiceService.delete(this.venueChoice2);
+        boolean success = venueChoiceService.deleteById(String.valueOf(this.venueChoice2));
         assertTrue(success);
         System.out.println("Deleted:" + success);
     }
