@@ -9,42 +9,37 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.entity.Menu;
 import za.ac.cput.service.MenuService;
+import za.ac.cput.service.impl.MenuServiceImpl;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/Menu")
+@RequestMapping("/menu")
 @Slf4j
 public class MenuController {
-    private MenuService menuService;
+    private MenuServiceImpl menuImpl;
     @Autowired
-    public MenuController(MenuService menuService){
-        this.menuService =menuService;
+    public MenuController(MenuServiceImpl menuImpl){
+        this.menuImpl =menuImpl;
     }
     @PostMapping("save")
-    public ResponseEntity<Menu>save(@RequestBody @Valid Menu menu){
+    public Menu save(@RequestBody @Valid Menu menu){
         log.info("Save request:{}",menu);
-        Menu saved = this.menuService.save(menu);
-        return ResponseEntity.ok(saved);
+        return  this.menuImpl.save(menu) ;
     }
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id) {
-        log.info("Read request:{}", id);
-        this.menuService.deletebyid(id);
-        return ResponseEntity.noContent().build();
+    public boolean deletebyid(@PathVariable String id) {
+        return  this.menuImpl.deletebyid(id);
     }
     @GetMapping("all")
-    public ResponseEntity<List<Menu>>findall(Menu menu){
-        log.info("Readall request:{}",menu);
-        List<Menu>menuall = this.menuService.findall(menu);
-        return ResponseEntity.ok(menuall);
+    public List<Menu> findAll(){
+        return  this.menuImpl.findAll();
     }
     @GetMapping("read{id}")
-    public  ResponseEntity<Menu>read(@PathVariable @Validated String id){
+    public Menu read(@PathVariable @Validated String id){
         log.info("Read request:{}",id);
-        Menu menuread = this.menuService.read(id).orElseThrow(()
-                -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        return ResponseEntity.ok(menuread);
+        return this.menuImpl.read(id);
     }
 }

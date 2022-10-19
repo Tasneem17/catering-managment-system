@@ -3,50 +3,53 @@ package za.ac.cput.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.entity.Category;
 import za.ac.cput.service.CategoryService;
+import za.ac.cput.service.impl.CategoryServiceImpl;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/Category")
+@RequestMapping("/category")
 @Slf4j
         public class CategoryController {
 
-        private CategoryService categoryService;
+        private CategoryServiceImpl categoryImpl;
         @Autowired
-        public CategoryController (CategoryService categoryService)
+        public CategoryController (CategoryServiceImpl categoryImpl)
         {
-         this.categoryService =categoryService;
+         this.categoryImpl =categoryImpl;
         }
+
+
         @PostMapping("save")
-        public ResponseEntity<Category> save (@RequestBody @Valid Category category){
+        public Category save (@RequestBody @Valid Category category){
                 log.info("Save request:{}",category);
-                Category saved = this.categoryService.save(category);
-                return  ResponseEntity.ok(saved);
+                return this.categoryImpl.save(category);
+
         }
         @DeleteMapping("delete/{id}")
-        public ResponseEntity<Void> delete(@PathVariable String id){
+        public boolean deletebyid(@PathVariable String id){
                 log.info("Read request:{}",id);
-                this.categoryService.deletebyid(id);
-                return ResponseEntity.noContent().build();
+                return   this.categoryImpl.deletebyid(id);
         }
+
         @GetMapping("all")
-        public ResponseEntity<List<Category>>findall(Category category) {
-                log.info("Readall request:{}", category);
-                List<Category> categoryall = this.categoryService.findall(category);
-                return ResponseEntity.ok(categoryall);
+        public List<Category> findAll() {
+                return this.categoryImpl.findAll();
         }
+
+
         @GetMapping("read{id}")
-        public  ResponseEntity<Category>read(@PathVariable @Validated String id){
+        public Category read(@PathVariable @Validated String id){
                 log.info("Read request:{}",id);
-                Category categoryread = this.categoryService.read(id).orElseThrow(()
-                        -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-                return ResponseEntity.ok(categoryread);
+                return this.categoryImpl.read(id);
         }
 }

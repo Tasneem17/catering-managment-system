@@ -19,32 +19,26 @@ public class MenuServiceImpl implements MenuService {
    {
        this.menuRepository = menuRepository;
    }
+
    @Override
     public Menu save(Menu menu)
    {
        return  this.menuRepository.save(menu);
    }
-    @Override
-    public Optional<Menu> read(String id)
-    {
-        return this.menuRepository.findById(id);
-    }
-    @Override
-    public boolean delete(Menu menu)
-    {
-        this.menuRepository.delete(menu);
-        return false;
-    }
 
+    @Override
+    public Menu read(String id)
+    {
+        return this.menuRepository.findById(id).orElse(null);
+    }
 
     @Override
     public boolean deletebyid(String id) {
         this.menuRepository.deleteById(id);
         return false;
     }
-
-    @Override
-    public List<Menu> findall(Menu menu) {
-        return this.menuRepository.getAll();
+   @Override
+    public List<Menu> findAll() {
+        return this.menuRepository.findAll();
     }
 }

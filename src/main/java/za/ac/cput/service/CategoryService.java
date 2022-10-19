@@ -1,10 +1,14 @@
 package za.ac.cput.service;
-
 import za.ac.cput.entity.Category;
-
 import java.util.List;
+import java.util.Optional;
 
-public interface CategoryService extends IService<Category,String> {
+public interface CategoryService  {
+
+    Category read (String id);
     boolean deletebyid(String id);
-    List<Category> findall(Category category);
+
+    Category save(Category category);
+    List<Category> findAll();
+
 }

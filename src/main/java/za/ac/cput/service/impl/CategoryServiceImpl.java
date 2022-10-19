@@ -11,38 +11,23 @@ import java.util.Optional;
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
-    private ICategoryRepository categoryRepository;
+    private final ICategoryRepository categoryRepository;
     @Autowired
-
     public  CategoryServiceImpl(ICategoryRepository categoryRepository)
-    {
-        this.categoryRepository = categoryRepository;
-    }
+    {this.categoryRepository = categoryRepository;}
 
     @Override
-    public Category save(Category category) {
-        return this.categoryRepository.save(category);
+    public Category save(Category category) {return this.categoryRepository.save(category);
     }
-
     @Override
-    public Optional<Category> read(String id) {
-        return this.categoryRepository.findById(id);
+    public Category read(String id) {
+        return this.categoryRepository.findById(id).orElse(null);
     }
-
-    @Override
-    public boolean delete(Category category) {
-     this.categoryRepository.delete(category);
-        return false;
-    }
-
     @Override
     public boolean deletebyid(String id) {
         this.categoryRepository.deleteById(id);
         return false;
     }
-
     @Override
-    public List<Category> findall(Category category) {
-        return this.categoryRepository.getAll();
-    }
+    public List<Category> findAll() { return this.categoryRepository.findAll();}
 }

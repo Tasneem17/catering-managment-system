@@ -19,15 +19,15 @@ class CategoryFactoryTest {
     @Test
     //Passing test
     public void test1(){
-        Category cat = CategoryFactory.createCategory("Lunch"
+        Category cat = CategoryFactory.createCategory("554","Lunch"
                 ,"Fried Food");
         System.out.println(cat.toString());
     }
   @AfterEach
     //Failing Test
     public void test2() {
-        Category cat = CategoryFactory.createCategory("Lunch"
-                , "");
+        Category cat = CategoryFactory.createCategory("456","Lunch"
+                , "MMMM");
         System.out.println(cat.toString());
     }
 }

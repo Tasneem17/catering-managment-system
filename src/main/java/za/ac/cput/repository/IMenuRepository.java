@@ -15,5 +15,5 @@ import java.util.List;
 @Repository
 public interface IMenuRepository extends JpaRepository<Menu,String> {
 
-    public List<Menu> getAll();
+
 }
