@@ -9,9 +9,4 @@ import java.util.Set;
 @Repository
 public interface UserPaymentRepository extends JpaRepository<UserPayment,String> {
 
-    //create,read,update ,delete
-    public Set<UserPayment> getAll();
-
-    Optional<UserPayment> read(String userPayment);
-
 }

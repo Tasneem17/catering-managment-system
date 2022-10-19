@@ -25,6 +25,7 @@ public class UserController {
 
     @Autowired
     public UserController(UserServiceimpl userService){
+
         this.userService = userService;
     }
 
