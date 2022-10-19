@@ -17,22 +17,18 @@ public class FoodServiceImpl implements FoodService {
     public FoodServiceImpl(IFoodRepository foodRepository){
         this.foodRepository = foodRepository;
     }
+
+
     @Override
     public Food save(Food food)
     {
         return this.foodRepository.save(food);
     }
-    @Override
-    public Optional<Food> read(String id)
-    {
-        return this.foodRepository.findById(id);
-    }
 
     @Override
-    public boolean delete(Food food)
+    public Food read(String id)
     {
-        this.foodRepository.delete(food);
-        return false;
+        return this.foodRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -40,11 +36,11 @@ public class FoodServiceImpl implements FoodService {
         this.foodRepository.deleteById(id);
         return false;
     }
-
     @Override
-    public List<Food> findall(Food food) {
-        return this.foodRepository.getAll();
+    public List<Food> findAll(){
+       return this.foodRepository.findAll();
     }
+
 
 
 }

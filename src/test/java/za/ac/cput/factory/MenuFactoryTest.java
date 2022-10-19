@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MenuFactoryTest {
     @Test
     public void test1(){
-        Menu menu  =MenuFactory.createMenu("8",520.50);
+        Menu menu  =MenuFactory.createMenu("787","8",520.50);
         System.out.println(menu.toString());
     }
 

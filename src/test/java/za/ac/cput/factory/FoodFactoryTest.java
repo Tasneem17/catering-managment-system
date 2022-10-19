@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FoodFactoryTest {
     @Test
     public void test1(){
-        Food food = FoodFactory.createFood("Pizza","Meat BBQ","10 Slices",
+        Food food = FoodFactory.createFood("545","Pizza","Meat BBQ","10 Slices",
                 200);
         System.out.println(food.toString());
     }

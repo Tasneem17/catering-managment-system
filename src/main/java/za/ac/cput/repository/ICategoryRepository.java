@@ -16,6 +16,5 @@ import java.util.List;
 @Repository
 public interface ICategoryRepository extends JpaRepository<Category,String> {
 
-    public List<Category> getAll();
 
 }

@@ -17,5 +17,5 @@ import java.util.List;
 @Repository
 public interface IFoodRepository extends JpaRepository<Food,String> {
 
-    public List<Food> getAll();
+//   public List<Food> getAll();
 }
