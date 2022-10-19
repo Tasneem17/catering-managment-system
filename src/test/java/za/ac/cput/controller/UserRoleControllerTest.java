@@ -7,77 +7,71 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.entity.Equipment;
-import za.ac.cput.factory.EquipmentFactory;
-
-import java.util.Arrays;
+import za.ac.cput.entity.UserRole;
+import za.ac.cput.factory.UserRoleFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest(webEnvironment =  SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class EquipmentControllerTest {
+class UserRoleControllerTest {
 
     @LocalServerPort
     private int port;
     @Autowired
-    private EquipmentController controller;
-    @Autowired private TestRestTemplate restTemplate;
-    private Equipment equipment;
+    private UserRoleController controller;
+    @Autowired
+    private TestRestTemplate restTemplate;
+    private UserRole userRole;
     private String baseURL;
-
 
     @BeforeEach
     public void setUp() {
         assertNotNull(controller);
-        this.equipment = EquipmentFactory
-                .build("test-type","","","");
-        this.baseURL = "http://;localhost:"+ this.port +"/catering/Equipment-type/";
+        this.userRole = UserRoleFactory.createUserRole("220003033", "87415889");
+        this.baseURL = "http://localhost:"+ this.port +"/user-role/";
     }
+
     @Order(1)
-    public void testSave() {
-        String url = baseURL + "read/";
+    @Test
+    void save() {
+        String url = baseURL + "save/";
         System.out.println(url);
-        ResponseEntity<Equipment> response = this.restTemplate
-                .postForEntity(url,this.equipment,Equipment.class);
+        ResponseEntity<UserRole> response = this.restTemplate
+                .postForEntity(url,this.userRole,UserRole.class);
         System.out.println(response);
         assertAll(
                 ()->assertEquals(HttpStatus.OK,response.getStatusCode()),
                 ()->assertNotNull(response.getBody())
-
         );
     }
-    @Test
-    @Order(2)
 
-    public void testRead() {
-        String url = baseURL + "read/"+ this.equipment.getEquipmentID();
+    @Order(2)
+    @Test
+    void read() {
+        String url = baseURL + "read/"+ this.userRole.getUserID();
         System.out.println(url);
-        ResponseEntity<Equipment> response = this.restTemplate.getForEntity(url,Equipment.class);
+        ResponseEntity<UserRole> response = this.restTemplate.getForEntity(url,UserRole.class);
         assertAll(
                 ()->assertEquals(HttpStatus.OK,response.getStatusCode()),
                 ()-> assertNotNull(response.getBody())
-
         );
     }
+
     @Test
-    @Order(3)
-    public void testDelete() {
-        String url = baseURL + "read/"+ this.equipment.getEquipmentID();
+    void delete() {
+        String url = baseURL + "delete/"+ this.userRole.getUserID();
         this.restTemplate.delete(url);
     }
 
     @Test
-    @Order(4)
-    public void testFindAll() {
+    void findAll() {
         String url = baseURL + "all" ;
         System.out.println(url);
-        ResponseEntity<Equipment> response =
-                this.restTemplate.getForEntity(url,Equipment.class);
-        System.out.println(Arrays.asList(response.getBody()));
+        ResponseEntity<UserRole> response =
+                this.restTemplate.getForEntity(url,UserRole.class);
         assertAll(
-                ()->assertEquals(HttpStatus.OK,response.getStatusCode()),
-                ()-> assertTrue(response.getBody().length == 0)
-
+                ()->assertEquals(HttpStatus.OK,response.getStatusCode())
         );
     }
 }

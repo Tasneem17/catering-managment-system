@@ -6,6 +6,7 @@ import za.ac.cput.entity.Menu;
 import za.ac.cput.repository.IMenuRepository;
 import za.ac.cput.service.MenuService;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -36,4 +37,14 @@ public class MenuServiceImpl implements MenuService {
     }
 
 
+    @Override
+    public boolean deletebyid(String id) {
+        this.menuRepository.deleteById(id);
+        return false;
+    }
+
+    @Override
+    public List<Menu> findall(Menu menu) {
+        return this.menuRepository.getAll();
+    }
 }

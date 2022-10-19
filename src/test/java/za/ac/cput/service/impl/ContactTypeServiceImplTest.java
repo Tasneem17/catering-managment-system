@@ -57,7 +57,7 @@ public class ContactTypeServiceImplTest {
     }
 
     @Test
-    @Order(4)
+    @Order(5)
     void delete() {
         boolean success = contactTypeService.delete(this.contactType2);
         assertTrue(success);
@@ -65,7 +65,7 @@ public class ContactTypeServiceImplTest {
     }
 
     @Test
-    @Order(5)
+    @Order(4)
     void getAll() {
         System.out.println("Get All:");
         System.out.println(contactTypeService.getAll());
