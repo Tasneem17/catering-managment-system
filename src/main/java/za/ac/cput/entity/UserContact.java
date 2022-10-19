@@ -7,11 +7,20 @@
 
 package za.ac.cput.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
 
-public class UserContact {
+@Entity
+
+public class UserContact implements Serializable {
+    @Id
     private String userId;
+    @Id
     private String contactTypeId;
     private String contactDetails;
+
+    protected UserContact(){}
 
     private UserContact(Builder builder){
         this.userId = builder.userId;

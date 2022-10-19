@@ -4,72 +4,24 @@
  *Assignment 1
  */
 
+
 package za.ac.cput.repository;
 
-
+import org.springframework.data.jpa.repository.JpaRepository;
 import za.ac.cput.entity.EventTheme;
 
-import java.util.HashSet;
-import java.util.Set;
 
-public class EventThemeRepository implements IEventThemeRepository{
-    private static EventThemeRepository repository = null;
-    private Set<EventTheme>eventThemeDB = null;
-
-    private EventThemeRepository(){
-        eventThemeDB = new HashSet<EventTheme>();
-    }
-
-    public static EventThemeRepository getRepository(){
-        if (repository ==null){
-            repository = new EventThemeRepository();
-
-        }
-        return repository;
-    }
+import java.util.List;
+import java.util.Optional;
 
 
-    @Override
-    public EventTheme create(EventTheme eventtheme){
-        this.eventThemeDB.add(eventtheme);
-        return eventtheme;
-    }
+public interface EventThemeRepository extends JpaRepository<EventTheme, String> {
 
+    List<EventTheme> findAll();
 
+    EventTheme findByEventId(String EventThemeID);
 
-    @Override
-    public EventTheme read(String eventId){
-        for (EventTheme c: eventThemeDB) {
-            if (c.getEventId().equals(eventId)){
-                return c;
-            }
+    void deleteUserContactByEventID(String EventThemeID);
 
-        }
-        return null;
-    }
-    @Override
-    public EventTheme update(EventTheme eventTheme) {
-        EventTheme firstEventTheme = read(eventTheme.getEventId());
-        if( firstEventTheme !=null) {
-            eventThemeDB.remove(firstEventTheme);
-            eventThemeDB.add(eventTheme);
-            return eventTheme;
-        }
-        return null;
-    }
-
-
-
-    @Override
-    public boolean delete(String eventID) {
-        EventTheme deleteEventTheme= read(eventID);
-        if (deleteEventTheme ==null) {
-            System.out.println("EventTheme is null.");
-        }
-        eventThemeDB.remove(deleteEventTheme);
-        System.out.println("EventTheme Removed.");
-        return false;
-    }
-    @Override
-    public Set<EventTheme> getAll(){return eventThemeDB;}
+    Optional<EventTheme> findByFirstName(String firstname);
 }

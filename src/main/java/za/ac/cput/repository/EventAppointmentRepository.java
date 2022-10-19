@@ -6,73 +6,21 @@
 
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import za.ac.cput.entity.EventAppointment;
+import za.ac.cput.entity.UserContact;
 
-import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
+public interface EventAppointmentRepository extends JpaRepository<EventAppointment, String> {
 
-    public class EventAppointmentRepository implements IEventAppointmentRepository{
-        private static za.ac.cput.repository.EventAppointmentRepository repository = null;
-        private Set<EventAppointment> eventAppointmentDB = null;
+    List<EventAppointment> findAll();
 
-        private EventAppointmentRepository(){
-            eventAppointmentDB = new HashSet<EventAppointment>();
-        }
+    EventAppointment findByEventAppointmentId(String EventAppointmentID);
 
-        public static za.ac.cput.repository.EventAppointmentRepository getRepository() {
-            if (repository == null) {
-                repository = new EventAppointmentRepository();
+    void deleteUserContactByEventAppointmentID(String EventAppointmentID);
 
-            }
-            return repository;
-        }
-
-
-        @Override
-        public EventAppointment create(EventAppointment eventappointment){
-            this.eventAppointmentDB.add(eventappointment);
-            return eventappointment;
-        }
-
-
-
-        @Override
-        public EventAppointment read(String eventId){
-            for (EventAppointment c: eventAppointmentDB) {
-                if (c.getEventId().equals(eventId)){
-                    return c;
-                }
-
-            }
-            return null;
-        }
-        @Override
-        public EventAppointment update(EventAppointment eventappointment) {
-            EventAppointment firstEventAppointment = read(eventappointment.getEventId());
-            if( firstEventAppointment !=null) {
-                eventAppointmentDB.remove(firstEventAppointment);
-                eventAppointmentDB.add(eventappointment);
-                return eventappointment;
-            }
-
-            return null;
-        }
-
-
-
-        @Override
-        public boolean delete(String eventID) {
-            EventAppointment deleteEventAppointment = read(eventID);
-            if (deleteEventAppointment ==null) {
-                System.out.println("EventAppointment is null.");
-            }
-            eventAppointmentDB.remove(deleteEventAppointment);
-            System.out.println("EventAppointment Removed.");
-            return false;
-        }
-        @Override
-        public Set<EventAppointment> getAll(){return eventAppointmentDB;}
-    }
-
-
+    Optional<EventAppointment> findByFirstName(String firstname);
+}
