@@ -9,15 +9,25 @@
 package za.ac.cput.entity;
 
 
-public class EventTheme {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class EventTheme implements Serializable {
+
+    @Id
     private String eventId;
     private String themeDescription;
 
     private EventTheme(Builder builder){
         this.eventId = builder.eventId;
         this.themeDescription = builder.themeDescription;
-
     }
+
+    protected EventTheme(){}
+
+
     public String getEventId() {
         return eventId;
     }
