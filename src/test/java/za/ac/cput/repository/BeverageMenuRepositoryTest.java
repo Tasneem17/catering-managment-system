@@ -10,14 +10,19 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.entity.BeverageMenu;
 import za.ac.cput.factory.BeverageMenuFactory;
+
+import java.util.List;
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 
 class BeverageMenuRepositoryTest {
-    private static BeverageMenuRepository repository = BeverageMenuRepository.getRepository();
-    private static BeverageMenu beverageMenu = BeverageMenuFactory.createBeverageMenu("Red Explosion","R70","Cranberry","40","80");
+    private static BeverageMenu beverageMenu = BeverageMenuFactory.build("Orange ","R20.00","oranges","2","5");
+    @Autowired private  IBeverageMenuRepository repository;
 
     @Test
     void l_create() {
@@ -28,7 +33,7 @@ class BeverageMenuRepositoryTest {
 
     @Test
     void m_read() {
-        BeverageMenu read = repository.read(beverageMenu.getBeverageName());
+        Optional<BeverageMenu> read = repository.read(beverageMenu.getBeverageName());
         assertNotNull(read);
         System.out.println("Read :"+ read);
     }
@@ -44,9 +49,9 @@ class BeverageMenuRepositoryTest {
 
     @Test
     void o_delete() {
-        boolean success = repository.delete(beverageMenu.getBeverageName());
-        assertTrue(success);
-        System.out.println("Delete" + success);
+        this.repository.save(this.beverageMenu);
+        List<BeverageMenu> beverageMenuList= this.repository.findAll();
+        assertEquals(0,beverageMenuList.size());
     }
 
     @Test

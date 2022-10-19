@@ -18,4 +18,6 @@ public interface IEquipmentRepository extends JpaRepository<Equipment,String> {
     public Set<Equipment> getAll();
 
     Optional<Equipment> read(String equipmentID);
+
+    Equipment create(Equipment equipment);
 }

@@ -19,6 +19,8 @@ public interface IDecorRepository extends JpaRepository<Decor,String> {
         public Set<Decor> getAll();
 
     Optional<Decor> read(String decorType);
+
+    Decor create(Decor decor);
 }
 
 

@@ -38,4 +38,14 @@ public Optional<BeverageMenu> read(String beverageName) {
     public List<BeverageMenu> findAllBeverageName(String beverageName) {
         return this.repository.findAll();
     }
+
+    @Override
+    public void deleteBybeverageName(String beverageName) {
+
+    }
+
+    @Override
+    public List<BeverageMenu> findAll() {
+        return null;
+    }
 }

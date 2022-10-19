@@ -9,14 +9,19 @@ package za.ac.cput.repository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import za.ac.cput.entity.BeverageMenu;
 import za.ac.cput.entity.Decor;
 import za.ac.cput.factory.DecorFactory;
+
+import java.util.List;
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 
 class DecorRepositoryTest {
-    private static DecorRepository repository = DecorRepository.getRepository();
-    private static Decor decor = DecorFactory.createDecor("Center Piece", "Large", "50", "R20");
+    private static Decor decor = DecorFactory.build("Center Piece", "Large", "50", "R20");
+    private static IDecorRepository repository;
 
     @Test
     void l_create() {
@@ -27,7 +32,7 @@ class DecorRepositoryTest {
 
     @Test
     void m_read() {
-     Decor read = repository.read(decor.getDecorType());
+        Optional<Decor> read = repository.read(decor.getDecorType());
         assertNotNull(read);
         System.out.println("Read :"+ read);
     }
@@ -45,9 +50,10 @@ class DecorRepositoryTest {
 
     @Test
     void o_delete() {
-        boolean success = repository.delete(decor.getDecorType());
-        assertTrue(success);
-        System.out.println("Delete :"  + success);
+
+        this.repository.save(this.decor);
+        List<Decor> decorList= this.repository.findAll();
+        assertEquals(0,decorList.size());
     }
 
     @Test

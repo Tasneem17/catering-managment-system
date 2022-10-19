@@ -11,13 +11,17 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.entity.Equipment;
 import za.ac.cput.factory.EquipmentFactory;
+
+import java.util.List;
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 
 class EquipmentRepositoryTest {
 
-    private static EquipmentRepository repository = EquipmentRepository.getRepository();
-    private static Equipment equipment = EquipmentFactory.createEquipment("022", "Small Table", "20", "R200");
+    private static Equipment  equipment = EquipmentFactory.build("022", "Small Table", "20", "R200");
+    private static IEquipmentRepository repository ;
 
     @Test
     void l_create() {
@@ -28,9 +32,11 @@ class EquipmentRepositoryTest {
 
     @Test
     void m_read() {
-        Equipment read = repository.read(equipment.getEquipmentID());
-        assertNotNull(read);
-        System.out.println("Read :"+ read);
+        Optional< Equipment> read =this.repository.read(this.equipment.getEquipmentID());
+        assertAll(
+                ()->assertTrue(read.isPresent()),
+                ()-> assertEquals(this.equipment,read.get())
+        );
     }
 
     @Test
@@ -44,9 +50,9 @@ class EquipmentRepositoryTest {
 
     @Test
     void o_delete() {
-        boolean success = repository.delete(equipment.getEquipmentID());
-        assertTrue(success);
-        System.out.println("Delete" + success);
+        this.repository.save(this.equipment);
+        List<Equipment> equipmentList= this.repository.findAll();
+        assertEquals(0,equipmentList.size());
     }
 
     @Test

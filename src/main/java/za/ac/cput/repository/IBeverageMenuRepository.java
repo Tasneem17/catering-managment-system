@@ -19,6 +19,8 @@ public interface IBeverageMenuRepository extends JpaRepository<BeverageMenu,Stri
         public Set<BeverageMenu> getAll();
 
     Optional<BeverageMenu> read(String beverageName);
+
+    BeverageMenu create(BeverageMenu beverageMenu);
 }
 
 

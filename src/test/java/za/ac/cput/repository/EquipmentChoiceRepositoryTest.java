@@ -11,12 +11,16 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.entity.EquipmentChoice;
 import za.ac.cput.factory.EquipmentChoiceFactory;
+
+import java.util.List;
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 
 class EquipmentChoiceRepositoryTest {
-    private static EquipmentChoiceRepository repository = EquipmentChoiceRepository.getRepository();
-    private static EquipmentChoice equipmentChoice = EquipmentChoiceFactory.createEquipmentChoice("No", "Yes");
+    private static EquipmentChoice equipmentChoice = EquipmentChoiceFactory.build("No", "Yes");
+    private static IEquipmentChoiceRepository repository ;
 
     @Test
     void l_create() {
@@ -27,9 +31,12 @@ class EquipmentChoiceRepositoryTest {
 
     @Test
     void m_read() {
-        EquipmentChoice read = repository.read(equipmentChoice.getChoiceCustomer());
-       assertNotNull(read);
-        System.out.println("Read :"+ read);
+
+        Optional<EquipmentChoice> read =this.repository.read(this.equipmentChoice.getChoiceCustomer());
+        assertAll(
+                ()->assertTrue(read.isPresent()),
+                ()-> assertEquals(this.equipmentChoice,read.get())
+        );
     }
 
     @Test
@@ -43,9 +50,9 @@ class EquipmentChoiceRepositoryTest {
 
     @Test
     void o_delete() {
-        boolean success = repository.delete(equipmentChoice.getChoiceCustomer());
-        assertTrue(success);
-        System.out.println("Delete" + success);
+        this.repository.save(this.equipmentChoice);
+        List<EquipmentChoice> equipmentChoiceList= this.repository.findAll();
+        assertEquals(0,equipmentChoiceList.size());
     }
 
     @Test
