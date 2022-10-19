@@ -40,6 +40,16 @@ public class DecorServiceimpl implements DecorService {
     public List<Decor> findAllDecorType(String decorType) {
         return this.repository.findAll();
     }
+
+    @Override
+    public List<Decor> findAll() {
+        return null;
+    }
+
+    @Override
+    public void deleteBydecorType(String decorType) {
+
+    }
 }
 
 

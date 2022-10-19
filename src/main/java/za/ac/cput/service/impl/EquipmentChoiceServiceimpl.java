@@ -36,6 +36,16 @@ public class EquipmentChoiceServiceimpl implements EquipmentChoiceService {
     public List<EquipmentChoice> findAllChoiceCustomer(String choiceCustomer) {
         return this.repository.findAll();
     }
+
+    @Override
+    public void deleteBychoiceCustomer(String choiceCustomer) {
+
+    }
+
+    @Override
+    public List<EquipmentChoice> findAll() {
+        return null;
+    }
 }
 
 

@@ -39,5 +39,15 @@ public class EquipmentServiceimpl implements EquipmentService {
     public List<Equipment> findAllEquipmentID(String equipmentID) {
         return this.repository.findAll();
     }
+
+    @Override
+    public void deleteByequipmentID(String equipmentID) {
+
+    }
+
+    @Override
+    public List<Equipment> findAll() {
+        return null;
+    }
 }
 

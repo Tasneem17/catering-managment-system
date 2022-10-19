@@ -18,5 +18,7 @@ public interface IEquipmentChoiceRepository extends JpaRepository<EquipmentChoic
         public Set<EquipmentChoice> getAll();
 
     Optional<EquipmentChoice> read(String choiceCustomer);
+
+    EquipmentChoice create(EquipmentChoice equipmentChoice);
 }
 
