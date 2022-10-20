@@ -15,12 +15,7 @@ import java.util.Set;
 @Repository
 public interface IBeverageMenuRepository extends JpaRepository<BeverageMenu,String> {
 
-        //create,read,update ,delete
-        public Set<BeverageMenu> getAll();
 
-    Optional<BeverageMenu> read(String beverageName);
-
-    BeverageMenu create(BeverageMenu beverageMenu);
 }
 
 

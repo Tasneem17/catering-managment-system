@@ -31,7 +31,7 @@ class EquipmentControllerTest {
     public void setUp() {
         assertNotNull(controller);
         this.equipment = EquipmentFactory
-                .build("test-type","","","");
+                .createEquipment("test-type","","","");
         this.baseURL = "http://;localhost:"+ this.port +"/catering/Equipment-type/";
     }
     @Order(1)

@@ -32,7 +32,7 @@ class DecorControllerTest {
     public void setUp() {
         assertNotNull(controller);
         this.decor = DecorFactory
-                .build("test-type","","","");
+                .createDecor("test-type","","","");
         this.baseURL = "http://;localhost:"+ this.port +"/catering/decor-type/";
     }
     @Order(1)

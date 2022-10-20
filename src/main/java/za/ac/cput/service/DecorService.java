@@ -10,11 +10,18 @@ package za.ac.cput.service;
 import za.ac.cput.entity.Decor;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface DecorService extends IService<Decor,String>{
+public interface DecorService {
+    Decor save(Decor decor);
+
+    Optional<Decor> read(String decorType);
+
+    boolean delete(Decor decor);
+
     List<Decor> findAllDecorType(String decorType);
 
     List<Decor> findAll();
 
-    void deleteBydecorType(String decorType);
+    boolean deleteBydecorType(String decorType);
 }

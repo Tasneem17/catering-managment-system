@@ -15,12 +15,7 @@ import java.util.Set;
 @Repository
 public interface IDecorRepository extends JpaRepository<Decor,String> {
 
-        //create,read,update ,delete
-        public Set<Decor> getAll();
 
-    Optional<Decor> read(String decorType);
-
-    Decor create(Decor decor);
 }
 
 
