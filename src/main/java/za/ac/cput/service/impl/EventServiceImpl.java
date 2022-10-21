@@ -37,6 +37,12 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
+    public boolean deletebyid(String id) {
+        this.eventRepository.deleteById(id);
+        return false;
+    }
+
+    @Override
     public List<Event> findAll () {
         return null;
     }

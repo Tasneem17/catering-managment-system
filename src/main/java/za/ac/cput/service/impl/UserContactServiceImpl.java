@@ -36,7 +36,13 @@ public class UserContactServiceImpl implements UserContactService {
         return false;
     }
 
-        @Override
+    @Override
+    public boolean deletebyid(String id) {
+        this.userContactRepository.deleteById(id);
+        return false;
+    }
+
+    @Override
         public List<UserContact> findAll () {
             return null;
     }
