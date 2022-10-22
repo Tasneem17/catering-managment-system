@@ -14,27 +14,27 @@ import java.util.List;
 import java.util.Optional;
 @Service
 public class EquipmentChoiceServiceimpl implements EquipmentChoiceService {
-    private final IEquipmentChoiceRepository repository;
+    private final IEquipmentChoiceRepository equipmentChoiceRepository;
     public EquipmentChoiceServiceimpl(IEquipmentChoiceRepository repository){
-        this.repository = repository;
+        this.equipmentChoiceRepository = repository;
     }
 @Override
-    public EquipmentChoice save (EquipmentChoice equipmentChoice){
-        return this.repository.save(equipmentChoice);
+    public EquipmentChoice save(EquipmentChoice equipmentChoice){
+        return this.equipmentChoiceRepository.save(equipmentChoice);
     }
 @Override
     public Optional<EquipmentChoice> read(String choiceCustomer) {
-        return this.repository.read(choiceCustomer);
+        return this.equipmentChoiceRepository.findById(choiceCustomer);
     }
 @Override
     public boolean delete(EquipmentChoice equipmentChoice){
-        this.repository.delete(equipmentChoice);
+        this.equipmentChoiceRepository.delete(equipmentChoice);
     return false;
 }
 @Override
 
     public List<EquipmentChoice> findAllChoiceCustomer(String choiceCustomer) {
-        return this.repository.findAll();
+        return this.equipmentChoiceRepository.findAll();
     }
 
     @Override

@@ -6,6 +6,7 @@
  */
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -18,27 +19,28 @@ import java.util.Optional;
 
 @Service
 public class DecorServiceimpl implements DecorService {
-    private final IDecorRepository repository;
-    public DecorServiceimpl(IDecorRepository repository){
-        this.repository = repository;
+    private final IDecorRepository decorRepository;
+    @Autowired
+    public DecorServiceimpl(IDecorRepository  decorRepository){
+        this. decorRepository =  decorRepository;
     }
     @Override
     public Decor save (Decor decor){
-        return this.repository.save(decor);
+        return this. decorRepository.save(decor);
     }
     @Override
     public Optional<Decor> read(String decorType) {
-        return this.repository.read(decorType);
+        return this. decorRepository.findById(decorType);
     }
     @Override
     public boolean delete(Decor decor){
-        this.repository.delete(decor);
+        this. decorRepository.delete(decor);
         return false;
     }
 
     @Override
     public List<Decor> findAllDecorType(String decorType) {
-        return this.repository.findAll();
+        return this. decorRepository.findAll();
     }
 
     @Override
@@ -47,8 +49,9 @@ public class DecorServiceimpl implements DecorService {
     }
 
     @Override
-    public void deleteBydecorType(String decorType) {
-
+    public boolean deleteBydecorType(String decorType) {
+        this.decorRepository.deleteById(decorType);
+        return false;
     }
 }
 

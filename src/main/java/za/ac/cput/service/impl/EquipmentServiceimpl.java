@@ -6,6 +6,7 @@
  */
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import za.ac.cput.entity.Equipment;
@@ -17,27 +18,28 @@ import java.util.Optional;
 
 @Service
 public class EquipmentServiceimpl implements EquipmentService {
-    private final IEquipmentRepository repository;
-    public EquipmentServiceimpl(IEquipmentRepository repository){
-        this.repository = repository;
+    private final IEquipmentRepository equipmentRepository;
+    @Autowired
+    public EquipmentServiceimpl(IEquipmentRepository equipmentRepository){
+        this.equipmentRepository = equipmentRepository;
     }
     @Override
     public Equipment save (Equipment equipment){
-        return this.repository.save(equipment);
+        return this.equipmentRepository.save(equipment);
     }
     @Override
     public Optional<Equipment> read(String equipmentID) {
-        return this.repository.read(equipmentID);
+        return this.equipmentRepository.findById(equipmentID);
     }
     @Override
     public boolean delete(Equipment equipment){
-        this.repository.delete(equipment);
+        this.equipmentRepository.delete(equipment);
         return false;
     }
 
     @Override
     public List<Equipment> findAllEquipmentID(String equipmentID) {
-        return this.repository.findAll();
+        return this.equipmentRepository.findAll();
     }
 
     @Override

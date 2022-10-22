@@ -31,7 +31,7 @@ class BeverageMenuControllerTest {
     public void setUp() {
         assertNotNull(controller);
         this.beverageMenu = BeverageMenuFactory
-                .build("test-type","","","","");
+                .createBeverageMenu("test-type","","","","");
         this.baseURL = "http://;localhost:"+ this.port +"/catering/Beverage-type/";
     }
     @Order(1)
