@@ -2,9 +2,7 @@ package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.entity.EventAppointment;
-import za.ac.cput.entity.UserContact;
 import za.ac.cput.repository.EventAppointmentRepository;
-import za.ac.cput.repository.UserContactRepository;
 import za.ac.cput.service.EventAppointmentService;
 
 import java.util.List;
@@ -33,6 +31,12 @@ public class EventAppointmentServiceImpl implements EventAppointmentService {
     @Override
     public boolean delete(EventAppointment eventAppointment) {
         this.eventAppointmentRepository.delete(eventAppointment);
+        return false;
+    }
+
+    @Override
+    public boolean deletebyid(String id) {
+        this.eventAppointmentRepository.deleteById(id);
         return false;
     }
 
