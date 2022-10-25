@@ -3,8 +3,10 @@ package za.ac.cput.userinterface;
 import za.ac.cput.entity.Decor;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class DecorUI {
+public class DecorUI extends JFrame{
     private JRadioButton tableLinenRadioButton;
     private JRadioButton centrePiecesRadioButton;
     private JRadioButton chairCoversRadioButton;
@@ -25,12 +27,49 @@ public class DecorUI {
     private JButton menuCategoryButton;
     private JButton exitButton;
     private JTextField textField9;
+    private JPanel DecorP;
 
-    public DecorUI(Object o) {
+
+    public DecorUI() {
+        setTitle("Decor");
+        setContentPane(DecorP);
+        setSize(900, 400);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setVisible(true);
+        tableLinenRadioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        textField9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        menuCategoryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getActionCommand().equals("Exit")) {
+                    System.exit(0);
+                }
+            }
+        });
     }
-
-
     public static void main (String[]args){
-        DecorUI Form = new DecorUI(null);
+        DecorUI Form = new DecorUI() ;
     }
 }
