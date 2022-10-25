@@ -17,7 +17,7 @@ class EquipmentFactoryTest {
     public void buildWithSuccess() {
 
         Equipment equipment = EquipmentFactory
-                .build("Table Cloth","","","");
+                .createEquipment("Table Cloth","","","");
         System.out.println(equipment);
         assertNotNull(equipment);
     }
@@ -27,7 +27,7 @@ class EquipmentFactoryTest {
 
         Exception  exception = assertThrows(IllegalArgumentException.class,() ->
                EquipmentFactory
-                        .build("null","","",""));
+                       .createEquipment("null","","",""));
         String exceptionMessage = exception.getMessage();
         System.out.println(exceptionMessage);
         assertSame( "EquipmentId is required!",exceptionMessage );

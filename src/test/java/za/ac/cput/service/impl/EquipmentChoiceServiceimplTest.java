@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(classes = RunCateringManagementSystem.class)
 class EquipmentChoiceServiceimplTest {
     private final EquipmentChoice equipmentChoice = EquipmentChoiceFactory
-            .build("test-bev-name","price");
+            .createEquipmentChoice("test-bev-name","price");
     @Autowired
     private EquipmentChoiceService service;
     @Test

@@ -12,7 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class BeverageMenu {
+public class  BeverageMenu {
 
 
     public int length;

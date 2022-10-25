@@ -17,7 +17,7 @@ class EquipmentChoiceFactoryTest {
     public void buildWithSuccess() {
 
         EquipmentChoice equipmentChoice = EquipmentChoiceFactory
-                .build("Yes","");
+                .createEquipmentChoice("Yes","");
         System.out.println(equipmentChoice);
         assertNotNull(equipmentChoice);
     }
@@ -27,7 +27,7 @@ class EquipmentChoiceFactoryTest {
 
         Exception  exception = assertThrows(IllegalArgumentException.class,() ->
                 EquipmentChoiceFactory
-                        .build("null",""));
+                        .createEquipmentChoice("null",""));
         String exceptionMessage = exception.getMessage();
         System.out.println(exceptionMessage);
         assertSame( "Equipment Choice required!",exceptionMessage );

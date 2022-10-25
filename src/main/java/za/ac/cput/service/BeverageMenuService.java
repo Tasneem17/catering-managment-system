@@ -21,4 +21,6 @@ public interface BeverageMenuService {
     Optional<BeverageMenu> read(String beverageName);
 
     List<BeverageMenu> findAll();
+
+    void delete(BeverageMenu beverageMenu);
 }
