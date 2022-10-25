@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DecorServiceimplTest {
 
     private final Decor decor = DecorFactory
-            .build("test-bev-name","price","","");
+            .createDecor("test-bev-name","price","","");
     @Autowired
     private DecorService service;
     @Test

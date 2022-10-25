@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(classes = RunCateringManagementSystem.class)
 class EquipmentServiceimplTest {
     private final Equipment equipment = EquipmentFactory
-            .build("test-bev-name","price","","");
+            .createEquipment("test-bev-name","price","","");
     @Autowired
     private EquipmentService service;
 

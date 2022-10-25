@@ -1,5 +1,7 @@
 package za.ac.cput.userinterface;
 
+import za.ac.cput.entity.Decor;
+
 import javax.swing.*;
 
 public class DecorUI {
@@ -23,4 +25,12 @@ public class DecorUI {
     private JButton menuCategoryButton;
     private JButton exitButton;
     private JTextField textField9;
+
+    public DecorUI(Object o) {
+    }
+
+
+    public static void main (String[]args){
+        DecorUI Form = new DecorUI(null);
+    }
 }

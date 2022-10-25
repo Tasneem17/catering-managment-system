@@ -18,7 +18,7 @@ class BeverageMenuFactoryTest {
 public void buildWithSuccess() {
 
     BeverageMenu beverageMenu = BeverageMenuFactory
-            .build("Tropical splash","","","","");
+            .createBeverageMenu("Tropical splash","","","","");
     System.out.println(beverageMenu);
     assertNotNull(beverageMenu);
 }
@@ -28,7 +28,7 @@ public void buildWithSuccess() {
 
         Exception  exception = assertThrows(IllegalArgumentException.class,() ->
                 BeverageMenuFactory
-                        .build("null","","","",""));
+                        .createBeverageMenu("null","","","",""));
         String exceptionMessage = exception.getMessage();
         System.out.println(exceptionMessage);
         assertSame( "beverage name is required!",exceptionMessage );

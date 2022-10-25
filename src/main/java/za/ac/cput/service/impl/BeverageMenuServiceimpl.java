@@ -43,6 +43,11 @@ public Optional<BeverageMenu> read(String beverageName) {
     }
 
     @Override
+    public void delete(BeverageMenu beverageMenu) {
+
+    }
+
+    @Override
     public boolean deleteBybeverageName(String beverageName) {
         this.beverageMenuRepository.deleteById(beverageName);
         return false;
