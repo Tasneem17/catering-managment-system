@@ -22,6 +22,10 @@ class MenuControllerTest {
     @Autowired
     private  MenuController controller;
     private Menu menu;
+
+    public static String SECURITY_USERNAME = "userA";
+
+    public static String SECURITY_PASSWORD = "12345";
     @LocalServerPort
     private  int port;
     private  String baseURL;
@@ -38,7 +42,7 @@ class MenuControllerTest {
     void save() {
         String url = baseURL + "save/";
         System.out.println(url);
-        ResponseEntity<Menu> response = this.restTemplate
+        ResponseEntity<Menu> response = this.restTemplate.withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .postForEntity(url,this.menu,Menu.class);
         System.out.println(response);
         assertAll(()->assertEquals(HttpStatus.OK,response.getStatusCode()),
@@ -50,7 +54,8 @@ class MenuControllerTest {
     @Test
     void delete() {
         String url = baseURL + "delete/"+ this.menu.getMenu_ID();
-        this.restTemplate.delete(url);
+        this.restTemplate.withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .delete(url);
         System.out.println("Deleted:" + this.menu.getMenu_ID() +"\n"+url);
     }
     @Order(3)
@@ -60,7 +65,8 @@ class MenuControllerTest {
         System.out.println(url);
         HttpHeaders header = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, header);
-        ResponseEntity<String> response = this.restTemplate.exchange(url,HttpMethod.GET,entity,String.class);
+        ResponseEntity<String> response = this.restTemplate.withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .exchange(url,HttpMethod.GET,entity,String.class);
         assertAll(()->assertEquals(HttpStatus.OK,response.getStatusCode()));
         System.out.println(response.getBody());
 
@@ -72,7 +78,8 @@ class MenuControllerTest {
         System.out.println(url);
         HttpHeaders header = new HttpHeaders();
         HttpEntity<Menu> entity = new HttpEntity<>(null, header);
-        ResponseEntity<Menu> response = this.restTemplate.exchange(url,HttpMethod.GET,entity,Menu.class);
+        ResponseEntity<Menu> response = this.restTemplate.withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .exchange(url,HttpMethod.GET,entity,Menu.class);
 //        assertAll(()->assertEquals(HttpStatus.OK,response.getStatusCode()));
         System.out.println(response.getBody());
     }

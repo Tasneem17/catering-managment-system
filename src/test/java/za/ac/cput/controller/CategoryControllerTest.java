@@ -21,6 +21,9 @@ private  CategoryController controller;
 private Category category;
 @LocalServerPort
 private  int port;
+
+    public static String SECURITY_USERNAME = "userA";
+    public static String SECURITY_PASSWORD = "12345";
 private  String baseURL;
     @BeforeEach
     public void setUp() {
@@ -33,7 +36,8 @@ private  String baseURL;
     void save() {
         String url = baseURL + "save/";
         System.out.println(url);
-        ResponseEntity<Category> response = this.restTemplate.postForEntity(url,this.category,Category.class);
+        ResponseEntity<Category> response = this.restTemplate.withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+        .postForEntity(url,this.category,Category.class);
         System.out.println(response);
         assertAll(()->assertEquals(HttpStatus.OK,response.getStatusCode()),
                 ()->assertNotNull(response.getBody()));
@@ -43,7 +47,8 @@ private  String baseURL;
     @Test
     void delete() {
         String url = baseURL + "delete/"+ this.category.getCategory_ID();
-        this.restTemplate.delete(url);
+        this.restTemplate.withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .delete(url);
         System.out.println("Deleted:" + this.category.getCategory_ID()+"\n"+url);
     }
     @Order(3)
@@ -53,7 +58,8 @@ private  String baseURL;
         System.out.println(url);
         HttpHeaders header = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, header);
-        ResponseEntity<String> response = this.restTemplate.exchange(url, HttpMethod.GET, entity,String.class);
+        ResponseEntity<String> response = this.restTemplate.withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity,String.class);
        assertNotNull(response);
         assertAll(()->assertEquals(HttpStatus.OK,response.getStatusCode()));
         System.out.println(response.getBody());
@@ -65,7 +71,8 @@ private  String baseURL;
         System.out.println(url);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<Category> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<Category> response = restTemplate.exchange(url, HttpMethod.GET, entity, Category.class);
+        ResponseEntity<Category> response = restTemplate.withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity, Category.class);
         System.out.println("Read: " + response.getBody());
     }
 }

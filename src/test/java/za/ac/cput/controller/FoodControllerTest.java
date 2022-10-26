@@ -22,6 +22,9 @@ class FoodControllerTest {
     private Food food;
     @LocalServerPort
     private  int port;
+
+    public static String SECURITY_USERNAME = "userA";
+    public static String SECURITY_PASSWORD = "12345";
     private  String baseURL;
     @BeforeEach
     public void setUp() {
@@ -39,7 +42,8 @@ class FoodControllerTest {
     void save() {
         String url = baseURL + "save/";
         System.out.println(url);
-        ResponseEntity<Food> response = this.restTemplate.postForEntity(url, this.food,Food.class);
+        ResponseEntity<Food> response = this.restTemplate.withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .postForEntity(url, this.food,Food.class);
         System.out.println(response);
         assertAll(()->assertEquals(HttpStatus.OK,response.getStatusCode()),
                 ()->assertNotNull(response.getBody()));
@@ -50,7 +54,8 @@ class FoodControllerTest {
     @Test
     void delete() {
         String url = baseURL + "delete/"+ this.food.getFood_ID();
-        this.restTemplate.delete(url);
+        this.restTemplate.withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .delete(url);
         System.out.println("Deleted:" + this.food.getFood_ID() +"\nAt "+url);
     }
     @Order(2)
@@ -60,7 +65,8 @@ class FoodControllerTest {
         System.out.println(url);
         HttpHeaders header = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, header);
-        ResponseEntity<String> response = this.restTemplate.exchange(url, HttpMethod.GET,entity,String.class);
+        ResponseEntity<String> response = this.restTemplate.withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET,entity,String.class);
         assertAll(()->assertEquals(HttpStatus.OK,response.getStatusCode()));
         System.out.println(response.getBody());
     }
@@ -71,7 +77,8 @@ class FoodControllerTest {
         System.out.println(url);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<Food> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<Food> response = restTemplate.exchange(url, HttpMethod.GET, entity, Food.class);
+        ResponseEntity<Food> response = restTemplate.withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity, Food.class);
 //        assertAll(()->assertEquals(HttpStatus.OK,response.getStatusCode()));
         assertNotNull(response);
         assertNotNull(response.getBody());
