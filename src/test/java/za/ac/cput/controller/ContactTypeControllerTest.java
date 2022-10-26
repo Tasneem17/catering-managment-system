@@ -5,17 +5,19 @@
 
 package za.ac.cput.controller;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import za.ac.cput.entity.ContactType;
+import za.ac.cput.entity.UserRole;
 import za.ac.cput.factory.ContactTypeFactory;
+
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -36,43 +38,55 @@ class ContactTypeControllerTest {
         this.contactType = ContactTypeFactory.build("223", "John Smith", "Customer");
         this.baseURL = "http://localhost:"+ this.port +"/contactType/";
     }
+    public static String SECURITY_USERNAME = "userA";
+    public static String SECURITY_PASSWORD = "12345";
+    @Order(1)
     @Test
     void save() {
         String url = baseURL + "save/";
         System.out.println(url);
-        ResponseEntity<ContactType> response = this.restTemplate.postForEntity(url,this.contactType,ContactType.class);
+        ResponseEntity<ContactType> response = this.restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url,this.contactType,ContactType.class);
         System.out.println(response);
-        assertAll(()->assertEquals(HttpStatus.OK,response.getStatusCode()),
-                ()->assertNotNull(response.getBody()));
-        System.out.println("Created: " + response.getBody());
+        assertAll(
+                ()->assertEquals(HttpStatus.OK,response.getStatusCode()),
+                ()->assertNotNull(response.getBody())
+        );
     }
 
     @Test
     void findAll() {
-        String url = baseURL + "all/" ;
+        String url = baseURL + "all" ;
         System.out.println(url);
-        HttpHeaders header = new HttpHeaders();
-        HttpEntity<String> entity = new HttpEntity<>(null, header);
-        ResponseEntity<String> response = this.restTemplate.exchange(url, HttpMethod.GET, entity,String.class);
-        assertNotNull(response);
-        assertAll(()->assertEquals(HttpStatus.OK,response.getStatusCode()));
-        System.out.println(response.getBody());
+        ResponseEntity<List<ContactType>> response =
+                this.restTemplate
+                        .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                        .exchange(url,
+                                HttpMethod.GET,
+                                null,
+                                new ParameterizedTypeReference<List<ContactType>>() {});
+        assertAll(
+                ()->assertEquals(HttpStatus.OK,response.getStatusCode())
+        );
     }
 
+    @Order(2)
     @Test
     void read() {
         String url = baseURL + "read/"+ this.contactType.getContactTypeId();
         System.out.println(url);
-        HttpHeaders headers = new HttpHeaders();
-        HttpEntity<ContactType> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<ContactType> response = restTemplate.exchange(url, HttpMethod.GET, entity, ContactType.class);
+        ResponseEntity<UserRole> response = this.restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url,UserRole.class);
         System.out.println("Read: " + response.getBody());
     }
 
     @Test
-    void deleteById() {
+    void delete() {
         String url = baseURL + "delete/"+ this.contactType.getContactTypeId();
-        this.restTemplate.delete(url);
-        System.out.println("Deleted:" + this.contactType.getContactTypeId()+"\n"+url);
+        this.restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .delete(url);
     }
 }

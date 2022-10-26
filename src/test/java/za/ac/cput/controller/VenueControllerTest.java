@@ -6,17 +6,18 @@
 package za.ac.cput.controller;
 
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import za.ac.cput.entity.Venue;
+import za.ac.cput.entity.VenueChoice;
 import za.ac.cput.factory.VenueFactory;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,43 +39,50 @@ class VenueControllerTest {
         this.venue = VenueFactory.build("CPT05", "Casey's Bar", 3500.00,"Bachelor party");
         this.baseURL = "http://localhost:"+ this.port +"/venue/";
     }
+    public static String SECURITY_USERNAME = "userA";
+    public static String SECURITY_PASSWORD = "12345";
+    @Order(1)
     @Test
     void save() {
         String url = baseURL + "save/";
         System.out.println(url);
         ResponseEntity<Venue> response = this.restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
                 .postForEntity(url,this.venue,Venue.class);
         System.out.println(response);
-        assertAll(()->assertNotEquals(HttpStatus.OK,response.getStatusCode()), ()->assertNotNull(response.getBody()));
-        System.out.println(response.getStatusCode());
+        assertAll(
+                ()->assertNotNull(response.getBody())
+        );
     }
 
     @Test
     void findAll() {
-        String url = baseURL + "all/" ;
+        String url = baseURL + "all" ;
         System.out.println(url);
-        HttpHeaders header = new HttpHeaders();
-        HttpEntity<String> entity = new HttpEntity<>(null, header);
-        ResponseEntity<String> response = this.restTemplate.exchange(url, HttpMethod.GET, entity,String.class);
-        assertNotNull(response);
-        assertAll(()->assertEquals(HttpStatus.OK,response.getStatusCode()));
-        System.out.println(response.getBody());
+        ResponseEntity<List<Venue>> response =
+                this.restTemplate
+                        .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                        .getForEntity(url,
+                                null,
+                                new ParameterizedTypeReference<List<Venue>>() {});
     }
 
+    @Order(2)
     @Test
     void read() {
         String url = baseURL + "read/"+ this.venue.getVenueId();
         System.out.println(url);
-        HttpHeaders headers = new HttpHeaders();
-        HttpEntity<Venue> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<Venue> response = restTemplate.exchange(url, HttpMethod.GET, entity, Venue.class);
+        ResponseEntity<Venue> response = this.restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url,Venue.class);
         System.out.println("Read: " + response.getBody());
     }
 
     @Test
-    void deleteById() {
+    void delete() {
         String url = baseURL + "delete/"+ this.venue.getVenueId();
-        this.restTemplate.delete(url);
-        System.out.println("Deleted:" + this.venue.getVenueId()+"\n"+url);
+        this.restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .delete(url);
     }
 }

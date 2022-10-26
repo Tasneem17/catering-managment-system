@@ -5,17 +5,19 @@
 
 package za.ac.cput.controller;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
+import za.ac.cput.entity.ContactType;
+import za.ac.cput.entity.UserRole;
 import za.ac.cput.entity.VenueChoice;
 import za.ac.cput.factory.VenueChoiceFactory;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,43 +39,55 @@ class VenueChoiceControllerTest {
         this.venueChoice = VenueChoiceFactory.build("CPT05", "Bar");
         this.baseURL = "http://localhost:"+ this.port +"/venueChoice/";
     }
+
+    public static String SECURITY_USERNAME = "userA";
+    public static String SECURITY_PASSWORD = "12345";
+
+    @Order(1)
     @Test
     void save() {
         String url = baseURL + "save/";
         System.out.println(url);
-        ResponseEntity<VenueChoice> response = this.restTemplate.postForEntity(url,this.venueChoice,VenueChoice.class);
+        ResponseEntity<VenueChoice> response = this.restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url,this.venueChoice,VenueChoice.class);
         System.out.println(response);
-        assertAll(()->assertNotEquals(HttpStatus.OK,response.getStatusCode()),
-                ()->assertNotNull(response.getBody()));
-        System.out.println("Created: " + response.getBody());
+        assertAll(
+                ()->assertNotNull(response.getBody())
+        );
     }
 
     @Test
     void findAll() {
-        String url = baseURL + "all/" ;
+        String url = baseURL + "all" ;
         System.out.println(url);
-        HttpHeaders header = new HttpHeaders();
-        HttpEntity<String> entity = new HttpEntity<>(null, header);
-        ResponseEntity<String> response = this.restTemplate.exchange(url, HttpMethod.GET, entity,String.class);
-        assertNotNull(response);
-        assertAll(()->assertNotEquals(HttpStatus.OK,response.getStatusCode()));
-        System.out.println(response.getBody());
+        ResponseEntity<List<VenueChoice>> response =
+                this.restTemplate
+                        .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                        .getForEntity(url,
+                                null,
+                                new ParameterizedTypeReference<List<VenueChoice>>() {});
+        assertAll(
+                ()->assertNotEquals(HttpStatus.OK,response.getStatusCode())
+        );
     }
 
+    @Order(2)
     @Test
     void read() {
-        String url = baseURL + "read/"+ this.venueChoice.getVenueType();
+        String url = baseURL + "read/"+ this.venueChoice.getVenueId();
         System.out.println(url);
-        HttpHeaders headers = new HttpHeaders();
-        HttpEntity<VenueChoice> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<VenueChoice> response = restTemplate.exchange(url, HttpMethod.GET, entity, VenueChoice.class);
+        ResponseEntity<VenueChoice> response = this.restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url,VenueChoice.class);
         System.out.println("Read: " + response.getBody());
     }
 
     @Test
-    void deleteById() {
-        String url = baseURL + "delete/"+ this.venueChoice.getVenueType();
-        this.restTemplate.delete(url);
-        System.out.println("Deleted:" + this.venueChoice.getVenueType()+"\n"+url);
+    void delete() {
+        String url = baseURL + "delete/"+ this.venueChoice.getVenueId();
+        this.restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .delete(url);
     }
 }
