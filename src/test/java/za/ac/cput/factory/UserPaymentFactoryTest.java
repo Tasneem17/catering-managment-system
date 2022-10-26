@@ -11,7 +11,7 @@ class UserPaymentFactoryTest {
     public void buildWithSuccess() {
 
         UserPayment userPayment = UserPaymentFactory
-                .build("001","active","");
+                .build("001","active","$490");
         System.out.println(userPayment);
         assertNotNull(userPayment);
     }

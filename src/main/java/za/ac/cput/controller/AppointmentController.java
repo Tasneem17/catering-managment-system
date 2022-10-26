@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
     @RestController
-    @RequestMapping("catering/management/system/Appointment")
+    @RequestMapping("/appointment")
     @Slf4j
     public class AppointmentController {
         private final AppointmentServiceimpl appointmentServiceimpl;
@@ -23,15 +23,17 @@ import java.util.List;
             this.appointmentServiceimpl = appointmentServiceimpl;
         }
 
-        @PostMapping("Save")
+        @PostMapping("/Save")
         //implementation of the controller
         public ResponseEntity<Appointment> save (@Valid @RequestBody Appointment appointment) {
-            log.info("Save request: {}",appointment);
-            Appointment save = appointmentServiceimpl.save(appointment);
-            return ResponseEntity.ok(save);
+            log.info("/Save request: {}",appointment);
+            return ResponseEntity.ok(
+                    this.appointmentServiceimpl.save(appointment)
+            );
+
         }
 
-        @GetMapping("read/{type}")
+        @GetMapping("/read/{type}")
         public ResponseEntity<Appointment> read(@PathVariable String appointment) {
             log.info("Read request:{}",appointment);
             Appointment appointmentType =  this.appointmentServiceimpl.read(appointment)
@@ -41,14 +43,14 @@ import java.util.List;
         }
 
 
-        @DeleteMapping("delete/{type}")
+        @DeleteMapping("/delete/{type}")
         public ResponseEntity <Void> delete(@PathVariable String id) {
             log.info("Read request:{}",id);
             this.appointmentServiceimpl.deleteById(id);
             return  ResponseEntity.noContent().build();
         }
 
-        @GetMapping("all")
+        @GetMapping("/all")
         public ResponseEntity<List<Appointment>> findAll() {
             List<Appointment>appointmentType = this.appointmentServiceimpl.findAll();
             return ResponseEntity.ok(appointmentType);

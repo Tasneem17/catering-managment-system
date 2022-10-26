@@ -22,19 +22,17 @@ public class EventStatusServiceImpl implements EventStatusService {
         return this.eventStatusRepository.save(eventStatus);
     }
 
+    @Override
     public Optional<EventStatus> read(String eventStatus) {
         return this.eventStatusRepository.findById(eventStatus);
     }
 
-    public boolean delete(EventStatus eventStatus){
-        this.eventStatusRepository.delete(eventStatus);
-        return false;
-    }
-
+    @Override
     public void deleteByid(String id) {
         this.eventStatusRepository.deleteById(id);
     }
 
+    @Override
     public List<EventStatus> findAll() {
         return this.eventStatusRepository.findAll();
     }

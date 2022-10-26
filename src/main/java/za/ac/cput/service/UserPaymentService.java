@@ -8,4 +8,11 @@ import java.util.List;
 @Service
 public interface UserPaymentService  {
 
+
+    UserPayment read(String s);
+
+    void deleteById(String id);
+
+    UserPayment save(UserPayment UserPayment);
+    List<UserPayment> findAll();
 }
