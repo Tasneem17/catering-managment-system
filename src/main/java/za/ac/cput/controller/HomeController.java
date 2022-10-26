@@ -16,8 +16,8 @@ public class HomeController {
 //    Testing controller
 //    This will display Hello in the browser when going to localhost:8080/home/hello
 
-//    @GetMapping("/hello")
-//    public String hello(){
-//        return "Hello";
-//    }
+    @GetMapping("/hello")
+    public String hello(){
+        return "What is the ";
+    }
 }

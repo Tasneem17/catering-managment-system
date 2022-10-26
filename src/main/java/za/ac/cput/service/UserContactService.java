@@ -6,7 +6,7 @@ import za.ac.cput.service.IService;
 
 import java.util.List;
 
-@Repository
+//@Repository
 public interface UserContactService extends IService <UserContact, String>{
 
     boolean deletebyid(String id);

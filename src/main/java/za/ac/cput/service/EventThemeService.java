@@ -6,7 +6,7 @@ import za.ac.cput.service.IService;
 
 import java.util.List;
 
-@Repository
+//@Repository
 public interface EventThemeService extends IService <EventTheme, String>{
 
         boolean deletebyid(String id);
