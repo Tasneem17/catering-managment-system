@@ -1,6 +1,5 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.entity.Appointment;
 import za.ac.cput.entity.Payment;
 import za.ac.cput.util.Helper;
 

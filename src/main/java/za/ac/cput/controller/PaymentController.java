@@ -1,3 +1,4 @@
+
 package za.ac.cput.controller;
 
 import lombok.extern.slf4j.Slf4j;
@@ -7,9 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.entity.Payment;
-
 import za.ac.cput.service.impl.PaymentServiceimpl;
-
 
 import javax.validation.Valid;
 import java.util.List;
@@ -24,14 +23,16 @@ public class PaymentController {
     public PaymentController(PaymentServiceimpl paymentServiceimpl)
     {this.paymentServiceimpl = paymentServiceimpl;}
 
-    @PostMapping("Save")
+    @PostMapping("/Save")
     public ResponseEntity<Payment> save (@Valid @RequestBody Payment payment) {
         log.info("Save request: {}",payment);
-        Payment save = paymentServiceimpl.save(payment);
-        return ResponseEntity.ok(save);
+        return ResponseEntity.ok(
+                this.paymentServiceimpl.save(payment)
+        );
+
     }
 
-    @GetMapping("read/{type}")
+    @GetMapping("/read/{type}")
     public ResponseEntity<Payment> read(@PathVariable String payment) {
         log.info("Read request:{}",payment);
         Payment paymentType =  this.paymentServiceimpl.read(payment)
@@ -41,14 +42,14 @@ public class PaymentController {
     }
 
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity <Void> delete(@PathVariable String id) {
         log.info("Read request:{}",id);
         this.paymentServiceimpl.deleteById(id);
         return  ResponseEntity.noContent().build();
     }
 
-    @GetMapping("all")
+    @GetMapping("/all")
     public ResponseEntity<List<Payment>> findAll() {
         List<Payment> paymentType = this.paymentServiceimpl.findAll();
         return ResponseEntity.ok(paymentType);

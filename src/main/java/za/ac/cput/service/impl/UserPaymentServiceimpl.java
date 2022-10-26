@@ -3,6 +3,7 @@ package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.entity.Category;
 import za.ac.cput.entity.UserPayment;
 import za.ac.cput.repository.UserPaymentRepository;
 import za.ac.cput.service.UserPaymentService;
@@ -19,15 +20,14 @@ public class UserPaymentServiceimpl implements UserPaymentService {
 
     public UserPayment save(UserPayment user) {return this.userpaymentRepository.save(user);}
 
-    public Optional<UserPayment> read(String s) {return this.userpaymentRepository.findById(s);}
-
-    public boolean delete(UserPayment userpayment) {this.userpaymentRepository.delete(userpayment);
-        return false;
+    @Override
+    public UserPayment read(String id) {
+        return this.userpaymentRepository.findById(id).orElse(null);
     }
-
+    @Override
     public void deleteById(String id){this.userpaymentRepository.deleteById(id);}
 
-
+    @Override
     public List<UserPayment> findAll() {return this.userpaymentRepository.findAll();}
 }
 
