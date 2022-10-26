@@ -29,25 +29,27 @@ import java.util.Optional;
         }
 
 
-        @PostMapping("save")
-        public Category save (@RequestBody @Valid Category category){
+        @PostMapping("/save")
+        public ResponseEntity<Category> save (@RequestBody @Valid Category category){
                 log.info("Save request:{}",category);
-                return this.categoryImpl.save(category);
+                return ResponseEntity.ok(
+                        this.categoryImpl.save(category)
+                );
 
         }
-        @DeleteMapping("delete/{id}")
+        @DeleteMapping("/delete/{id}")
         public boolean deletebyid(@PathVariable String id){
                 log.info("Read request:{}",id);
                 return   this.categoryImpl.deletebyid(id);
         }
 
-        @GetMapping("all")
+        @GetMapping("/all")
         public List<Category> findAll() {
                 return this.categoryImpl.findAll();
         }
 
 
-        @GetMapping("read{id}")
+        @GetMapping("/read/{id}")
         public Category read(@PathVariable @Validated String id){
                 log.info("Read request:{}",id);
                 return this.categoryImpl.read(id);

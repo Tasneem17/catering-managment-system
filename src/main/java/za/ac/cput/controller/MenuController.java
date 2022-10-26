@@ -37,7 +37,7 @@ public class MenuController {
     public List<Menu> findAll(){
         return  this.menuImpl.findAll();
     }
-    @GetMapping("read{id}")
+    @GetMapping("read/{id}")
     public Menu read(@PathVariable @Validated String id){
         log.info("Read request:{}",id);
         return this.menuImpl.read(id);
