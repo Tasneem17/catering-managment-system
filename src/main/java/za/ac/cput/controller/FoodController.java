@@ -41,7 +41,7 @@ public class FoodController {
     }
 
 
-    @GetMapping("/read{id}")
+    @GetMapping("/read/{id}")
     public Food read(@PathVariable String id){
         log.info("Read request:{}",id);
         return  this.foodImpl.read(id) ;
