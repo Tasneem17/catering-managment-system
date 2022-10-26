@@ -24,15 +24,17 @@ public class EventStatusController {
         this.eventStatusServiceimpl = eventStatusServiceimpl;
     }
 
-    @PostMapping("Save")
+    @PostMapping("/Save")
     //implementation of the controller
     public ResponseEntity<EventStatus> save (@Valid @RequestBody EventStatus eventStatus) {
         log.info("Save request: {}",eventStatus);
-        EventStatus save = eventStatusServiceimpl.save(eventStatus);
-        return ResponseEntity.ok(save);
+        return ResponseEntity.ok(
+                this.eventStatusServiceimpl.save(eventStatus)
+        );
+
     }
 
-    @GetMapping("read/{type}")
+    @GetMapping("/read/{type}")
     public ResponseEntity<EventStatus> read(@PathVariable String eventStatus) {
         log.info("Read request:{}",eventStatus);
         EventStatus eventStatusType =  this.eventStatusServiceimpl.read(eventStatus)
@@ -42,14 +44,14 @@ public class EventStatusController {
     }
 
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity <Void> delete(@PathVariable String id) {
         log.info("Read request:{}",id);
         this.eventStatusServiceimpl.deleteByid(id);
         return  ResponseEntity.noContent().build();
     }
 
-    @GetMapping("all")
+    @GetMapping("/all")
     public ResponseEntity<List<EventStatus>> findAll() {
         List<EventStatus> eventStatusType = this.eventStatusServiceimpl.findAll();
         return ResponseEntity.ok(eventStatusType);
