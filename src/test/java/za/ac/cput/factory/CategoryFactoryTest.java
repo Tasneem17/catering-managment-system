@@ -1,5 +1,6 @@
 package za.ac.cput.factory;
 
+import com.google.gson.Gson;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 /*
@@ -21,7 +22,9 @@ class CategoryFactoryTest {
     public void test1(){
         Category cat = CategoryFactory.createCategory("554","Lunch"
                 ,"Fried Food");
-        System.out.println(cat.toString());
+        Gson gSon = new Gson();
+        String jsonString = gSon.toJson(cat);
+        System.out.println(jsonString);
     }
   @AfterEach
     //Failing Test

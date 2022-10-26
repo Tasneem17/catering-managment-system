@@ -108,6 +108,13 @@ public class EquipmentUI extends JFrame{
                 }
             }
         });
+        menuCategoryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FoodCategoryMenu fm = new FoodCategoryMenu();
+                setVisible(false);
+            }
+        });
     }
     public static void main (String[]args){
        EquipmentUI form = new EquipmentUI();

@@ -33,7 +33,7 @@
 //    @Test
 //    @Order(2)
 //    void read() {
-//        Optional<Category> read = this.categoryService.read(category.getCategory_ID());
+//        Optional<Category> read = Optional.ofNullable(this.categoryService.read(category.getCategory_ID()));
 //        assertEquals(read.get(),category.getCategory_ID());
 //        System.out.printf("Read " + read);
 //    }
