@@ -8,7 +8,7 @@ package za.ac.cput.service;
 import za.ac.cput.entity.VenueAddress;
 import java.util.Set;
 
-public interface VenueAddressService extends IService<VenueAddress, String>{
+public interface VenueAddressService <VenueAddress, String>{
     public Set<VenueAddress> getAll();
 
 }

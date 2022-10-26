@@ -16,18 +16,18 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public abstract class VenueChoiceServiceImpl implements VenueChoiceService {
+public  class VenueChoiceServiceImpl implements VenueChoiceService {
     private VenueChoiceRepository repository;
 
     @Autowired
     VenueChoiceServiceImpl(VenueChoiceRepository repository) {
         this.repository = repository;}
 
-    @Override
+
     public VenueChoice save(VenueChoice venueChoice) {
         return this.repository.save(venueChoice);}
 
-    @Override
+
     public Optional<VenueChoice> read(String id) {
         return Optional.ofNullable(this.repository.findById(id).orElse(null));}
 

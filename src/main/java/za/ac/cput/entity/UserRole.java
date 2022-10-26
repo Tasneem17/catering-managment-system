@@ -76,6 +76,8 @@ public class UserRole implements Serializable
             this.roleID = roleID;
         }
 
+        public UserRoleId(){}
+
         public String getUserID() {
             return userID;
         }

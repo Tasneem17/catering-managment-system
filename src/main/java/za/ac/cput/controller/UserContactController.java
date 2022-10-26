@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.entity.UserContact;
 import za.ac.cput.service.UserContactService;
+import za.ac.cput.service.impl.UserContactServiceImpl;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -18,11 +19,10 @@ import java.util.List;
 @RequestMapping("/UserContact")
 @Slf4j
 public class UserContactController {
-    private UserContactService userContactService;
+    private UserContactServiceImpl userContactService;
 
     @Autowired
-
-    public  UserContactController(UserContactService userContactService)
+    public  UserContactController(UserContactServiceImpl userContactService)
     {
         this.userContactService =userContactService;
     }

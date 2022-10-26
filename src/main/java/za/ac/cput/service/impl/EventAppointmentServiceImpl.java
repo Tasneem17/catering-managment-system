@@ -1,6 +1,7 @@
 package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.EventAppointment;
 import za.ac.cput.repository.EventAppointmentRepository;
 import za.ac.cput.service.EventAppointmentService;
@@ -8,6 +9,7 @@ import za.ac.cput.service.EventAppointmentService;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class EventAppointmentServiceImpl implements EventAppointmentService {
 
     private final EventAppointmentRepository eventAppointmentRepository;

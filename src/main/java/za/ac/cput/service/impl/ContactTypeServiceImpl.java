@@ -15,18 +15,18 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public abstract class ContactTypeServiceImpl implements ContactTypeService {
+public class ContactTypeServiceImpl implements ContactTypeService {
     private ContactTypeRepository repository;
 
     @Autowired
     ContactTypeServiceImpl(ContactTypeRepository repository) {
         this.repository = repository;}
 
-    @Override
+
     public ContactType save(ContactType contactType) {
         return this.repository.save(contactType);}
 
-    @Override
+
     public Optional<ContactType> read(String id) {
         return Optional.ofNullable(this.repository.findById(id).orElse(null));}
 
@@ -36,7 +36,7 @@ public abstract class ContactTypeServiceImpl implements ContactTypeService {
         return false;
     }
 
-    @Override
+
     public Set<ContactType> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }

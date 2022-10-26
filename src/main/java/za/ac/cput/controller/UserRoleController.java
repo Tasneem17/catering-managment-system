@@ -37,7 +37,7 @@ public class UserRoleController {
         );
     }
 
-    @GetMapping("read/{type}")
+    @GetMapping("read/{userID}")
     public ResponseEntity<UserRole> read(@PathVariable String userID)
     {
         UserRole read = this.userRoleService.findUserRoleByUserID(userID);
@@ -46,7 +46,7 @@ public class UserRoleController {
         return ResponseEntity.ok(read);
     }
 
-    @DeleteMapping("delete/{type}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id)
     {
         this.userRoleService.deleteUserRoleByUserID(id);

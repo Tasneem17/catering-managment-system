@@ -15,7 +15,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public abstract class VenueServiceImpl implements VenueService {
+public  class VenueServiceImpl implements VenueService {
     private VenueRepository repository;
 
     @Autowired
