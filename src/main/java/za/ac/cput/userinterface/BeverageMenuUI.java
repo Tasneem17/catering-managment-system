@@ -11,11 +11,7 @@ public class BeverageMenuUI  extends JFrame{
     private JTextField textField6;
     private JTextField textField7;
     private JTextField textField8;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JTextField textField9;
-    private JTextField textField1;
+    private JTextField textq1;
     private JTextField textField10;
     private JTextField textField11;
     private JTextField textField12;
@@ -26,12 +22,18 @@ public class BeverageMenuUI  extends JFrame{
     private JButton menuCategoryButton;
     private JButton exitButton;
     private JButton addButton;
-    private JTextField textField13;
+    private JTextField totalprice;
+    private JLabel tropPrice;
 
-    public BeverageMenuUI(JFrame parent) {
+    public BeverageMenuUI() {
+
         setTitle("Beverage Menu");
         setContentPane(panel1);
-        setLocationRelativeTo(parent);
+        setSize(900,400);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setVisible(true);
+
+
         tropicalSplashRadioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -65,10 +67,22 @@ public class BeverageMenuUI  extends JFrame{
         menuCategoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                if (tropicalSplashRadioButton.isSelected()) {
+                   // textq1 + tropPrice = totalprice;
+                    totalprice.setText("");
+                }
+               // JOptionPane.showMessageDialog(this,"Successfully added your Beverage Selection please PROCEED TO Menu Category");
             }
         });
         exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getActionCommand().equals("Exit")) {
+                    System.exit(0);
+                }
+            }
+        });
+        totalprice.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -76,12 +90,10 @@ public class BeverageMenuUI  extends JFrame{
         });
     }
 
-    public BeverageMenuUI() {
-
-    }
-
     public static void main (String[]args){
-        BeverageMenuUI form = new BeverageMenuUI(null);
+        BeverageMenuUI form = new BeverageMenuUI();
         }
-    }
+
+
+}
 
