@@ -22,7 +22,7 @@ public class  BeverageMenu {
     private String description;
     private String quantity;
     private String availability;
-private BeverageMenu(){}
+protected BeverageMenu(){}
 
     private BeverageMenu(Builder builder) {
         this.beverageName = builder.beverageName;

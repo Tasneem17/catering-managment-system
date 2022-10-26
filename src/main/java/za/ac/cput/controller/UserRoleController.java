@@ -19,7 +19,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user-role")
+@RequestMapping("/user-role/")
 public class UserRoleController {
 
     private final UserRoleServiceimpl userRoleService;
@@ -58,4 +58,6 @@ public class UserRoleController {
         List<UserRole> userRoles = this.userRoleService.findAll();
         return ResponseEntity.ok(userRoles);
     }
+
+
 }

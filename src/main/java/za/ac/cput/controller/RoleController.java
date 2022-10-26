@@ -28,7 +28,7 @@ public class RoleController {
         this.roleService = roleService;
     }
 
-    @PostMapping("save")
+    @PostMapping("/save")
     public ResponseEntity<Role> save(@Valid @RequestBody Role role)
     {
         return ResponseEntity.ok(
@@ -36,7 +36,7 @@ public class RoleController {
         );
     }
 
-    @GetMapping("read/{roleID}")
+    @GetMapping("/read/{roleID}")
     public ResponseEntity<Role> read(@PathVariable String roleID)
     {
         Role read = this.roleService.read(roleID)
@@ -45,14 +45,14 @@ public class RoleController {
         return ResponseEntity.ok(read);
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deletebyId(@PathVariable String id)
     {
         this.roleService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("all")
+    @GetMapping("/all")
     public ResponseEntity<List<Role>> findAll() {
         List<Role> roles = this.roleService.findAll();
         return ResponseEntity.ok(roles);

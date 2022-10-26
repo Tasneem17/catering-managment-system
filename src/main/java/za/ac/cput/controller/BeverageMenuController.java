@@ -33,7 +33,7 @@ public class BeverageMenuController {
         this.beverageMenuService = beverageMenuService;
     }
 
-    @PostMapping("Save")
+    @PostMapping("/save")
     //implementation of the controller
     public ResponseEntity<BeverageMenu> save (@Valid @RequestBody BeverageMenu beverageMenu) {
         log.info("Save request: {}",beverageMenu);
