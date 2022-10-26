@@ -12,8 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class VenueAddressFactoryTest {
 
     @Test
-    public void createVenueAddress(){
-        VenueAddress venueAddress = VenueAddressFactory.createVenueAddress("Rondebosch", "CapeTown", "3rd Avenue");
+    public void test1(){
+        VenueAddress venueAddress = VenueAddressFactory.build("Rondebosch", "CapeTown", "3rd Avenue");
         System.out.println(venueAddress.toString());
         assertNotNull(venueAddress);
     }

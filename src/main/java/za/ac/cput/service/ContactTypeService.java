@@ -6,9 +6,14 @@
 package za.ac.cput.service;
 
 import za.ac.cput.entity.ContactType;
-import java.util.Set;
 
-public interface ContactTypeService<ContactType, String>{
-//    public Set<ContactType> getAll();
+import java.util.List;
+import java.util.Optional;
+
+
+public interface ContactTypeService{
+    public List<ContactType> findAll();
+    void deleteById(String contactTypeId);
+    Optional<ContactType> read(String id);
 
 }

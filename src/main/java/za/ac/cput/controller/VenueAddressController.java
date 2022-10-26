@@ -15,9 +15,8 @@ import za.ac.cput.service.impl.VenueAddressServiceImpl;
 import javax.validation.Valid;
 import java.util.List;
 
-
 @RestController
-@RequestMapping("/venueAddress")
+@RequestMapping("catering-db/venueAddress")
 public class VenueAddressController {
     private VenueAddressServiceImpl venueAddressService;
 
@@ -32,10 +31,10 @@ public class VenueAddressController {
     }
 
     @GetMapping("read/{type}")
-    public ResponseEntity<VenueAddress> read(@PathVariable String id) {
-        VenueAddress read = this.venueAddressService.read(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
-                        "Address not found"));
+    public ResponseEntity<VenueAddress> read(@PathVariable String venueAddressId) {
+        VenueAddress read = this.venueAddressService.read(venueAddressId)
+                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "VenueAddress not found"));
         return ResponseEntity.ok(read);
     }
 
@@ -46,8 +45,8 @@ public class VenueAddressController {
     }
 
     @GetMapping("all")
-    public ResponseEntity<List<VenueAddress>> getAll() {
-        List<VenueAddress> venueAddresses = (List<VenueAddress>) this.venueAddressService.getAll();
-        return ResponseEntity.ok(venueAddresses);
+    public ResponseEntity<List<VenueAddress>> findAll() {
+        List<VenueAddress> venueAddresss = (List<VenueAddress>) this.venueAddressService.findAll();
+        return ResponseEntity.ok(venueAddresss);
     }
 }

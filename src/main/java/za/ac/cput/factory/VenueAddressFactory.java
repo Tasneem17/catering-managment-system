@@ -9,7 +9,7 @@ import za.ac.cput.entity.VenueAddress;
 import za.ac.cput.util.Helper;
 
 public class VenueAddressFactory {
-    public static VenueAddress createVenueAddress(String venueAddressArea, String venueAddressCity, String venueAddressStreet) {
+    public static VenueAddress build(String venueAddressArea, String venueAddressCity, String venueAddressStreet) {
 
         if (Helper.isNullorEmpty(venueAddressArea)|| Helper.isNullorEmpty(venueAddressCity)|| Helper.isNullorEmpty(venueAddressStreet))
             return null;

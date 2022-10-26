@@ -10,34 +10,34 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.entity.ContactType;
 import za.ac.cput.repository.ContactTypeRepository;
 import za.ac.cput.service.ContactTypeService;
+
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
+
 
 @Service
 public class ContactTypeServiceImpl implements ContactTypeService {
     private ContactTypeRepository repository;
 
     @Autowired
-    ContactTypeServiceImpl(ContactTypeRepository repository) {
+    public ContactTypeServiceImpl(ContactTypeRepository repository) {
         this.repository = repository;}
 
 
     public ContactType save(ContactType contactType) {
         return this.repository.save(contactType);}
 
-
+    @Override
     public Optional<ContactType> read(String id) {
         return Optional.ofNullable(this.repository.findById(id).orElse(null));}
 
-
-    public boolean deleteById(String contactType){
-        this.repository.deleteById(contactType);
-        return false;
+    @Override
+    public void deleteById(String contactTypeId){
+        this.repository.deleteById(contactTypeId);
     }
 
-
-    public Set<ContactType> getAll() {
-        return this.repository.findAll().stream().collect(Collectors.toSet());
+    @Override
+    public List<ContactType> findAll() {
+        return this.repository.findAll();
     }
 }

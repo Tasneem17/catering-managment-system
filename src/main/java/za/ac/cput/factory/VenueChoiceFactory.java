@@ -9,7 +9,7 @@ import za.ac.cput.entity.VenueChoice;
 import za.ac.cput.util.Helper;
 
 public class VenueChoiceFactory {
-    public static VenueChoice createVenueChoice(String venueId, String venueType) {
+    public static VenueChoice build(String venueId, String venueType) {
 
         if (Helper.isNullorEmpty(venueId)|| Helper.isNullorEmpty(venueType))
             return null;
