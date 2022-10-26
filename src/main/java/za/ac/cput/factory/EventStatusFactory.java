@@ -10,11 +10,6 @@ public class EventStatusFactory {
         if (Helper.isNullorEmpty(event_id)|| Helper.isNullorEmpty(event_Status))
             return null;
 
-        if (event_id.equals("")||event_id == null)
-            return null;
-        if (event_Status.equals("")||event_Status== null)
-            return null;
-
         return new EventStatus.Builder().setEvent_id(event_id)
                 .setEvent_status(event_Status)
                 .build();
