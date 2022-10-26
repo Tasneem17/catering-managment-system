@@ -1,7 +1,5 @@
 package za.ac.cput.userinterface;
 
-import za.ac.cput.entity.Decor;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,7 +24,7 @@ public class DecorUI extends JFrame{
     private JButton addButton;
     private JButton menuCategoryButton;
     private JButton exitButton;
-    private JTextField textField9;
+    private JTextField DtotalPrice;
     private JPanel DecorP;
 
 
@@ -36,13 +34,8 @@ public class DecorUI extends JFrame{
         setSize(900, 400);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
-        tableLinenRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
-            }
-        });
-        textField9.addActionListener(new ActionListener() {
+        DtotalPrice.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -51,6 +44,26 @@ public class DecorUI extends JFrame{
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (tableLinenRadioButton.isSelected()) {
+                    String text = textField1.getText();
+                    int test = Integer.parseInt(text) * 200;
+                    DtotalPrice.setText("" + test);
+                } else if (centrePiecesRadioButton.isSelected()) {
+                    String text1 = textField2.getText();
+                    int test = Integer.parseInt(text1) * 100;
+                    DtotalPrice.setText("" + test);
+                } else if (chairCoversRadioButton.isSelected()) {
+                    String text2 = textField3.getText();
+                    int test = Integer.parseInt(text2) * 5;
+                    DtotalPrice.setText("" + test);
+                } else if (lightingRadioButton.isSelected()) {
+                    String text3 = textField7.getText();
+                    int test = Integer.parseInt(text3) * 2;
+                    DtotalPrice.setText("" + test);
+                }
+
+                JOptionPane.showMessageDialog(null, "Successfully added your Decor Selection please PROCEED TO Menu Category");
+
 
             }
         });
@@ -66,6 +79,12 @@ public class DecorUI extends JFrame{
                 if (e.getActionCommand().equals("Exit")) {
                     System.exit(0);
                 }
+            }
+        });
+        comboBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }

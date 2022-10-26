@@ -22,24 +22,6 @@ public class EquipmentChoiceUI extends JFrame{
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
-        companySRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        yourOwnRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        addButton.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-
-            }
-        });
         menuCategoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -52,6 +34,21 @@ public class EquipmentChoiceUI extends JFrame{
                 if (e.getActionCommand().equals("Exit")) {
                     System.exit(0);
                 }
+            }
+        });
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    String p = " ";
+                    if (companySRadioButton.isSelected()) {
+                        p = "Company";
+                    } else if (yourOwnRadioButton.isSelected()) {
+                        p = "Own";
+                    }
+                    else {
+                        p ="Nothing";
+                    }
+                    JOptionPane.showMessageDialog(null, "Successfully added your Equipment Choice Selection please PROCEED TO Menu Category");
             }
         });
     }
