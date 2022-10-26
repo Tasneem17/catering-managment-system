@@ -7,6 +7,7 @@
     </constraints>
     <properties>
       <background color="-10066177"/>
+      <font size="12" style="1"/>
       <foreground color="-16777216"/>
     </properties>
     <border type="none"/>
@@ -60,7 +61,7 @@
           <text value="Type"/>
         </properties>
       </component>
-      <component id="dd7b5" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="dd7b5" class="javax.swing.JTextField" binding="totalPriceEq">
         <constraints>
           <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -235,7 +236,7 @@
           <text value="Add"/>
         </properties>
       </component>
-      <component id="e43bd" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+      <component id="e43bd" class="javax.swing.JTextField" binding="Qtext1">
         <constraints>
           <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -247,7 +248,7 @@
           <foreground color="-16777216"/>
         </properties>
       </component>
-      <component id="44cd5" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+      <component id="44cd5" class="javax.swing.JTextField" binding="Qtext2">
         <constraints>
           <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -259,7 +260,7 @@
           <foreground color="-16777216"/>
         </properties>
       </component>
-      <component id="a3921" class="javax.swing.JTextField" binding="textField6" default-binding="true">
+      <component id="a3921" class="javax.swing.JTextField" binding="Qtext3">
         <constraints>
           <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -269,7 +270,7 @@
           <background color="-10066177"/>
         </properties>
       </component>
-      <component id="d65e5" class="javax.swing.JTextField" binding="textField8" default-binding="true">
+      <component id="d65e5" class="javax.swing.JTextField" binding="Qtext4">
         <constraints>
           <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -281,7 +282,7 @@
           <foreground color="-16777216"/>
         </properties>
       </component>
-      <component id="27dd2" class="javax.swing.JTextField" binding="textField10" default-binding="true">
+      <component id="27dd2" class="javax.swing.JTextField" binding="Qtext5">
         <constraints>
           <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -289,9 +290,11 @@
         </constraints>
         <properties>
           <background color="-10066177"/>
+          <font size="12" style="1"/>
+          <foreground color="-16777216"/>
         </properties>
       </component>
-      <component id="76d05" class="javax.swing.JTextField" binding="textField12" default-binding="true">
+      <component id="76d05" class="javax.swing.JTextField" binding="Qtext6">
         <constraints>
           <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -303,7 +306,7 @@
           <foreground color="-16777216"/>
         </properties>
       </component>
-      <component id="af9ab" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+      <component id="af9ab" class="javax.swing.JTextField" binding="Qtext7">
         <constraints>
           <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -315,7 +318,7 @@
           <foreground color="-16777216"/>
         </properties>
       </component>
-      <component id="28079" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+      <component id="28079" class="javax.swing.JTextField" binding="Qtext8">
         <constraints>
           <grid row="9" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -335,102 +338,6 @@
           <font size="12" style="1"/>
           <foreground color="-16777216"/>
           <text value="002"/>
-        </properties>
-      </component>
-      <component id="755c" class="javax.swing.JTextField" binding="textField7" default-binding="true">
-        <constraints>
-          <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-10066177"/>
-          <font size="12" style="1"/>
-          <foreground color="-16777216"/>
-        </properties>
-      </component>
-      <component id="bc454" class="javax.swing.JTextField" binding="textField9" default-binding="true">
-        <constraints>
-          <grid row="3" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-10066177"/>
-          <font size="12" style="1"/>
-          <foreground color="-16777216"/>
-        </properties>
-      </component>
-      <component id="33d7b" class="javax.swing.JTextField" binding="textField11" default-binding="true">
-        <constraints>
-          <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-10066177"/>
-          <font size="12" style="1"/>
-          <foreground color="-16777216"/>
-        </properties>
-      </component>
-      <component id="1247a" class="javax.swing.JTextField" binding="textField13" default-binding="true">
-        <constraints>
-          <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-10066177"/>
-          <font size="12" style="1"/>
-          <foreground color="-16777216"/>
-        </properties>
-      </component>
-      <component id="92776" class="javax.swing.JTextField" binding="textField14" default-binding="true">
-        <constraints>
-          <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-10066177"/>
-          <font size="12" style="1"/>
-          <foreground color="-16777216"/>
-        </properties>
-      </component>
-      <component id="ff98e" class="javax.swing.JTextField" binding="textField15" default-binding="true">
-        <constraints>
-          <grid row="7" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-10066177"/>
-          <font size="12" style="1"/>
-          <foreground color="-16777216"/>
-        </properties>
-      </component>
-      <component id="82b81" class="javax.swing.JTextField" binding="textField16" default-binding="true">
-        <constraints>
-          <grid row="8" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-10066177"/>
-          <font size="12" style="1"/>
-          <foreground color="-16777216"/>
-        </properties>
-      </component>
-      <component id="51911" class="javax.swing.JTextField" binding="textField17" default-binding="true">
-        <constraints>
-          <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-10066177"/>
-          <font size="12" style="1"/>
-          <foreground color="-16777216"/>
         </properties>
       </component>
       <component id="da0ca" class="javax.swing.JRadioButton" binding="knivesRadioButton" default-binding="true">
@@ -486,6 +393,105 @@
           <font size="12" style="1"/>
           <foreground color="-16777216"/>
           <text value="chairs"/>
+        </properties>
+      </component>
+      <component id="1a101" class="javax.swing.JLabel" binding="EPrice1">
+        <constraints>
+          <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-10066177"/>
+          <font size="12" style="1"/>
+          <foreground color="-16777216"/>
+          <text value="R200"/>
+        </properties>
+      </component>
+      <component id="2f6" class="javax.swing.JLabel" binding="EPrice2">
+        <constraints>
+          <grid row="3" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-10066177"/>
+          <font size="12" style="1"/>
+          <foreground color="-16777216"/>
+          <text value="R100"/>
+        </properties>
+      </component>
+      <component id="a02b5" class="javax.swing.JLabel" binding="EPrice3">
+        <constraints>
+          <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-10066177"/>
+          <font size="12" style="1"/>
+          <foreground color="-16777216"/>
+          <text value="R5"/>
+        </properties>
+      </component>
+      <component id="c2642" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-10066177"/>
+          <font size="12" style="1"/>
+          <foreground color="-16777216"/>
+          <text value="R2"/>
+        </properties>
+      </component>
+      <component id="e38c2" class="javax.swing.JLabel" binding="EPrice4">
+        <constraints>
+          <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-10066177"/>
+          <font size="12" style="1"/>
+          <foreground color="-16777216"/>
+          <text value="R2"/>
+        </properties>
+      </component>
+      <component id="d0cde" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="7" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-10066177"/>
+          <font size="12" style="1"/>
+          <foreground color="-16777216"/>
+          <text value="R60"/>
+        </properties>
+      </component>
+      <component id="bc670" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="8" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-10066177"/>
+          <font size="12" style="1"/>
+          <foreground color="-16777216"/>
+          <text value="R50"/>
+        </properties>
+      </component>
+      <component id="6fc37" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-10066177"/>
+          <font size="12" style="1"/>
+          <foreground color="-16777216"/>
+          <text value="R40"/>
+        </properties>
+      </component>
+      <component id="d81ae" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-10066177"/>
+          <font size="14" style="1"/>
+          <foreground color="-16777216"/>
+          <text value="R"/>
         </properties>
       </component>
     </children>
