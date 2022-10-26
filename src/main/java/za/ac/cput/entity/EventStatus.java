@@ -1,19 +1,21 @@
 package za.ac.cput.entity;
 
-import org.jetbrains.annotations.NotNull;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class EventStatus {
+public class EventStatus implements Serializable {
 
     public int length;
-    @NotNull@Id
+    @Id
+    @Column(name = "Event_id", nullable = false)
     private String event_id;
     private String event_Status;
 
-    private EventStatus() {}
+    protected EventStatus() {}
 
     private EventStatus(EventStatus.Builder builder){
         this.event_id = builder.event_id;

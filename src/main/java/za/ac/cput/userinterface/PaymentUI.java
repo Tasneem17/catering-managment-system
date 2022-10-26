@@ -4,19 +4,17 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AppointmentUI extends JFrame{
-
+public class PaymentUI extends JFrame {
     private JPanel panel1;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JTextField textField5;
-    private JButton exitButton;
+    private JComboBox comboBox1;
+    private JPasswordField txtFName;
+    private JTextField txtFID;
+    private JButton SAVEButton;
     private JButton clearButton;
-    private JButton saveButton;
+    private JButton exitButton;
+    private JTextField txtFPrice;
 
-    public AppointmentUI() {
+    public PaymentUI() {
         setTitle("Appointment UI");
         setContentPane(panel1);
         setSize(900, 400);
@@ -27,19 +25,16 @@ public class AppointmentUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                textField1.setText("");
-                textField2.setText("");
-                textField3.setText("");
-                textField4.setText("");
-                textField5.setText("");
-
+                txtFPrice.setText("");
+                txtFName.setText("");
+                txtFID.setText("");
             }
         });
-        saveButton.addActionListener(new ActionListener() {
+        SAVEButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                JOptionPane.showMessageDialog(null, "Saved Successfully");
+                JOptionPane.showMessageDialog(null, "Saved payment Successfully");
 
             }
         });
@@ -52,8 +47,8 @@ public class AppointmentUI extends JFrame{
             }
         });
     }
+        public static void main (String[]args){
+            PaymentUI Form = new PaymentUI();
+        }
 
-    public static void main (String[]args){
-        AppointmentUI Form = new AppointmentUI() ;
     }
-}
