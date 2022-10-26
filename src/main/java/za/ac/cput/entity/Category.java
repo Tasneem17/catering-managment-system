@@ -7,6 +7,7 @@
  */
 package za.ac.cput.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.Column;
@@ -17,9 +18,11 @@ import java.io.Serializable;
 @Entity
 public class Category  implements Serializable {
     @Id
-    @Column(name = "Category_ID", nullable = false)
+    @JsonProperty("Category_ID")
     private String Category_ID;
+    @JsonProperty("Category_Name")
     private String Category_Name;
+    @JsonProperty("Category_Description")
     private String Category_Description;
 
     protected Category(){}
@@ -56,6 +59,7 @@ public class Category  implements Serializable {
     }
 
     @Override
+    @JsonProperty
     public String toString() {
         return "Category{" +
                 "Category_ID=" + Category_ID +
