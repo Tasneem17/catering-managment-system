@@ -18,6 +18,7 @@ public class EventStatusServiceImpl implements EventStatusService {
         this.eventStatusRepository = eventStatusRepository;
     }
 
+    @Override
     public EventStatus save (EventStatus eventStatus){
         return this.eventStatusRepository.save(eventStatus);
     }
@@ -28,8 +29,9 @@ public class EventStatusServiceImpl implements EventStatusService {
     }
 
     @Override
-    public void deleteByid(String id) {
+    public boolean deleteById(String id) {
         this.eventStatusRepository.deleteById(id);
+        return false;
     }
 
     @Override
