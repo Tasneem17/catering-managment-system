@@ -8,6 +8,8 @@
 package za.ac.cput.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Entity;
@@ -16,11 +18,15 @@ import java.io.Serializable;
 @Entity
 public class Food implements Serializable {
     @Id
-    @Column(name = " Food_ID", nullable = false)
+    @JsonProperty("Food_ID")
     private String  Food_ID;
+    @JsonProperty("Food_Name")
     private String Food_Name;
+    @JsonProperty("Food_Description")
     private String Food_Description;
+    @JsonProperty("Food_Quantity")
     private String Food_Quantity;
+    @JsonProperty("Food_Price")
     private double Food_Price;
 
     private Food(Builder builder) {
@@ -120,6 +126,7 @@ public class Food implements Serializable {
     }
 
     @Override
+    @JsonProperty
     public String toString() {
         return "Food{" +
                 "Food_ID=" + Food_ID +

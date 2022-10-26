@@ -39,7 +39,7 @@ import java.util.Optional;
         }
         @DeleteMapping("/delete/{id}")
         public boolean deletebyid(@PathVariable String id){
-                log.info("Read request:{}",id);
+                log.info("Delete request:{}",id);
                 return   this.categoryImpl.deletebyid(id);
         }
 

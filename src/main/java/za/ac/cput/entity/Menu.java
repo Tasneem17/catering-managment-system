@@ -7,6 +7,7 @@
  */
 package za.ac.cput.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.Column;
@@ -16,10 +17,13 @@ import javax.persistence.Id;
 @Entity
 public class Menu {
     @Id
-    @Column(name = "Menu_ID", nullable = false)
+    @JsonProperty("Menu_ID")
     private String Menu_ID;
+    @JsonProperty("Menu_Items")
 
     private String  Menu_Items;
+    @JsonProperty("Menu_Price")
+
     private double Menu_Price;
 
 
@@ -89,6 +93,7 @@ public class Menu {
     }
 
     @Override
+    @JsonProperty
     public String toString() {
         return "Menu{" +
                 "Menu_ID=" + Menu_ID +

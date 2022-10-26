@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="za.ac.cput.userinterface.FoodCategoryMenu">
+  <grid id="27dc6" binding="MainPanel" layout-manager="GridLayoutManager" row-count="15" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="530" height="565"/>
+    </constraints>
+    <properties>
+      <autoscrolls value="true"/>
+      <background color="-10066177"/>
+      <font name="JetBrains Mono" style="1"/>
+      <inheritsPopupMenu value="true"/>
+      <name value="MainP"/>
+      <nextFocusableComponent value="27dc6"/>
+      <preferredSize width="900" height="500"/>
+    </properties>
+    <border type="bevel-raised" title="Food Menu Category">
+      <font name="Monospaced" size="14" style="1"/>
+      <title-color color="-16777216"/>
+    </border>
+    <children>
+      <component id="e197b" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono" size="14" style="1"/>
+          <text value="Category Id"/>
+        </properties>
+      </component>
+      <component id="b3167" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono" size="14" style="1"/>
+          <text value="Category Name"/>
+        </properties>
+      </component>
+      <component id="a20d5" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono" size="14" style="1"/>
+          <text value="Category Description"/>
+        </properties>
+      </component>
+      <component id="d1501" class="javax.swing.JTextField" binding="CatIdtxt">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-6381591"/>
+          <disabledTextColor color="-16777216"/>
+          <selectedTextColor color="-858339"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="dcb82" class="javax.swing.JTextField" binding="CatNametxt">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-6381591"/>
+        </properties>
+      </component>
+      <component id="36799" class="javax.swing.JTextField" binding="CatDesctxt">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-6381591"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="f3a40" class="javax.swing.JButton" binding="CatSavebtn">
+        <constraints>
+          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <font name="JetBrains Mono" style="1"/>
+          <foreground color="-10066177"/>
+          <hideActionText value="false"/>
+          <text value="Save"/>
+        </properties>
+      </component>
+      <component id="e76d2" class="javax.swing.JButton" binding="Catreadbtn">
+        <constraints>
+          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <font name="JetBrains Mono" style="1"/>
+          <foreground color="-10066177"/>
+          <hideActionText value="false"/>
+          <text value="Read"/>
+        </properties>
+      </component>
+      <component id="ab16a" class="javax.swing.JButton" binding="Catdelbtn">
+        <constraints>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <font name="JetBrains Mono" style="1"/>
+          <foreground color="-10066177"/>
+          <hideActionText value="false"/>
+          <text value="Delete"/>
+        </properties>
+      </component>
+      <grid id="8e239" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="96650" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="20" style="1"/>
+              <foreground color="-10066177"/>
+              <text value="Category"/>
+            </properties>
+          </component>
+          <component id="febe1" class="javax.swing.JButton" binding="prevbtn">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-6381591"/>
+              <font name="JetBrains Mono" style="1"/>
+              <foreground color="-16777216"/>
+              <hideActionText value="false"/>
+              <text value="Previous"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="aa74a" class="javax.swing.JButton" binding="nextbtn">
+        <constraints>
+          <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-6381591"/>
+          <font name="JetBrains Mono" style="1"/>
+          <foreground color="-10066177"/>
+          <hideActionText value="false"/>
+          <text value="Next"/>
+        </properties>
+      </component>
+      <grid id="18494" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="e1f3a" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="20" style="1"/>
+              <foreground color="-10066177"/>
+              <text value=" Menu"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="da629" class="javax.swing.JLabel" binding="MenuId">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono" size="14" style="1"/>
+          <text value="Menu Id"/>
+        </properties>
+      </component>
+      <component id="fb8d7" class="javax.swing.JLabel" binding="MenuItems">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono" size="14" style="1"/>
+          <text value="Menu Items"/>
+        </properties>
+      </component>
+      <component id="3a998" class="javax.swing.JLabel" binding="MenuPrice">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono" size="14" style="1"/>
+          <text value="Menu Price"/>
+        </properties>
+      </component>
+      <component id="dd17b" class="javax.swing.JTextField" binding="menuItemstxt">
+        <constraints>
+          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-6381591"/>
+          <disabledTextColor color="-16777216"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="bd1ad" class="javax.swing.JTextField" binding="menuPricetxt">
+        <constraints>
+          <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-6381591"/>
+          <disabledTextColor color="-16777216"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <grid id="ebc9e" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="64c0" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="20" style="1"/>
+              <foreground color="-10066177"/>
+              <text value="Food"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="6d429" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono" size="14" style="1"/>
+          <text value="Food Id"/>
+        </properties>
+      </component>
+      <component id="612ea" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono" size="14" style="1"/>
+          <text value="Food Name"/>
+        </properties>
+      </component>
+      <component id="172c2" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono" size="14" style="1"/>
+          <text value="Food Description"/>
+        </properties>
+      </component>
+      <component id="96a81" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono" size="14" style="1"/>
+          <text value="Food Quantity"/>
+        </properties>
+      </component>
+      <component id="fa3f8" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="13" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono" size="14" style="1"/>
+          <text value="Food Price"/>
+        </properties>
+      </component>
+      <component id="d7cf6" class="javax.swing.JTextField" binding="foodIdtxt">
+        <constraints>
+          <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-6381591"/>
+          <disabledTextColor color="-16777216"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="16f27" class="javax.swing.JTextField" binding="fooddesctxt">
+        <constraints>
+          <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-6381591"/>
+          <disabledTextColor color="-16777216"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="7ddb" class="javax.swing.JTextField" binding="foodquatxt">
+        <constraints>
+          <grid row="12" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-6381591"/>
+          <disabledTextColor color="-16777216"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="ebd77" class="javax.swing.JTextField" binding="foodpricetxt">
+        <constraints>
+          <grid row="13" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-6381591"/>
+          <disabledTextColor color="-16777216"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="3b015" class="javax.swing.JButton" binding="menuSavebtn">
+        <constraints>
+          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <font name="JetBrains Mono" style="1"/>
+          <foreground color="-10066177"/>
+          <hideActionText value="false"/>
+          <text value="Save"/>
+        </properties>
+      </component>
+      <component id="e89df" class="javax.swing.JButton" binding="foodSavebtn">
+        <constraints>
+          <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <font name="JetBrains Mono" style="1"/>
+          <foreground color="-10066177"/>
+          <hideActionText value="false"/>
+          <text value="Save"/>
+        </properties>
+      </component>
+      <component id="d0316" class="javax.swing.JButton" binding="menuReadbtn">
+        <constraints>
+          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <font name="JetBrains Mono" style="1"/>
+          <foreground color="-10066177"/>
+          <hideActionText value="false"/>
+          <text value="Read"/>
+        </properties>
+      </component>
+      <component id="83621" class="javax.swing.JButton" binding="menuDelbtn">
+        <constraints>
+          <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <font name="JetBrains Mono" style="1"/>
+          <foreground color="-10066177"/>
+          <hideActionText value="false"/>
+          <text value="Delete"/>
+        </properties>
+      </component>
+      <component id="bb89d" class="javax.swing.JButton" binding="foodDelbtn">
+        <constraints>
+          <grid row="13" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <font name="JetBrains Mono" style="1"/>
+          <foreground color="-10066177"/>
+          <hideActionText value="false"/>
+          <text value="Delete"/>
+        </properties>
+      </component>
+      <component id="372fc" class="javax.swing.JButton" binding="foodReadbtn">
+        <constraints>
+          <grid row="11" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <font name="JetBrains Mono" style="1"/>
+          <foreground color="-10066177"/>
+          <hideActionText value="false"/>
+          <text value="Read"/>
+        </properties>
+      </component>
+      <grid id="9b728" binding="p1" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="14" column="0" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="true"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="963ce" class="javax.swing.JButton" binding="foodClearbtn">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16316138"/>
+              <font name="JetBrains Mono" style="1"/>
+              <foreground color="-10066177"/>
+              <hideActionText value="false"/>
+              <text value="Food Clear"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="86403" binding="p2" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+        </properties>
+        <border type="none"/>
+        <children/>
+      </grid>
+      <grid id="b18d1" binding="p3" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+        </properties>
+        <border type="none"/>
+        <children/>
+      </grid>
+      <grid id="f61d5" binding="p4" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16316138"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="7642c" class="javax.swing.JButton" binding="menuClearbtn">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-10066177"/>
+              <font name="JetBrains Mono" style="1"/>
+              <foreground color="-16777216"/>
+              <hideActionText value="false"/>
+              <text value="Menu Clear"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="95191" binding="p5" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16316138"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="d20d3" class="javax.swing.JButton" binding="catClearbtn">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-10066177"/>
+              <font name="JetBrains Mono" style="1"/>
+              <foreground color="-16777216"/>
+              <hideActionText value="false"/>
+              <text value="Category Clear"/>
+            </properties>
+          </component>
+          <hspacer id="435a2">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+        </children>
+      </grid>
+      <component id="392" class="javax.swing.JTextField" binding="foodNametxt">
+        <constraints>
+          <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-6381591"/>
+          <disabledTextColor color="-16777216"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="c8bd6" class="javax.swing.JTextField" binding="menuIdtxt">
+        <constraints>
+          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-6381591"/>
+          <disabledTextColor color="-16777216"/>
+          <text value=""/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

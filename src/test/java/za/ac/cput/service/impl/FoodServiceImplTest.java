@@ -17,7 +17,7 @@
 //@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 //class FoodServiceImplTest {
 //    @Autowired
-//    private  static  FoodServiceImpl foodService;
+//    private   FoodServiceImpl foodService;
 //
 //    private  static Food food = FoodFactory.createFood("Pancake and Coffe",
 //            "Diet Breakfast","2pancakes and one 100ml coffee",25);
@@ -34,32 +34,20 @@
 //    @Test
 //    @Order(2)
 //    void read() {
-//        Optional<Food> read = this.foodService.read(food.getFood_ID());
+//        Optional<Food> read = Optional.ofNullable(this.foodService.read(food.getFood_ID()));
 //        assertEquals(read.get(),food.getFood_ID());
 //        System.out.printf("Read " + read);
 //
 //    }
 //
-//    @Test
-//    @Order(4)
-//    void delete() {
-//        boolean deleted = this.foodService.delete(this.food);
-//        assertTrue(deleted);
-//        System.out.println("Deleted:" + deleted);
-//    }
+//
 //
 //    @Test
-//    @Order(3)
+//    @Order(5)
 //    void deletebyid() {
 //        boolean deleted = this.foodService.deletebyid(this.food.getFood_ID());
 //        assertTrue(deleted);
 //        System.out.println("Deletedbyid:" + deleted);
 //    }
 //
-//    @Test
-//    @Order(5)
-//    void findall() {
-//        this.foodService.findall(food);
-//        System.out.println(this.foodService);
-//    }
 //}
