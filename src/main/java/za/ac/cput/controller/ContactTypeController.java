@@ -35,7 +35,7 @@ public class ContactTypeController {
     public ResponseEntity<ContactType> read(@PathVariable String contactTypeId) {
         ContactType read = this.contactTypeService.read(contactTypeId)
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,
-                        "Address not found"));
+                        "ContactType not found"));
         return ResponseEntity.ok(read);
     }
 
@@ -46,8 +46,8 @@ public class ContactTypeController {
     }
 
     @GetMapping("all")
-    public ResponseEntity<List<ContactType>> getAll() {
-        List<ContactType> contactTypes = (List<ContactType>) this.contactTypeService.getAll();
+    public ResponseEntity<List<ContactType>> findAll() {
+        List<ContactType> contactTypes = (List<ContactType>) this.contactTypeService.findAll();
         return ResponseEntity.ok(contactTypes);
     }
 }

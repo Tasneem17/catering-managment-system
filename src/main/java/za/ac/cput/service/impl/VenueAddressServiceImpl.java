@@ -10,19 +10,19 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.entity.VenueAddress;
 import za.ac.cput.repository.VenueAddressRepository;
 import za.ac.cput.service.VenueAddressService;
+
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
-public abstract class VenueAddressServiceImpl implements VenueAddressService {
+public class VenueAddressServiceImpl implements VenueAddressService {
     private VenueAddressRepository repository;
 
     @Autowired
     VenueAddressServiceImpl(VenueAddressRepository repository) {
         this.repository = repository;}
 
-    @Override
+
     public VenueAddress save(VenueAddress venueAddress) {
         return this.repository.save(venueAddress);}
 
@@ -30,14 +30,14 @@ public abstract class VenueAddressServiceImpl implements VenueAddressService {
     public Optional<VenueAddress> read(String id) {
         return Optional.ofNullable(this.repository.findById(id).orElse(null));}
 
-
-    public boolean deleteById(String venueAddress){
-        this.repository.deleteById(venueAddress);
-        return false;
+    @Override
+    public void deleteById(String venueAddressId){
+        this.repository.deleteById(venueAddressId);
     }
 
+
     @Override
-    public Set<VenueAddress> getAll() {
-        return this.repository.findAll().stream().collect(Collectors.toSet());
+    public List<VenueAddress> findAll() {
+        return this.repository.findAll();
     }
 }

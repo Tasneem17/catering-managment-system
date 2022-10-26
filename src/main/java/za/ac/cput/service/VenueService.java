@@ -5,9 +5,15 @@
 
 package za.ac.cput.service;
 
+
 import za.ac.cput.entity.Venue;
-import java.util.Set;
+
+import java.util.List;
+import java.util.Optional;
+
 
 public interface VenueService {
-
+    public List<Venue> findAll();
+    void deleteById(String venueId);
+    Optional<Venue> read(String id);
 }

@@ -29,10 +29,10 @@ public class ContactTypeServiceImplTest {
     @Test
     @Order(1)
     void setUp() {
-        contactType1 = ContactTypeFactory.createContactType("218", "Marcel February", "Customer");
+        contactType1 = ContactTypeFactory.build("218", "Marcel February", "Customer");
         assertNotNull(contactType1);
         System.out.println(contactType1);
-        contactType2 = ContactTypeFactory.createContactType("003", "Jason Goliath", "Customer");
+        contactType2 = ContactTypeFactory.build("003", "Jason Goliath", "Customer");
         assertNotNull(contactType2);
         System.out.println(contactType2);
     }
@@ -58,16 +58,14 @@ public class ContactTypeServiceImplTest {
 
     @Test
     @Order(5)
-    void delete() {
-        boolean success = contactTypeService.deleteById(String.valueOf(this.contactType2));
-        assertTrue(success);
-        System.out.println("Deleted:" + success);
+    void deleteById() {
+        this.contactTypeService.deleteById(String.valueOf(this.contactType2));
     }
 
     @Test
     @Order(4)
-    void getAll() {
-        System.out.println("Get All:");
-        System.out.println(contactTypeService.getAll());
+    void findAll() {
+        System.out.println("Find All:");
+        System.out.println(contactTypeService.findAll());
     }
 }

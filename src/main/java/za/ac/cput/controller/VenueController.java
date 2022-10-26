@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import za.ac.cput.entity.ContactType;
 import za.ac.cput.entity.Venue;
 import za.ac.cput.service.impl.VenueServiceImpl;
 import javax.validation.Valid;
@@ -34,10 +35,9 @@ public class VenueController {
     public ResponseEntity<Venue> read(@PathVariable String venueId) {
         Venue read = this.venueService.read(venueId)
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,
-                        "Address not found"));
+                        "Venue not found"));
         return ResponseEntity.ok(read);
     }
-
 
     @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id) {
@@ -46,8 +46,8 @@ public class VenueController {
     }
 
     @GetMapping("all")
-    public ResponseEntity<List<Venue>> getAll() {
-        List<Venue> venues = (List<Venue>) this.venueService.getAll();
+    public ResponseEntity<List<Venue>> findAll() {
+        List<Venue> venues = (List<Venue>) this.venueService.findAll();
         return ResponseEntity.ok(venues);
     }
 }

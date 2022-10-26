@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/venueChoice")
+@RequestMapping("catering/venueChoice")
 public class VenueChoiceController {
     private VenueChoiceServiceImpl venueChoiceService;
 
@@ -31,10 +31,10 @@ public class VenueChoiceController {
     }
 
     @GetMapping("read/{type}")
-    public ResponseEntity<VenueChoice> read(@PathVariable String venueId) {
-        VenueChoice read = this.venueChoiceService.read(venueId)
+    public ResponseEntity<VenueChoice> read(@PathVariable String venueChoiceId) {
+        VenueChoice read = this.venueChoiceService.read(venueChoiceId)
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,
-                        "Address not found"));
+                        "VenueChoice not found"));
         return ResponseEntity.ok(read);
     }
 
@@ -45,8 +45,8 @@ public class VenueChoiceController {
     }
 
     @GetMapping("all")
-    public ResponseEntity<List<VenueChoice>> getAll() {
-        List<VenueChoice> venueChoices = (List<VenueChoice>) this.venueChoiceService.getAll();
+    public ResponseEntity<List<VenueChoice>> findAll() {
+        List<VenueChoice> venueChoices = (List<VenueChoice>) this.venueChoiceService.findAll();
         return ResponseEntity.ok(venueChoices);
     }
 }

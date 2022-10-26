@@ -12,8 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ContactTypeFactoryTest {
 
     @Test
-    public void createContactType() {
-        ContactType contactType = ContactTypeFactory.createContactType("223", "John Smith", "Customer");
+    public void test1() {
+        ContactType contactType = ContactTypeFactory.build("223", "John Smith", "Customer");
         System.out.println(contactType.toString());
         assertNotNull(contactType);
 

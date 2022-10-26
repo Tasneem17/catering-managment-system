@@ -13,8 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class VenueFactoryTest {
 
     @Test
-    public void test(){
-        Venue venue = VenueFactory.createVenue("CPT012", "Hotel Sky", 999, "Hotel");
+    public void test1(){
+        Venue venue = VenueFactory.build("CPT05", "Casey's Bar", 3500.00,"Bachelor party");
         System.out.println(venue.toString());
         assertNotNull(venue);
     }

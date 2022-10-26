@@ -9,7 +9,8 @@ import za.ac.cput.entity.ContactType;
 import za.ac.cput.util.Helper;
 
 public class ContactTypeFactory {
-    public static ContactType createContactType(String contactTypeId, String contactTypeName, String contactTypeDescription) {
+
+    public static ContactType build(String contactTypeId, String contactTypeName, String contactTypeDescription) {
 
         if (Helper.isNullorEmpty(contactTypeId)|| Helper.isNullorEmpty(contactTypeName)|| Helper.isNullorEmpty(contactTypeDescription))
             return null;

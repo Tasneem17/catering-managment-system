@@ -29,10 +29,10 @@ public class VenueAddressServiceImplTest {
     @Test
     @Order(1)
     void setUp() {
-        venueAddress1 = VenueAddressFactory.createVenueAddress("Claremont", "Cape Town", "Main Street");
+        venueAddress1 = VenueAddressFactory.build("Claremont", "Cape Town", "Main Street");
         assertNotNull(venueAddress1);
         System.out.println(venueAddress1);
-        venueAddress2 = VenueAddressFactory.createVenueAddress("Rosebank", "Johannesburg", "8th Street");
+        venueAddress2 = VenueAddressFactory.build("Rosebank", "Johannesburg", "8th Street");
         assertNotNull(venueAddress2);
         System.out.println(venueAddress2);
     }
@@ -58,17 +58,16 @@ public class VenueAddressServiceImplTest {
 
     @Test
     @Order(5)
-    void delete() {
-        boolean success = venueAddressService.deleteById(String.valueOf(this.venueAddress2));
-        assertTrue(success);
-        System.out.println("Deleted:" + success);
+    void deleteById() {
+        this.venueAddressService.deleteById(String.valueOf(this.venueAddress2));
     }
+
 
     @Test
     @Order(4)
-    void getAll() {
-        System.out.println("Get All:");
-        System.out.println(venueAddressService.getAll());
+    void findAll() {
+        System.out.println("Find All:");
+        System.out.println(venueAddressService.findAll());
     }
 }
 

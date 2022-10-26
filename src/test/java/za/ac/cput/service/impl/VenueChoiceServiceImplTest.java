@@ -29,10 +29,10 @@ public class VenueChoiceServiceImplTest {
     @Test
     @Order(1)
     void setUp() {
-        venueChoice1 = VenueChoiceFactory.createVenueChoice("CPT05", "Bar");
+        venueChoice1 = VenueChoiceFactory.build("CPT05", "Bar");
         assertNotNull(venueChoice1);
         System.out.println(venueChoice1);
-        venueChoice2 = VenueChoiceFactory.createVenueChoice("JHB02", "Hotel");
+        venueChoice2 = VenueChoiceFactory.build("JHB02", "Hotel");
         assertNotNull(venueChoice2);
         System.out.println(venueChoice2);
     }
@@ -51,23 +51,22 @@ public class VenueChoiceServiceImplTest {
     @Test
     @Order(3)
     void read() {
-        Optional<VenueChoice> read = venueChoiceService.read(venueChoice1.getVenueId());
-        assertEquals(read.get(), venueChoice1.getVenueId());
+        Optional<VenueChoice> read = venueChoiceService.read(venueChoice1.getVenueType());
+        assertEquals(read.get(), venueChoice1.getVenueType());
         System.out.println("Read:" + read);
     }
 
     @Test
     @Order(5)
-    void delete() {
-        boolean success = venueChoiceService.deleteById(String.valueOf(this.venueChoice2));
-        assertTrue(success);
-        System.out.println("Deleted:" + success);
+    void deleteById() {
+        this.venueChoiceService.deleteById(String.valueOf(this.venueChoice2));
     }
+
 
     @Test
     @Order(4)
-    void getAll() {
-        System.out.println("Get All:");
-        System.out.println(venueChoiceService.getAll());
+    void findAll() {
+        System.out.println("Find All:");
+        System.out.println(venueChoiceService.findAll());
     }
 }
