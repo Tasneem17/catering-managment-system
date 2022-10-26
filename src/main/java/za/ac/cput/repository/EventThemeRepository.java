@@ -8,20 +8,21 @@
 package za.ac.cput.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.EventTheme;
 
 
 import java.util.List;
 import java.util.Optional;
 
-
+@Repository
 public interface EventThemeRepository extends JpaRepository<EventTheme, String> {
 
-    List<EventTheme> findAll();
-
-    EventTheme findByEventId(String EventThemeID);
-
-    void deleteUserContactByEventID(String EventThemeID);
-
-    Optional<EventTheme> findByFirstName(String firstname);
+//    List<EventTheme> findAll();
+//
+//    EventTheme findByEventId(String EventThemeID);
+//
+//    void deleteUserContactByEventID(String EventThemeID);
+//
+//    Optional<EventTheme> findByFirstName(String firstname);
 }

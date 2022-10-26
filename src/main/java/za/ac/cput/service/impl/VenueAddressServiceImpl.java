@@ -15,18 +15,18 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public abstract class VenueAddressServiceImpl implements VenueAddressService {
+public  class VenueAddressServiceImpl implements VenueAddressService {
     private VenueAddressRepository repository;
 
     @Autowired
     VenueAddressServiceImpl(VenueAddressRepository repository) {
         this.repository = repository;}
 
-    @Override
+
     public VenueAddress save(VenueAddress venueAddress) {
         return this.repository.save(venueAddress);}
 
-    @Override
+
     public Optional<VenueAddress> read(String id) {
         return Optional.ofNullable(this.repository.findById(id).orElse(null));}
 

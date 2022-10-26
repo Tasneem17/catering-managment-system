@@ -8,7 +8,7 @@ package za.ac.cput.service;
 import za.ac.cput.entity.ContactType;
 import java.util.Set;
 
-public interface ContactTypeService extends IService<ContactType, String>{
-    public Set<ContactType> getAll();
+public interface ContactTypeService<ContactType, String>{
+//    public Set<ContactType> getAll();
 
 }

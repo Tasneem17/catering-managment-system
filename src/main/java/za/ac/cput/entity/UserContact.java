@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class UserContact implements Serializable {
     @Id
     private String userId;
-    @Id
+
     private String contactTypeId;
     private String contactDetails;
 

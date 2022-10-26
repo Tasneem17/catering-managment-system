@@ -36,7 +36,7 @@ public class RoleController {
         );
     }
 
-    @GetMapping("read/{type}")
+    @GetMapping("read/{roleID}")
     public ResponseEntity<Role> read(@PathVariable String roleID)
     {
         Role read = this.roleService.read(roleID)
@@ -45,7 +45,7 @@ public class RoleController {
         return ResponseEntity.ok(read);
     }
 
-    @DeleteMapping("delete/{type}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> deletebyId(@PathVariable String id)
     {
         this.roleService.deleteById(id);

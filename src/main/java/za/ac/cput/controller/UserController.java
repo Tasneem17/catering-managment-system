@@ -37,7 +37,7 @@ public class UserController {
        );
     }
 
-    @GetMapping("read/{type}")
+    @GetMapping("read/{userID}")
     public ResponseEntity<User> read(@PathVariable String userID)
     {
         User read = this.userService.read(userID)
@@ -46,7 +46,7 @@ public class UserController {
         return ResponseEntity.ok(read);
     }
 
-    @DeleteMapping("delete/{type}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> deletebyId(@PathVariable String id)
     {
         this.userService.deleteById(id);

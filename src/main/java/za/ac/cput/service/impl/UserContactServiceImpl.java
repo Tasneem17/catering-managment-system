@@ -44,7 +44,7 @@ public class UserContactServiceImpl implements UserContactService {
 
     @Override
         public List<UserContact> findAll () {
-            return null;
+            return this.userContactRepository.findAll();
     }
 
 }

@@ -17,5 +17,6 @@ class UserFactoryTest
         User user  = UserFactory.createUser("220003033", "Wilbur", "Smith");
         assertNotNull(user);
         System.out.println(user);
+        System.out.println(user.getUserID());
     }
 }
