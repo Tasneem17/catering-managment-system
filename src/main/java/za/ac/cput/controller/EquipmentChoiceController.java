@@ -6,6 +6,7 @@
  */
 package za.ac.cput.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ import javax.validation.Valid;
 import java.util.List;
 @RestController
 @RequestMapping("catering/management/system/EquipmentChoice")
+@Slf4j
 public class EquipmentChoiceController {
     private final EquipmentChoiceService equipmentChoiceService;
 
@@ -31,7 +33,7 @@ public class EquipmentChoiceController {
     @PostMapping("Save")
     //implementation of the controller
     public ResponseEntity<EquipmentChoice> save (@Valid @RequestBody EquipmentChoice equipmentChoice) {
-        //log.info("Save request: {}",equipmentChoice);
+        log.info("Save request: {}",equipmentChoice);
         EquipmentChoice obj;
         EquipmentChoice save = equipmentChoiceService.save(equipmentChoice);
         return ResponseEntity.ok(save);
@@ -42,7 +44,7 @@ public class EquipmentChoiceController {
 
     @GetMapping("read/{type}")
     public ResponseEntity<EquipmentChoice> read(@PathVariable String choiceCustomer) {
-        //log.info("Read request:{}",choiceCustomer);
+        log.info("Read request:{}",choiceCustomer);
         EquipmentChoice equipmentChoiceType =  this.equipmentChoiceService.read(choiceCustomer)
                 .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Address not found"));
         return ResponseEntity.ok(equipmentChoiceType);

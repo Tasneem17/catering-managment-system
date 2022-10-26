@@ -9,6 +9,7 @@ package za.ac.cput.controller;
 
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.bridge.MessageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("catering/management/system/Decor")
+@Slf4j
 public class DecorController {
     private final DecorService decorService;
 
@@ -35,7 +37,7 @@ public class DecorController {
     @PostMapping("Save")
     //implementation of the controller
     public ResponseEntity<Decor> save (@Valid @RequestBody Decor decor) {
-        //log.info("Save request: {}",decor);
+        log.info("Save request: {}",decor);
         Decor obj;
         Decor save = decorService.save(decor);
         return ResponseEntity.ok(save);
@@ -46,7 +48,7 @@ public class DecorController {
 
     @GetMapping("read/{type}")
     public ResponseEntity<Decor> read(@PathVariable String decorType) {
-        //log.info("Read request:{}",decorType);
+        log.info("Read request:{}",decorType);
         Decor decorrType =  this.decorService.read(decorType)
                 .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Address not found"));
         return ResponseEntity.ok(decorrType);

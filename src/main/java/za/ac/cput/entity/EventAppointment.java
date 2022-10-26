@@ -8,16 +8,24 @@
 package za.ac.cput.entity;
 
 
-public class EventAppointment {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class EventAppointment implements Serializable {
+
+    @Id
     private String eventId;
+
     private String appointmentId;
 
-    private EventAppointment(Builder builder){
+    private EventAppointment(Builder builder) {
         this.eventId = builder.eventId;
         this.appointmentId = builder.appointmentId;
-
-
     }
+    protected EventAppointment(){}
+
     public String getEventId() {
         return eventId;
     }

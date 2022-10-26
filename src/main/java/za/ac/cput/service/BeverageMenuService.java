@@ -9,11 +9,18 @@ package za.ac.cput.service;
 import za.ac.cput.entity.BeverageMenu;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface BeverageMenuService extends IService<BeverageMenu,String>{
+public interface BeverageMenuService {
+    BeverageMenu save(BeverageMenu beverageMenu);
+
     List<BeverageMenu> findAllBeverageName(String beverageName);
 
-    void deleteBybeverageName(String beverageName);
+    boolean deleteBybeverageName(String beverageName);
+
+    Optional<BeverageMenu> read(String beverageName);
 
     List<BeverageMenu> findAll();
+
+    void delete(BeverageMenu beverageMenu);
 }

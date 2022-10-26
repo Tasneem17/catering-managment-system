@@ -32,7 +32,7 @@ class EquipmentChoiceControllerTest {
     public void setUp() {
         assertNotNull(controller);
         this.equipmentChoice = EquipmentChoiceFactory
-                .build("test-type","");
+                .createEquipmentChoice("test-type","");
         this.baseURL = "http://;localhost:"+ this.port +"/catering/EquipmentChoice-type/";
     }
     @Order(1)

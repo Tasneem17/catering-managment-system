@@ -7,21 +7,32 @@
 
 package za.ac.cput.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
 
-public class Event {
+@Entity
+public class Event  implements Serializable {
+    @Id
     private String eventId;
     private String eventName;
     private String eventDescription;
     private String eventDuration;
+
+
+
+    protected Event(){}
+
 
     private Event(Builder builder){
         this.eventId = builder.eventId;
         this.eventName = builder.eventName;
         this.eventDescription = builder.eventDescription;
         this.eventDuration = builder.eventDuration;
-
-
     }
+
+
+
     public String getEventId() {
         return eventId;
     }

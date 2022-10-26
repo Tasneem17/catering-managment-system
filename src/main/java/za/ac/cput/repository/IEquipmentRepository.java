@@ -14,10 +14,5 @@ import java.util.Optional;
 import java.util.Set;
 @Repository
 public interface IEquipmentRepository extends JpaRepository<Equipment,String> {
-    //create,read,update ,delete
-    public Set<Equipment> getAll();
 
-    Optional<Equipment> read(String equipmentID);
-
-    Equipment create(Equipment equipment);
 }

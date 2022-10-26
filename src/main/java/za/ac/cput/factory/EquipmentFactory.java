@@ -9,10 +9,7 @@ import za.ac.cput.entity.Equipment;
 import za.ac.cput.util.Helper;
 
 public class EquipmentFactory {
-    public  static Equipment build(String equipmentID, String equipmentDescription, String equipmentQuantity, String equipmentPrice){
-
-
-
+    public  static Equipment createEquipment(String equipmentID, String equipmentDescription, String equipmentQuantity, String equipmentPrice){
 
         if (Helper.isNullorEmpty(equipmentID)|| Helper.isNullorEmpty(equipmentDescription)|| Helper.isNullorEmpty( equipmentQuantity) || Helper.isNullorEmpty(equipmentPrice))
             return null;

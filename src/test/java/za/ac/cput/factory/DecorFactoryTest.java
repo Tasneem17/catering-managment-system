@@ -17,7 +17,7 @@ class DecorFactoryTest {
     public void buildWithSuccess() {
 
         Decor decor = DecorFactory
-                .build("Table Cloth","","","");
+                .createDecor("Table Cloth","","","");
         System.out.println(decor);
         assertNotNull(decor);
     }
@@ -27,7 +27,7 @@ class DecorFactoryTest {
 
         Exception  exception = assertThrows(IllegalArgumentException.class,() ->
                 DecorFactory
-                        .build("null","","",""));
+                        .createDecor("null","","",""));
         String exceptionMessage = exception.getMessage();
         System.out.println(exceptionMessage);
         assertSame( "decor type required!",exceptionMessage );

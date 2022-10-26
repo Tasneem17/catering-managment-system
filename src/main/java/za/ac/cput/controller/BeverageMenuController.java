@@ -7,6 +7,7 @@
 package za.ac.cput.controller;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("catering/management/system/BeverageMenu")
+@Slf4j
 public class BeverageMenuController {
     private final BeverageMenuService beverageMenuService;
 
@@ -34,7 +36,7 @@ public class BeverageMenuController {
     @PostMapping("Save")
     //implementation of the controller
     public ResponseEntity<BeverageMenu> save (@Valid @RequestBody BeverageMenu beverageMenu) {
-        //log.info("Save request: {}",beverageMenu);
+        log.info("Save request: {}",beverageMenu);
         BeverageMenu obj;
         BeverageMenu save = beverageMenuService.save(beverageMenu);
         return ResponseEntity.ok(save);
@@ -45,7 +47,7 @@ public class BeverageMenuController {
 
     @GetMapping("read/{type}")
     public ResponseEntity<BeverageMenu> read(@PathVariable String beverageName) {
-       // log.info("Read request:{}",beverageName);
+       log.info("Read request:{}",beverageName);
         BeverageMenu beverageMenuType =  this.beverageMenuService.read(beverageName)
                 .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Address not found"));
         return ResponseEntity.ok(beverageMenuType);

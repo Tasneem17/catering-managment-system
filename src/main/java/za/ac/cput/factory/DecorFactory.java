@@ -13,7 +13,7 @@ import za.ac.cput.util.Helper;
 public class DecorFactory {
 
 
-    public  static Decor build(String decorType, String decorSize, String decorQuantity, String cost){
+    public  static Decor createDecor(String decorType, String decorSize, String decorQuantity, String cost){
 
 
         if (Helper.isNullorEmpty(decorType)|| Helper.isNullorEmpty(decorSize)|| Helper.isNullorEmpty( decorQuantity) || Helper.isNullorEmpty(cost))

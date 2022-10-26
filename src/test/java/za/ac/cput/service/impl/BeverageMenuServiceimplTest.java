@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.RunCateringManagementSystem;
 import za.ac.cput.entity.BeverageMenu;
+import za.ac.cput.entity.Decor;
 import za.ac.cput.factory.BeverageMenuFactory;
+import za.ac.cput.factory.DecorFactory;
 import za.ac.cput.service.BeverageMenuService;
 
 import java.util.List;
@@ -22,7 +24,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class BeverageMenuServiceimplTest {
 
     private final BeverageMenu beverageMenu = BeverageMenuFactory
-            .build("test-bev-name","price","","","");
+            .createBeverageMenu("test-bev-name","price","","","");
+
  @Autowired
 private BeverageMenuService service;
     @Test
