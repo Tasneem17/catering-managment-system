@@ -34,7 +34,7 @@ public class EquipmentUI extends JFrame{
     public EquipmentUI() {
         setTitle("Equipment");
         setContentPane(Equipm);
-        setSize(900, 400);
+        setSize(600, 400);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         tablesRadioButton.addActionListener(new ActionListener() {

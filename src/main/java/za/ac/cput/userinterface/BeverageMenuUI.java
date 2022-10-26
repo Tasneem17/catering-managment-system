@@ -7,10 +7,6 @@ import java.awt.event.ActionListener;
 public class BeverageMenuUI  extends JFrame {
 
     private JPanel panel1;
-    private JTextField textA1;
-    private JTextField textA2;
-    private JTextField textA3;
-    private JTextField textA4;
     private JTextField textq1;
     private JTextField textq2;
     private JTextField textq3;
@@ -35,7 +31,7 @@ public class BeverageMenuUI  extends JFrame {
 
         setTitle("Beverage Menu");
         setContentPane(panel1);
-        setSize(900, 400);
+        setSize(600, 400);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
