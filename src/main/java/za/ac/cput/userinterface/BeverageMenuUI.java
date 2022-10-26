@@ -4,17 +4,13 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BeverageMenuUI  extends JFrame{
+public class BeverageMenuUI  extends JFrame {
 
     private JPanel panel1;
-    private JTextField textField5;
-    private JTextField textField6;
-    private JTextField textField7;
-    private JTextField textField8;
     private JTextField textq1;
-    private JTextField textField10;
-    private JTextField textField11;
-    private JTextField textField12;
+    private JTextField textq2;
+    private JTextField textq3;
+    private JTextField textq4;
     private JRadioButton tropicalSplashRadioButton;
     private JRadioButton berryBlastRadioButton;
     private JRadioButton cokeRadioButton;
@@ -22,14 +18,20 @@ public class BeverageMenuUI  extends JFrame{
     private JButton menuCategoryButton;
     private JButton exitButton;
     private JButton addButton;
-    private JTextField totalprice;
-    private JLabel tropPrice;
+    private JLabel Price45;
+    private JLabel price50;
+    private JLabel price30;
+    private JLabel  totalP;
+    private JLabel price25;
+    private JTextField TPrice;
+    private int test;
+    private int test2;
 
     public BeverageMenuUI() {
 
         setTitle("Beverage Menu");
         setContentPane(panel1);
-        setSize(900,400);
+        setSize(600, 400);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
@@ -61,17 +63,31 @@ public class BeverageMenuUI  extends JFrame{
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (tropicalSplashRadioButton.isSelected()) {
+                    String text = textq1.getText();
+                    int test = Integer.parseInt(text) * 45;
+                    TPrice.setText("" + test);
+                    } else if (berryBlastRadioButton.isSelected()) {
+                    String text1 = textq2.getText();
+                    int test = Integer.parseInt(text1) * 50;
+                    TPrice.setText("" + test);
+                    } else if (cokeRadioButton.isSelected()) {
+                    String text2 = textq3.getText();
+                    int test = Integer.parseInt(text2) * 30;
+                    TPrice.setText("" + test);
+                } else if (waterRadioButton.isSelected()) {
+                    String text3 = textq4.getText();
+                    int test = Integer.parseInt(text3) * 25;
+                    TPrice.setText("" + test);
+                }
+                JOptionPane.showMessageDialog(null, "Successfully added your Beverage Selection please PROCEED TO Menu Category");
 
             }
+
         });
         menuCategoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (tropicalSplashRadioButton.isSelected()) {
-                   // textq1 + tropPrice = totalprice;
-                    totalprice.setText("");
-                }
-               // JOptionPane.showMessageDialog(this,"Successfully added your Beverage Selection please PROCEED TO Menu Category");
             }
         });
         exitButton.addActionListener(new ActionListener() {
@@ -80,9 +96,10 @@ public class BeverageMenuUI  extends JFrame{
                 if (e.getActionCommand().equals("Exit")) {
                     System.exit(0);
                 }
+
             }
         });
-        totalprice.addActionListener(new ActionListener() {
+        TPrice.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -90,10 +107,11 @@ public class BeverageMenuUI  extends JFrame{
         });
     }
 
-    public static void main (String[]args){
+    public static void main(String[] args) {
         BeverageMenuUI form = new BeverageMenuUI();
-        }
-
-
+    }
 }
+
+
+
 
