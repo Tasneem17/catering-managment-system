@@ -24,7 +24,7 @@ public class EventStatusController {
         this.eventStatusServiceimpl = eventStatusServiceimpl;
     }
 
-    @PostMapping("/Save")
+    @PostMapping("/save")
     //implementation of the controller
     public ResponseEntity<EventStatus> save (@Valid @RequestBody EventStatus eventStatus) {
         log.info("Save request: {}",eventStatus);
@@ -47,7 +47,7 @@ public class EventStatusController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity <Void> delete(@PathVariable String id) {
         log.info("Read request:{}",id);
-        this.eventStatusServiceimpl.deleteByid(id);
+        this.eventStatusServiceimpl.deleteById(id);
         return  ResponseEntity.noContent().build();
     }
 
