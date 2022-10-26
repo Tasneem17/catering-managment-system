@@ -16,7 +16,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
  class AppointmentControllerTest {
-
     @Autowired
     private TestRestTemplate restTemplate;
     @Autowired
@@ -42,16 +41,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
                 ()->assertNotNull(response.getBody()));
         System.out.println("Created: " + response.getBody());
     }
-    @Order(2)
-    @Test
-    void read() {
-        String url = baseURL + "/read/"+ this.appointment.getAppointment_id();
-        System.out.println(url);
-        HttpHeaders headers = new HttpHeaders();
-        HttpEntity<Appointment> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<Appointment> response = restTemplate.exchange(url, HttpMethod.GET, entity, Appointment.class);
-        System.out.println("Read: " + response.getBody());
-    }
     @Order(4)
     @Test
     void delete() {
@@ -71,5 +60,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
         assertAll(()->assertEquals(HttpStatus.OK,response.getStatusCode()));
         System.out.println(response.getBody());
     }
-
+    @Order(2)
+    @Test
+    void read() {
+        String url = baseURL + "/read/"+ this.appointment.getAppointment_id();
+        System.out.println(url);
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<Appointment> entity = new HttpEntity<>(null, headers);
+        ResponseEntity<Appointment> response = restTemplate.exchange(url, HttpMethod.GET, entity, Appointment.class);
+        System.out.println("Read: " + response.getBody());
+    }
 }

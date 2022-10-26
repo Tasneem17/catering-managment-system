@@ -45,7 +45,7 @@ class EventStatusControllerTest {
     }
     @Order(4)
     @Test
-    void deletebyId() {
+    void delete() {
         String url = baseURL + "delete/"+ this.eventStatus.getEvent_id();
         this.restTemplate.delete(url);
         System.out.println("Deleted:" + this.eventStatus.getEvent_id()+"\n"+url);

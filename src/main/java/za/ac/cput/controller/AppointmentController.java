@@ -23,7 +23,7 @@ import java.util.List;
             this.appointmentServiceimpl = appointmentServiceimpl;
         }
 
-        @PostMapping("/save")
+        @PostMapping("/Save")
         //implementation of the controller
         public ResponseEntity<Appointment> save (@Valid @RequestBody Appointment appointment) {
             log.info("/Save request: {}",appointment);
@@ -42,10 +42,12 @@ import java.util.List;
 
         }
 
-        @DeleteMapping("/delete/{id}")
-        public boolean deletebyid(@PathVariable String id){
+
+        @DeleteMapping("/delete/{type}")
+        public ResponseEntity <Void> delete(@PathVariable String id) {
             log.info("Read request:{}",id);
-            return   this.appointmentServiceimpl.deleteById(id);
+            this.appointmentServiceimpl.deleteById(id);
+            return  ResponseEntity.noContent().build();
         }
 
         @GetMapping("/all")

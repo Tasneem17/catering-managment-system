@@ -15,11 +15,14 @@ public class AppointmentServiceimpl implements AppointmentService {
     @Autowired
     public AppointmentServiceimpl(AppointmentRepository appointmentRepository) {this.appointmentRepository = appointmentRepository;}
 
-    @Override
     public Appointment save(Appointment appointment) {return this.appointmentRepository.save(appointment);}
 
     @Override
     public Optional<Appointment> read(String s) {return this.appointmentRepository.findById(s);}
+
+    public boolean delete(Appointment appointment) {this.appointmentRepository.delete(appointment);
+        return false;
+    }
 
     @Override
     public boolean deleteById(String id) {

@@ -7,8 +7,6 @@ import java.util.Optional;
 
 public interface AppointmentService {
 
-    Appointment save(Appointment appointment);
-
     Optional<Appointment> read(String s);
 
     boolean deleteById(String id);

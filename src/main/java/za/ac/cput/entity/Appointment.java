@@ -1,22 +1,21 @@
 package za.ac.cput.entity;
 
-import javax.persistence.Column;
+import org.jetbrains.annotations.NotNull;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 @Entity
-public class Appointment implements Serializable {
+public class Appointment {
     public int length;
-    @Id
-    @Column(name = "Category_ID", nullable = false)
+    @NotNull @Id
     private String appointment_id;
     private String appointment_date;
     private String appointment_location;
     private String appointment_time;
     private String appointment_NumberOfGuest;
 
-    protected Appointment() {}
+    private Appointment() {}
 
     //private constructor
     private Appointment(Builder builder){
